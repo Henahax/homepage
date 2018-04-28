@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
           integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -23,81 +24,59 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
-<style>
-    body {
-        color: white;
-        background-image: url("http://avante.biz/wp-content/uploads/Wood-Wallpaper-Hd/Wood-Wallpaper-Hd-050.jpg");
-        background-size: auto;
-    }
-
-    .navbar-default {
-        width: 100%;
-        background-color: #202020;
-    }
-
-    .navbar-brand {
-        max-width: 100%;
-        max-height: 100%;
-    }
-
-    .navbar-header {
-        height: 60px;
-    }
-
-    .footer {
-        margin: 0 auto;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background-color: #202020;
-        color: white;
-        text-align: center;
-        overflow: hidden;
-    }
-</style>
-
 <body>
+<div id="full">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <img class="navbar-brand" src="Henahax%20Rand%20weiss.png" alt="logo">
+                <img class="navbar-brand" src="Henahax%20Schrift%20transparent.png" alt="logo">
+            </div>
+        </div>
+    </nav>
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <img class="navbar-brand" src="Henahax%20Rand%20weiss.png" alt="logo">
-            <img class="navbar-brand" src="Henahax%20Schrift%20transparent.png" alt="logo">
+
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col" style="text-align: center">
+                <a class="twitter-timeline" data-width="80%" data-height="800" data-theme="dark"
+                   href="https://twitter.com/henahax">Tweets by Henahax</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <div class="col" style="text-align: center">
+                <iframe src="https://discordapp.com/widget?id=185552226998157313&theme=dark" data-width="80%"
+                        height=800"
+                        allowtransparency="true" frameborder="0"></iframe>
+            </div>
         </div>
     </div>
-</nav>
 
-
-<div class="container" style="padding-bottom: 60px">
-    <div class="row">
-        <div class="col" style="text-align: center; padding:16px">
-            <a class="twitter-timeline" data-width="1200" data-height="600" data-theme="dark"
-               href="https://twitter.com/henahax">Tweets by Henahax</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
-        <div class="col" style="text-align: center; padding:16px">
-            <iframe src="https://discordapp.com/widget?id=185552226998157313&theme=dark" data-width="1200" height=600"
-                    allowtransparency="true" frameborder="0"></iframe>
-        </div>
-    </div>
-
-</div>
-
-
-<div class="footer">
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-md-auto">
-                <a href="https://facebook.com/henahax"><i class="fab fa-facebook"
-                                                          style="font-size: 36px; color:white; padding: 8px"></i></a>
-                <a href="https://twitter.com/henahax"><i class="fab fa-twitter"
-                                                         style="font-size: 36px; color:white; padding: 8px"></i></a>
-                <a href="https://www.instagram.com/henahax"><i class="fab fa-instagram"
-                                                               style="font-size: 36px; color:white; padding: 8px"></i></a>
-                <a href="https://steamcommunity.com/id/henahax"><i class="fab fa-steam"
+    <div class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col">Links:</div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-">
+                    <a href="https://facebook.com/henahax"><i class="fab fa-facebook"
+                                                              style="font-size: 36px; color:white; padding: 8px"></i></a>
+                </div>
+                <div class="col-">
+                    <a href="https://twitter.com/henahax"><i class="fab fa-twitter"
+                                                             style="font-size: 36px; color:white; padding: 8px"></i></a>
+                </div>
+                <div class="col-">
+                    <a href="https://www.instagram.com/henahax"><i class="fab fa-instagram"
                                                                    style="font-size: 36px; color:white; padding: 8px"></i></a>
-                <a href="http://discord.henahax.de"><i class="fab fa-discord"
-                                                       style="font-size: 36px; color:white; padding: 8px"></i></a>
+                </div>
+                <div class="col-">
+                    <a href="https://steamcommunity.com/id/henahax"><i class="fab fa-steam"
+                                                                       style="font-size: 36px; color:white; padding: 8px"></i></a>
+                </div>
+                <div class="col-">
+                    <a href="http://discord.henahax.de"><i class="fab fa-discord"
+                                                           style="font-size: 36px; color:white; padding: 8px"></i></a>
+                </div>
             </div>
         </div>
         <div>
@@ -105,7 +84,7 @@
         </div>
     </div>
 </div>
-
+</div>
 
 </body>
 </html>
