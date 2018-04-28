@@ -13,9 +13,9 @@ function values(){
         var profit = 0;
         profit = Math.round(((1.85 * staubVerkauf) / 1.15) - (ectoEinkauf + 50));
 
-        document.getElementById("ectoBuy").innerHTML = ectoEinkauf + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'>";
-        document.getElementById("dustSell").innerHTML = staubVerkauf + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'>";
-        document.getElementById("profit").innerHTML = profit + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'>";
+        document.getElementById("ectoBuy").innerHTML = "<h4>" + ectoEinkauf + " " + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'>" + "</h4>";
+        document.getElementById("dustSell").innerHTML = "<h4>" + staubVerkauf + " " + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'>" + "</h4>";
+        document.getElementById("profit").innerHTML = "<h4>" + profit + " " + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'>" + "</h4>";
     });
 
 }
