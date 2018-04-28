@@ -4,24 +4,46 @@
     <meta charset="UTF-8">
     <title>Profit</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../js/profit.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 </head>
-<body>
-<script>
-    var ectoEinkauf = 0;
-    var staubVerkauf = 0;
-    $.getJSON('https://api.guildwars2.com/v2/commerce/prices?ids=19721,24277', function (data) {
-        $.each(data, function (index, element) {
-            if (element.id == 19721) {
-                ectoEinkauf = element.buys.unit_price;
-            }
-            if (element.id == 24277) {
-                staubVerkauf = element.sells.unit_price;
-            }
-        });
-        var profit = 0;
-        profit = Math.round(((1.85 * staubVerkauf) / 1.15) - (ectoEinkauf + 50));
-        document.write("<h3>Ectoplasma Kugel Wiederverwerten Profitrechner</h3><img src='https://wiki.guildwars2.com/images/9/9b/Glob_of_Ectoplasm.png'><br>" + ectoEinkauf + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'><br><br>" + "<img src='https://wiki.guildwars2.com/images/3/3a/Pile_of_Crystalline_Dust.png'><br>" + staubVerkauf + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'><br><br>" + "Profit:<br>" + profit + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'>");
-    });
-</script>
+<body onload="values()">
+<h3>Glob of Ectoplasm Salvage Profit Calculator</h3>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            Glob of Ectoplasm
+        </div>
+        <div class="col">
+            Pile of Crystalline Dust
+        </div>
+        <div class="col">
+            Salvage Profit
+    </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img src='https://wiki.guildwars2.com/images/9/9b/Glob_of_Ectoplasm.png'>
+        </div>
+        <div class="col">
+            <img src='https://wiki.guildwars2.com/images/3/3a/Pile_of_Crystalline_Dust.png'>
+        </div>
+        <div class="col">
+            <img src='https://wiki.guildwars2.com/images/a/a2/Silver-Fed_Salvage-o-Matic.png'>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p id="ectoBuy">Ecto Buy</p>
+        </div>
+        <div class="col">
+            <p id="dustSell">Dust Sell</p>
+        </div>
+        <div class="col">
+            <p id="profit">Profit</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
