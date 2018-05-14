@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+
+    <style>
+        .container {
+            display: grid;
+            grid-template-rows: 200px auto 100px;
+            grid-template-columns: 33% auto;
+            grid-template-areas:
+                    "header header"
+                    "sidebar content"
+                    "footer footer";
+        }
+        .header {
+            grid-area: header;
+        }
+        .sidebar {
+            grid-area: sidebar;
+        }
+        .footer {
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">Header</div>
+    <div class="sidebar">Sidebar</div>
+    <div class="content">Content</div>
+    <div class="footer">Footer</div>
+</div>
+</body>
+</html>
