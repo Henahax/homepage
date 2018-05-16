@@ -1,3 +1,7 @@
+function copyright(){
+    document.getElementById("copyright").innerHTML = "© " + new Date().getFullYear() + " - Henahax"; 
+}
+
 function values(){
     var ectoBuy = 0;
     var dustSell = 0;
@@ -17,5 +21,9 @@ function values(){
         document.getElementById("dustSell").innerHTML = dustSell + " " + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'>";
         document.getElementById("profit").innerHTML = profit + " " + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'>";
     });
+}
 
+function tools(){
+    values();
+    copyright();
 }
