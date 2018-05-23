@@ -24,6 +24,6 @@ function values(){
 }
 
 function tools(){
-    values();
     copyright();
+    values();
 }
