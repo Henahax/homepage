@@ -1,67 +1,126 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>henahax.de</title>
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
-          crossorigin="anonymous">
-    <link href="css/style.css" rel="stylesheet">
-    <script src="js/script.js"></script>
+        crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+
+    <title>henahax.de</title>
 </head>
 
-<body class="text-center" onload="copyright()">
+<body onload="home()">
+    <div class="container-fluid d-flex h-100 flex-column">
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-        <div class="inner">
-            <h3 class="masthead-brand">henahax.de</h3>
-            <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="#">Home</a>
-                <a class="nav-link" href="tools/index.html">Tools</a>
-                <a class="nav-link" href="discord/index.html">Discord</a>
-            </nav>
+        <div id="header" class="row">
+            <div class="col-md-8 align-self-center">
+                <h3 style="font-weight: bolder">henahax.de</h3>
+            </div>
+            <div class="col-md-4 align-self-center">
+                <nav id="nav">
+                    <a class="navitem" id="navhome" onclick="home()" href="#">Home</a>
+                    <a class="navitem" id="navtools" onclick="tools()" href="#">Tools</a>
+                    <a class="navitem" id="navdiscord" onclick="discord()" href="#">Discord</a>
+                </nav>
+            </div>
         </div>
-    </header>
 
-    <main role="main" class="inner cover">
-        <h1 class="cover-heading">henahax.de</h1>
-        <p class="lead">Persönliche Webseite</p>
-        <p id="spinner"><img src="Henahax Rand weiss.png" style="height: 16rem; margin: 2rem"></p>
-    </main>
+        <div id="content" class="row fill d-flex justify-content-center">
+            <div class="col">
+                <div id="contentHome" class="row">
+                    <div class="col">
+                        <h1>henahax.de</h1>
+                        <h5>Persönliche Webseite</h5>
+                        <p id="spinner">
+                            <img id="spinnerimg" src="Henahax Rand weiss.png">
+                        </p>
+                    </div>
+                </div>
 
-    <footer class="mastfoot mt-auto">
-        <div class="inner">
-            <div class="row justify-content-center">
-                <div class="col-">
-                    <a href="https://facebook.com/henahax">
-                        <i class="fab fa-facebook" style="font-size: 2rem; margin: 0.5rem"></i>
-                    </a>
+                <div id="contentTools" class="row">
+                    <div class="col">
+                        <h1>Tools</h1>
+                        <h5>Persönliche Toolsammlung</h5>
+                        <br>
+                        <h3>Guild Wars 2</h3>
+                        <br>
+                        <h4>Ectoplasm Salvage Calculator</h4>
+                        <div class="row justify-content-center">
+                            <div class="col-sm-3">
+                                <p>Glob of Ectoplasm</p>
+                                <img src='https://wiki.guildwars2.com/images/9/9b/Glob_of_Ectoplasm.png'>
+                                <p id="ectoBuy">Ecto Buy</p>
+                            </div>
+                            
+                            <div class="col-sm-3">
+                                <p>Pile of Crystalline Dust</p>
+                                <img src='https://wiki.guildwars2.com/images/3/3a/Pile_of_Crystalline_Dust.png'>
+                                <p id="dustSell">Dust Sell</p>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <p>Salvage Profit</p>
+                                <img src='https://wiki.guildwars2.com/images/a/a2/Silver-Fed_Salvage-o-Matic.png'>
+                                <p id="profit">Profit</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-">
-                    <a href="https://twitter.com/henahax">
-                        <i class="fab fa-twitter" style="font-size: 2rem; margin: 0.5rem"></i>
-                    </a>
-                </div>
-                <div class="col-">
-                    <a href="https://www.instagram.com/henahax">
-                        <i class="fab fa-instagram" style="font-size: 2rem; margin: 0.5rem"></i>
-                    </a>
-                </div>
-                <div class="col-">
-                    <a href="https://steamcommunity.com/id/henahax">
-                        <i class="fab fa-steam" style="font-size: 2rem; margin: 0.5rem"></i>
-                    </a>
+
+                <div id="contentDiscord" class="row">
+                        <div class="col">
+                                <h1>Discord</h1>
+                                <h5>Discord Server</h5>
+                                <iframe id="discord" src="https://discordapp.com/widget?id=185552226998157313&theme=dark" width="280" height="400" allowtransparency="true"
+                    frameborder="0" style="padding: 16px"></iframe>
+                            </div>
                 </div>
             </div>
-            <p id="copyright">© Henahax</p>
         </div>
-    </footer>
-</div>
+
+        <div id="footer" class="row">
+            <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col- align-self-center">
+                        <a href="https://facebook.com/henahax">
+                            <i id="icon" class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                    <div class="col- align-self-center">
+                        <a href="https://twitter.com/henahax">
+                            <i id="icon" class="fab fa-twitter"></i>
+                        </a>
+
+                    </div>
+                    <div class="col- align-self-center">
+                        <a href="https://www.instagram.com/henahax">
+                            <i id="icon" class="fab fa-instagram"></i>
+                        </a>
+
+                    </div>
+                    <div class="col- align-self-center">
+                        <a href="https://steamcommunity.com/id/henahax">
+                            <i id="icon" class="fab fa-steam"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p id="copyright">© Henahax</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </body>
 
