@@ -23,6 +23,25 @@ body{
     padding: 0.5rem;
 
 }
+
+#title{
+  color: white;
+  text-decoration: none
+}
+
+#title:hover{
+  text-decoration: none
+}
+#title:visited{
+  text-decoration: none
+}
+#title:link{
+  text-decoration: none
+}
+#title:active{
+  text-decoration: none
+}
+
 .navitem{
     margin-left: 1rem;
     margin-right: 1rem;
