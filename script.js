@@ -11,7 +11,7 @@ function home() {
 }
 
 
-/* function tools(){
+function tools(){
     document.getElementById("contentHome").style.display = "none";
     document.getElementById("contentTools").style.display = "block";
     document.getElementById("contentDiscord").style.display = "none";
@@ -35,14 +35,14 @@ function discord(){
     $('a#navdiscord').addClass('active');
 
     copyright();
-} */
+}
 
 function copyright(){
     document.getElementById("copyright").innerHTML = "© " + new Date().getFullYear() + " - Henahax"; 
 }
 
 
-/* function values(){
+function values(){
     var ectoBuy = 0;
     var dustSell = 0;
     $.getJSON('https://api.guildwars2.com/v2/commerce/prices?ids=19721,24277', function (data) {
@@ -61,4 +61,4 @@ function copyright(){
         document.getElementById("dustSell").innerHTML = dustSell + " " + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'>";
         document.getElementById("profit").innerHTML = profit + " " + "<img src='https://wiki.guildwars2.com/images/e/eb/Copper_coin.png'>";
     });
-} */
+}
