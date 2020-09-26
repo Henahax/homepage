@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Apple Bullshit -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../style.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='script.js'></script>
+
+    <title>Rainers Entscheidungshelfer</title>
+</head>
+
+<body>
+    <div style="height: 100%; width: 100%;">
+        <h1>Rainers Entscheidungshelfer</h1>
+        <p>
+            <br>
+            Döner oder V-Markt?
+            <br>
+            Leberkas oder Salat?
+            <br>
+            Aufs Klo gehen oder die Kollegen ärgern?
+            <br>
+            <br>
+            Diese Seite dient Rainer, die wichtigen Entscheidungen zu erleichtern und zu beschleunigen.
+            <br>
+            <br>
+            Einfach alle Optionen eintragen (oder leer lassen) und "entscheiden".
+        </p>
+
+        <form action="javascript:;" onsubmit="entscheiden()" id="entscheidung">
+                <label for="option1">Option 1: </label> 
+                <input type="text" name="option1" id="option1" value="">
+             
+                <br>
+
+                <label for="option2">Option 2: </label>  
+                <input type="text" name="option2" id="option2" value="">
+            
+                <br>
+
+                <label for="option3">Option 3: </label>  
+                <input type="text" name="option3" id="option3">
+            
+                <br>
+
+                <label for="option4">Option 4: </label>  
+                <input type="text" name="option4" id="option4">
+            
+                <br>
+
+                <label for="option5">Option 5: </label>  
+                <input type="text" name="option5" id="option5">
+            
+                <br>
+                
+                <button type="submit">Entscheiden!</button>
+            </form>
+
+
+    </div>
+</body>
+
+</html>
