@@ -73,6 +73,7 @@ body{
     animation-duration: 16s;
     transform-style: preserve-3d;
     text-align: center;
+    height: 100%;
   }
   #spinner:after,
   #spinner:before {
@@ -96,8 +97,7 @@ body{
   }
 
   #spinnerimg{
-    height: 16rem;
-    margin: 2rem;
+    height: 30vh;
     margin: 4rem;
   }
 
