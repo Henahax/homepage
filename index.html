@@ -6,42 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css" type="text/css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
+    <script defer src="script.js"></script>
 
     <title>henahax.de</title>
 </head>
 
-<body onload="home()">
+<body>
 
-    <section class="first">
+    <section id="first">
+        <div class="header hidden">
+            <ul>
+                <li><a href="#second"><i class="fa-solid fa-server"></i>Server</a></li>
+                <li><a href="https://links.henahax.de"><i class="fa-solid fa-link"></i>Links</a></li>
+            </ul>
+        </div>
+        <div class="contentSection hidden">
 
+        </div>
 
     </section>
 
-    <section class="second">
-            <div id="servers">
-                <div id="teamspeak">
-                    <div>Teamspeak</div>
+    <section id="second">
+        <div class="contentSection hidden">
+            <div class="contentHeadline">Server</div>
+
+            <div class="servers">
+                <div class="server hidden">
+                    <div class="serverHeadline">Teamspeak</div>
                     <div id="ts3viewer_1124630"
-                    style="background-color: white; padding: 1rem 1rem 0rem 1rem; border-radius: 0.5rem; width: 320px;">
+                        style="background-color: white; padding: 1rem 1rem 0rem 1rem; border-radius: 0.5rem; width: 320px;">
+                    </div>
+
+                    <script src="https://static.tsviewer.com/short_expire/js/ts3viewer_loader.js"></script>
+                    <script>
+                        var ts3v_url_1 = "https://www.tsviewer.com/ts3viewer.php?ID=1124630&text=757575&text_size=12&text_family=1&text_s_color=000000&text_s_weight=normal&text_s_style=normal&text_s_variant=normal&text_s_decoration=none&text_i_color=&text_i_weight=normal&text_i_style=normal&text_i_variant=normal&text_i_decoration=none&text_c_color=&text_c_weight=normal&text_c_style=normal&text_c_variant=normal&text_c_decoration=none&text_u_color=000000&text_u_weight=normal&text_u_style=normal&text_u_variant=normal&text_u_decoration=none&text_s_color_h=&text_s_weight_h=bold&text_s_style_h=normal&text_s_variant_h=normal&text_s_decoration_h=none&text_i_color_h=000000&text_i_weight_h=bold&text_i_style_h=normal&text_i_variant_h=normal&text_i_decoration_h=none&text_c_color_h=&text_c_weight_h=normal&text_c_style_h=normal&text_c_variant_h=normal&text_c_decoration_h=none&text_u_color_h=&text_u_weight_h=bold&text_u_style_h=normal&text_u_variant_h=normal&text_u_decoration_h=none&iconset=default_mono_2014";
+                        ts3v_display.init(ts3v_url_1, 1124630, 100);
+                    </script>
                 </div>
 
-                <script src="https://static.tsviewer.com/short_expire/js/ts3viewer_loader.js"></script>
-                <script>
-                    var ts3v_url_1 = "https://www.tsviewer.com/ts3viewer.php?ID=1124630&text=757575&text_size=12&text_family=1&text_s_color=000000&text_s_weight=normal&text_s_style=normal&text_s_variant=normal&text_s_decoration=none&text_i_color=&text_i_weight=normal&text_i_style=normal&text_i_variant=normal&text_i_decoration=none&text_c_color=&text_c_weight=normal&text_c_style=normal&text_c_variant=normal&text_c_decoration=none&text_u_color=000000&text_u_weight=normal&text_u_style=normal&text_u_variant=normal&text_u_decoration=none&text_s_color_h=&text_s_weight_h=bold&text_s_style_h=normal&text_s_variant_h=normal&text_s_decoration_h=none&text_i_color_h=000000&text_i_weight_h=bold&text_i_style_h=normal&text_i_variant_h=normal&text_i_decoration_h=none&text_c_color_h=&text_c_weight_h=normal&text_c_style_h=normal&text_c_variant_h=normal&text_c_decoration_h=none&text_u_color_h=&text_u_weight_h=bold&text_u_style_h=normal&text_u_variant_h=normal&text_u_decoration_h=none&iconset=default_mono_2014";
-                    ts3v_display.init(ts3v_url_1, 1124630, 100);
-                </script>
-                </div>
-
-                <div id="discord">
-                    <div>Discord</div>
+                <div class="server hidden">
+                    <div class="serverHeadline">Discord</div>
                     <iframe src="https://discord.com/widget?id=185552226998157313&amp;theme=dark" width="320"
                         height="400" allowtransparency="true" frameborder="0"
                         sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                 </div>
             </div>
+        </div>
     </section>
+
+    <div class="footer">
+        <div class="links"></div>
+        <div class="copyright">
+            <div>© henahax.de 2022</div>
+        </div>
+    </footer>
 
 </body>
 
