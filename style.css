@@ -101,10 +101,27 @@ body::-webkit-scrollbar-thumb {
   margin: 0 calc((var(--nav-width) / 2) - 1rem);
 }
 
+button{
+  border: none;
+}
+
+main{
+  gap: 1rem;
+}
+
 section {
   min-height: 100vh;
   margin-left: var(--nav-width);
   display: grid;
+}
+
+section:not(:last-child){
+  border-color: var(--bg-primary);
+  border-width: .5rem;
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 #sectionHome {
@@ -184,6 +201,7 @@ h2 {
 
 h3 {
   text-align: center;
+  font-size: 2rem;
 }
 
 h3 a {
@@ -201,6 +219,7 @@ h3 svg {
 
 p {
   text-align: justify;
+  line-height: 1.5rem;
 }
 
 #discordviewer {
@@ -218,6 +237,11 @@ p {
   min-width: calc(var(--iframe-min-width) - 2rem);
   margin-right: 2rem;
 }
+
+#ts3v_1124630 * a {
+  display: none;
+}
+
 
 .textContainer {
   margin-left: 2rem;
@@ -240,7 +264,7 @@ p {
   height: 2rem;
 }
 
-li:has(a.clickButton), li:has(div.clickButton) {
+li:has(button.clickButton) {
   list-style: none;
   margin: 1rem auto;
 }
