@@ -170,7 +170,7 @@ section:not(:last-child){
   display: grid;
   gap: 0.5rem;
   grid-template-columns: 3rem auto;
-  color: lightgray;
+  filter: : lightgray;
 }
 
 .header > * {
@@ -182,6 +182,7 @@ section:not(:last-child){
   width: 3rem;
   grid-column: 1;
   grid-row: 1 / 3;
+  fill: lightgray;
 }
 
 h1 {
@@ -219,7 +220,32 @@ h3 svg {
 
 p {
   text-align: justify;
-  line-height: 1.5rem;
+  line-height: 1.75rem;
+}
+
+.spinner {
+  width: 12rem;
+  height: 12rem;
+  fill: white;
+
+  margin: auto;
+  -webkit-animation: sk-rotateplane 8s infinite ease-in-out;
+  animation: sk-rotateplane 8s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(36rem) }
+  100% { -webkit-transform: perspective(36rem) rotateX(360deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(36rem) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(36rem) rotateX(0deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(36rem) rotateY(-360.1deg) rotateX(0deg);
+    -webkit-transform: perspective(36rem) rotateY(-360.1deg) rotateY(0deg) 
+  } 
 }
 
 #discordviewer {
@@ -245,6 +271,10 @@ p {
 
 .textContainer {
   margin-left: 2rem;
+}
+
+#sectionHome .textContainer{
+  text-align: center;
 }
 
 .textContainer > * {
