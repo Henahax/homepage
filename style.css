@@ -124,7 +124,7 @@ section:not(:last-child){
   border-right: none;
 }
 
-#sectionHome {
+#Home {
   background: radial-gradient(
     ellipse at bottom,
     #313131,
@@ -132,15 +132,15 @@ section:not(:last-child){
   );
 }
 
-#sectionDiscord {
+#Discord {
   background: radial-gradient(ellipse at bottom, #08116a, #111111);
 }
 
-#sectionTeamSpeak {
+#TeamSpeak {
   background: radial-gradient(ellipse at bottom, #123f60, #111111);
 }
 
-#sectionServer {
+#Server {
   background: radial-gradient(ellipse at bottom, #313131, #111111);
 }
 
@@ -170,7 +170,7 @@ section:not(:last-child){
   display: grid;
   gap: 0.5rem;
   grid-template-columns: 3rem auto;
-  filter: : lightgray;
+  filter: lightgray;
 }
 
 .header > * {
@@ -273,7 +273,7 @@ p {
   margin-left: 2rem;
 }
 
-#sectionHome .textContainer{
+#Home .textContainer{
   text-align: center;
 }
 
