@@ -9,6 +9,7 @@
         <div class="subPageContainer">
           <ul>
             <li>Privater TeamSpeak Server</li>
+            <li>Musikbot</li>
             <li>Eigene Kanäle auf Anfrage</li>
           </ul>
           <a class="button btnteamspeak" href="ts3server://henahax.de?port=9987">
@@ -20,6 +21,7 @@
 </template>
 
 <script lang="ts" defer>
+declare var ts3v_display:any;
 export default {
   data: () => ({
 
