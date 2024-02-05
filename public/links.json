@@ -3,72 +3,64 @@
     "id": "website",
     "name": "Webseite",
     "link": "https://henahax.de",
-    "icon": "",
-    "color": "#000000",
+    "icon": "fa-solid fa-globe",
+    "color": "#262626",
     "backgroundColor": "#fff"
   },
   {
     "id": "email",
     "name": "E-Mail",
     "link": "mailto:mail@henahax.de",
-    "icon": "",
-    "color": "",
+    "icon": "fa-solid fa-envelope",
     "backgroundColor": "#0085ff"
   },
   {
     "id": "twitter",
     "name": "Twitter",
     "link": "https://twitter.henahax.de",
-    "icon": "",
-    "color": "",
+    "icon": "fa-brands fa-x-twitter",
     "backgroundColor": "#000"
   },
   {
     "id": "instagram",
     "name": "Instagram",
     "link": "https://instagram.henahax.de",
-    "icon": "",
-    "color": "",
+    "icon": "fa-brands fa-instagram",
     "backgroundImage": "linear-gradient(-135deg,#1400c8,#b900b4,#f50000)"
   },
   {
     "id": "steam",
     "name": "Steam",
     "link": "https://steam.henahax.de",
-    "icon": "",
-    "color": "",
+    "icon": "fa-brands fa-steam-symbol",
     "backgroundColor": "#171a21"
   },
   {
     "id": "discord",
     "name": "Discord",
     "link": "https://discordapp.com/users/128418924084723712",
-    "icon": "",
-    "color": "",
+    "icon": "fa-brands fa-discord",
     "backgroundColor": "#5865f2"
   },
   {
     "id": "github",
     "name": "GitHub",
     "link": "https://github.henahax.de",
-    "icon": "",
-    "color": "",
+    "icon": "fa-brands fa-github",
     "backgroundColor": "#000"
   },
   {
     "id": "dockerhub",
     "name": "DockerHub",
     "link": "https://docker.henahax.de",
-    "icon": "",
-    "color": "#fff",
+    "icon": "fa-brands fa-docker",
     "backgroundImage": "linear-gradient(90deg, rgb(28, 144, 237) 0%, rgb(29, 99, 237) 100%)"
   },
   {
     "id": "onlyfans",
     "name": "OnlyFans",
     "link": "https://onlyfans.henahax.de",
-    "icon": "",
-    "color": "#FFF",
+    "icon": "fa-solid fa-lock",
     "backgroundColor": "#00AFF0"
   }
 ]

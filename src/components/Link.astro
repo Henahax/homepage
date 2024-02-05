@@ -8,16 +8,19 @@ export interface Props {
   backgroundImage: string;
 }
 
-const { name, link, icon, color, backgroundColor, backgroundImage } = Astro.props as Props;
+const { name, link, icon, color, backgroundColor, backgroundImage } =
+  Astro.props as Props;
 ---
 
 <li class="flex hover:scale-105 font-semibold hover:font-bold">
-  <a class="text-center w-full h-full p-4 rounded-full"
-  href={link}>{name}</a>
+  <a
+    class="text-center w-full h-full p-3 rounded-full flex justify-center items-center gap-2 shadow-xl shadow-neutral-800 border-neutral-800 border"
+    href={link}><i class={icon}></i>{name}</a
+  >
 </li>
 
-<style define:vars={{color, backgroundColor, backgroundImage}}>
-  a{
+<style define:vars={{ color, backgroundColor, backgroundImage }}>
+  a {
     color: var(--color);
     background-color: var(--backgroundColor);
     background-image: var(--backgroundImage);
