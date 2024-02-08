@@ -24,7 +24,19 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <header class="absolute w-full top-0 h-16 bg-black">Test</header>
+    <header
+      class="absolute w-full top-0 h-16 bg-black inline-flex justify-around items-center"
+    >
+      <a href="#">Logo</a>
+      <nav id="menu" class="flex justify-around open">
+        <button id="closeButton" class="mnuButton">X</button>
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">Link 4</a>
+      </nav>
+      <button id="menuButton" class="mnuButton">Hamburger</button>
+    </header>
     <slot />
   </body>
 </html>
@@ -33,4 +45,56 @@ const { title } = Astro.props;
     color-scheme: dark;
     font-family: system-ui, sans-serif;
   }
+
+  #menuButton {
+    display: block;
+  }
+
+  #closeButton {
+    display: none;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  #menu.open {
+    position: absolute;
+    display: flex;
+    color: red;
+    background-color: gray;
+    flex-direction: column;
+    height: 100dvh;
+    top: 0;
+    right: 0;
+    width: 16rem;
+  }
+
+  #menu.open #closeButton {
+    display: block;
+  }
+
+  @media (min-width: 640px) {
+    #menuButton {
+      display: none;
+    }
+
+    #menu {
+      display: block;
+    }
+  }
 </style>
+
+<script>
+  var closeButton = document.querySelector("#closeButton");
+  var menu = document.querySelector("#menu");
+  var menuButton = document.querySelector("#menuButton");
+
+  menuButton?.addEventListener("click", function () {
+    menu?.classList.add("open");
+  });
+
+  closeButton?.addEventListener("click", function () {
+    menu?.classList.remove("open");
+  });
+</script>
