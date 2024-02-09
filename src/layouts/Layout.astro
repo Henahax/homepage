@@ -28,12 +28,16 @@ const { title } = Astro.props;
       class="absolute w-full top-0 h-16 bg-black inline-flex justify-around items-center"
     >
       <a href="#">Logo</a>
-      <nav id="menu" class="flex justify-around open">
+      <nav id="menu" class="flex justify-around">
         <button id="closeButton" class="mnuButton">X</button>
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        <a href="#">Link 4</a>
+
+        <ul class="p-4">
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+          <li><a href="#">Link 4</a></li>
+        </ul>
+
       </nav>
       <button id="menuButton" class="mnuButton">Hamburger</button>
     </header>
@@ -59,7 +63,7 @@ const { title } = Astro.props;
   }
 
   #menu.open {
-    position: absolute;
+    position: fixed;
     display: flex;
     color: red;
     background-color: gray;
@@ -67,7 +71,7 @@ const { title } = Astro.props;
     height: 100dvh;
     top: 0;
     right: 0;
-    width: 16rem;
+    width: fit-content;
   }
 
   #menu.open #closeButton {
