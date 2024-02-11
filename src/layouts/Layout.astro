@@ -25,76 +25,108 @@ const { title } = Astro.props;
   </head>
   <body>
     <header
-      class="absolute w-full top-0 h-16 bg-black inline-flex justify-around items-center"
+      class="absolute w-full top-0 h-16 inline-flex justify-between items-center px-2"
     >
       <a href="#">Logo</a>
-      <nav id="menu" class="flex justify-around open">
-        <button id="closeButton" class="mnuButton">X</button>
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        <a href="#">Link 4</a>
+      <nav id="menu" class="flex p-2 items-end gap-8">
+        <button id="closeButton" class="mnuButton w-12 h-12 rounded-full"
+          ><i class="fa-solid fa-x"></i></button
+        >
+        <a href="#" class="flex items-center gap-2"
+          ><i class="fa-solid fa-house"></i>Home</a
+        >
+        <a href="#" class="flex items-center gap-2"
+          ><i class="fa-brands fa-teamspeak"></i>TeamSpeak
+        </a>
+        <a href="#" class="flex items-center gap-2"
+          ><i class="fa-brands fa-discord"></i>Discord</a
+        >
+        <a href="#" class="flex items-center gap-2"
+          ><i class="fa-solid fa-code"></i>Projekte</a
+        >
       </nav>
-      <button id="menuButton" class="mnuButton">Hamburger</button>
+      <button id="menuButton" class="mnuButton w-12 h-12 rounded-full"
+        ><i class="fa-solid fa-bars"></i></button
+      >
     </header>
     <slot />
+    <footer class="bg-green-500 bottom-0">Test</footer>
   </body>
-</html>
-<style is:global>
-  html {
-    color-scheme: dark;
-    font-family: system-ui, sans-serif;
-  }
 
-  #menuButton {
-    display: block;
-  }
+  <style is:global>
+    html {
+      color-scheme: dark;
+      font-family: system-ui, sans-serif;
+    }
 
-  #closeButton {
-    display: none;
-  }
+    header {
+      position: fixed;
+      transition: 0.5s;
+    }
 
-  #menu {
-    display: none;
-  }
+    header.sticky {
+      @apply bg-black bg-opacity-50;
+    }
 
-  #menu.open {
-    position: absolute;
-    display: flex;
-    color: red;
-    background-color: gray;
-    flex-direction: column;
-    height: 100dvh;
-    top: 0;
-    right: 0;
-    width: 16rem;
-  }
-
-  #menu.open #closeButton {
-    display: block;
-  }
-
-  @media (min-width: 640px) {
     #menuButton {
+      display: block;
+    }
+
+    button {
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    #closeButton {
       display: none;
     }
 
     #menu {
+      display: none;
+    }
+
+    #menu.open {
+      position: fixed;
+      display: flex;
+      color: red;
+      background-color: gray;
+      flex-direction: column;
+      height: 100dvh;
+      top: 0;
+      right: 0;
+      width: 16rem;
+    }
+
+    #menu.open #closeButton {
       display: block;
     }
-  }
-</style>
 
-<script>
-  var closeButton = document.querySelector("#closeButton");
-  var menu = document.querySelector("#menu");
-  var menuButton = document.querySelector("#menuButton");
+    @media (min-width: 640px) {
+      #menuButton {
+        display: none;
+      }
 
-  menuButton?.addEventListener("click", function () {
-    menu?.classList.add("open");
-  });
+      #menu {
+        display: flex;
+      }
+    }
+  </style>
 
-  closeButton?.addEventListener("click", function () {
-    menu?.classList.remove("open");
-  });
-</script>
+  <script>
+    var closeButton = document.querySelector("#closeButton");
+    var menu = document.querySelector("#menu");
+    var menuButton = document.querySelector("#menuButton");
+
+    menuButton?.addEventListener("click", function () {
+      menu?.classList.add("open");
+    });
+
+    closeButton?.addEventListener("click", function () {
+      menu?.classList.remove("open");
+    });
+
+    window.addEventListener("scroll", function () {
+      var header = this.document.querySelector("header");
+      header?.classList.toggle("sticky", window.scrollY > 0);
+    });
+  </script>
+</html>
