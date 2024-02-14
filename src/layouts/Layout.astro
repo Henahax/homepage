@@ -31,14 +31,20 @@ const { title } = Astro.props;
         <h1>henahax</h1>
       </a>
       <nav id="menu" class="flex p-2 gap-x-4 items-center">
-        <button id="closeButton" class="mnuButton w-12 h-12 rounded-full"
-          ><i class="fa-solid fa-x"></i></button
+        <div
+          id="menuHeadlineContainer"
+          class="inline-flex items-center w-full justify-between"
         >
+          <div class="p-3 text-sm">Menü</div>
+          <button id="closeButton" class="mnuButton w-12 h-12 rounded-full"
+            ><i class="fa-solid fa-x"></i></button
+          >
+        </div>
         <a href="#" class="navlink"><i class="fa-solid fa-house"></i>Home</a>
-        <a href="#" class="navlink"
+        <a href="#voice" class="navlink"
           ><i class="fa-brands fa-teamspeak"></i>TeamSpeak
         </a>
-        <a href="#" class="navlink"
+        <a href="#voice" class="navlink"
           ><i class="fa-brands fa-discord"></i>Discord</a
         >
         <a href="#" class="navlink"><i class="fa-solid fa-code"></i>Projekte</a>
@@ -60,6 +66,7 @@ const { title } = Astro.props;
     html {
       color-scheme: dark;
       font-family: monospace, system-ui, sans-serif;
+      scroll-snap-type: y mandatory;
     }
 
     header {
@@ -91,8 +98,8 @@ const { title } = Astro.props;
       @apply bg-opacity-10;
     }
 
-    #closeButton {
-      @apply hidden ml-auto;
+    #menuHeadlineContainer {
+      @apply hidden;
     }
 
     #menu {
@@ -100,14 +107,14 @@ const { title } = Astro.props;
     }
 
     #menu.open {
-      @apply fixed flex rounded-bl-3xl w-fit items-start top-0 right-0;
+      @apply fixed flex rounded-l-2xl rounded-b-2xl w-fit items-start top-0 right-0;
       background-color: gray;
       flex-direction: column;
       z-index: 999;
     }
 
-    #menu.open #closeButton {
-      display: block;
+    #menu.open #menuHeadlineContainer {
+      display: inline-flex;
     }
 
     @media (min-width: 640px) {
