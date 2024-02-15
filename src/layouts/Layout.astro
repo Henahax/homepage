@@ -42,7 +42,8 @@ const { title } = Astro.props;
         </div>
         <a href="/" class="navlink"><i class="fa-solid fa-house"></i>Home</a>
         <a href="#voice" class="navlink"
-          ><i class="fa-solid fa-headphones"></i><nobr>Voice Server</nobr></a>
+          ><i class="fa-solid fa-headphones"></i><nobr>Voice Server</nobr></a
+        >
         <a href="#" class="navlink"><i class="fa-solid fa-code"></i>Projekte</a>
         <a href="/links" class="navlink"><i class="fa-solid fa-at"></i>Links</a>
       </nav>
@@ -103,7 +104,7 @@ const { title } = Astro.props;
     }
 
     #menu.open {
-      @apply fixed flex flex-col z-50 rounded-l-2xl rounded-b-2xl w-fit items-start top-0 right-0 bg-neutral-600 shadow-xl;
+      @apply fixed flex flex-col z-50 rounded-bl-2xl w-fit items-start top-0 right-0 bg-neutral-600 shadow-xl;
     }
 
     #menu.open #menuHeadlineContainer {

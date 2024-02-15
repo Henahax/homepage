@@ -10,13 +10,21 @@ import Layout from "../layouts/Layout.astro";
       <h2 class="text-center text-2xl p-4">Henahax Voice Server</h2>
       <div class="voiceContainerContainer">
         <div class="voiceContainer">
-          <h3 class="flex gap-2 items-center text-2xl"><i class="fa-brands fa-teamspeak"></i>TeamSpeak</h2>
+          <h3 class="flex gap-2 items-center text-lg px-1">
+            <i class="fa-brands fa-teamspeak"></i>TeamSpeak
+          </h3>
           <div id="ts3viewer_1124630" class="voice p-4"></div>
-          <button class="connectButton" onclick="location.href='ts3server://ts.henahax.de?port=9987'">Verbinden</button>
+          <button
+            class="connectButton"
+            onclick="location.href='ts3server://ts.henahax.de?port=9987'"
+            >Verbinden</button
+          >
         </div>
 
         <div class="voiceContainer">
-          <h3 class="flex gap-2 items-center text-2xl"><i class="fa-brands fa-discord"></i>Discord</h2>
+          <h3 class="flex gap-2 items-center text-lg px-1">
+            <i class="fa-brands fa-discord"></i>Discord
+          </h3>
           <iframe
             id="discordWidget"
             class="voice"
@@ -24,13 +32,29 @@ import Layout from "../layouts/Layout.astro";
             allowtransparency="true"
             sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
           ></iframe>
-          <button class="connectButton" onclick="location.href='https://discord.com/invite/26Kc9mJYKT'">Verbinden</button>
+          <button
+            class="connectButton"
+            onclick="location.href='https://discord.com/invite/26Kc9mJYKT'"
+            >Verbinden</button
+          >
         </div>
       </div>
     </section>
 
     <section class="bg-red-500 w-full">
-      <h2 class="text-xl">Projekte</h2>
+      <h2 class="text-center text-2xl p-4">Projekte</h2>
+
+      <div class="bg-gray-500 p-4 w-fit mx-auto">
+        <h3>Webtools</h3>
+        <div class="flex gap-4 justify-around items-center flex-wrap">
+          <div class="bg-lime-500">
+            <h3 class="flex gap-2 items-center text-lg px-1">Reset</h3>
+          </div>
+          <div class="bg-green-500">
+            <h3 class="flex gap-2 items-center text-lg px-1">MF</h3>
+          </div>
+        </div>
+      </div>
       <div></div>
     </section>
   </main>
@@ -53,21 +77,21 @@ import Layout from "../layouts/Layout.astro";
     @apply bg-neutral-700 p-4 max-w-96 rounded-3xl flex flex-col gap-2 drop-shadow-lg shadow-lg w-full;
   }
 
-  .voiceContainer:hover{
+  .voiceContainer:hover {
     @apply drop-shadow-2xl shadow-2xl;
   }
 
-  .voice{
+  .voice {
     @apply w-full rounded-2xl;
     min-height: 24rem;
   }
 
-  .connectButton{
+  .connectButton {
     @apply px-4 py-2 rounded-full bg-neutral-600 w-fit self-center;
   }
 
-  .connectButton:hover{
-    @apply scale-110 transition-all ease-in-out
+  .connectButton:hover {
+    @apply scale-110 transition-all ease-in-out;
   }
 
   #ts3viewer_1124630 {
