@@ -7,20 +7,24 @@ import Layout from "../layouts/Layout.astro";
     <section class="bg-yellow-500 w-full">todo</section>
 
     <section id="voice" class="bg-green-500">
-      <div class="">
+      <h2 class="text-center text-2xl p-4">Henahax Voice Server</h2>
+      <div class="voiceContainerContainer">
         <div class="voiceContainer">
-          <h2>TeamSpeak</h2>
-          <div id="ts3viewer_1124630"></div>
+          <h3 class="flex gap-2 items-center text-2xl"><i class="fa-brands fa-teamspeak"></i>TeamSpeak</h2>
+          <div id="ts3viewer_1124630" class="voice p-4"></div>
+          <button class="connectButton" onclick="location.href='ts3server://ts.henahax.de?port=9987'">Verbinden</button>
         </div>
 
         <div class="voiceContainer">
-          <h2>Discord</h2>
+          <h3 class="flex gap-2 items-center text-2xl"><i class="fa-brands fa-discord"></i>Discord</h2>
           <iframe
             id="discordWidget"
+            class="voice"
             src="https://discord.com/widget?id=185552226998157313&theme=dark"
             allowtransparency="true"
             sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
           ></iframe>
+          <button class="connectButton" onclick="location.href='https://discord.com/invite/26Kc9mJYKT'">Verbinden</button>
         </div>
       </div>
     </section>
@@ -34,16 +38,36 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
   section {
-    min-height: 100dvh;
-    padding: 6rem 2rem;
+    @apply min-h-dvh py-24 px-8;
     scroll-snap-align: start end;
   }
 
+  .voiceContainerContainer {
+    @apply flex flex-wrap flex-row m-auto justify-center gap-4;
+  }
   .voiceContainer {
+    @apply bg-neutral-700 p-4 max-w-96 rounded-3xl flex flex-col gap-2 drop-shadow-lg shadow-lg w-full;
+  }
+
+  .voiceContainer:hover{
+    @apply drop-shadow-2xl shadow-2xl;
+  }
+
+  .voice{
+    @apply w-full rounded-2xl;
+    min-height: 24rem;
+  }
+
+  .connectButton{
+    @apply px-4 py-2 rounded-full bg-neutral-600 w-fit self-center;
+  }
+
+  .connectButton:hover{
+    @apply scale-110 transition-all ease-in-out
   }
 
   #ts3viewer_1124630 {
-    background-color: white;
+    @apply bg-white;
   }
 
   #discordWidget {

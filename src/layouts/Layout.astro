@@ -25,7 +25,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <header
-      class="absolute w-full top-0 h-16 inline-flex justify-between items-center px-2 pl-7 text-black"
+      class="absolute w-full top-0 h-16 inline-flex justify-between items-center px-2 pl-7 text-white"
     >
       <a class="text-4xl font-bold" href="#">
         <h1>henahax</h1>
@@ -40,13 +40,9 @@ const { title } = Astro.props;
             ><i class="fa-solid fa-x"></i></button
           >
         </div>
-        <a href="#" class="navlink"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="/" class="navlink"><i class="fa-solid fa-house"></i>Home</a>
         <a href="#voice" class="navlink"
-          ><i class="fa-brands fa-teamspeak"></i>TeamSpeak
-        </a>
-        <a href="#voice" class="navlink"
-          ><i class="fa-brands fa-discord"></i>Discord</a
-        >
+          ><i class="fa-solid fa-headphones"></i><nobr>Voice Server</nobr></a>
         <a href="#" class="navlink"><i class="fa-solid fa-code"></i>Projekte</a>
         <a href="/links" class="navlink"><i class="fa-solid fa-at"></i>Links</a>
       </nav>
@@ -75,7 +71,7 @@ const { title } = Astro.props;
     }
 
     header.sticky {
-      @apply bg-black bg-opacity-50 text-white;
+      @apply bg-black bg-opacity-50 z-50;
     }
 
     .navlink {
@@ -90,11 +86,11 @@ const { title } = Astro.props;
       display: block;
     }
 
-    button {
+    .mnuButton {
       @apply bg-black bg-opacity-5;
     }
 
-    button:hover {
+    .mnuButton:hover {
       @apply bg-opacity-10;
     }
 
@@ -107,17 +103,14 @@ const { title } = Astro.props;
     }
 
     #menu.open {
-      @apply fixed flex rounded-l-2xl rounded-b-2xl w-fit items-start top-0 right-0;
-      background-color: gray;
-      flex-direction: column;
-      z-index: 999;
+      @apply fixed flex flex-col z-50 rounded-l-2xl rounded-b-2xl w-fit items-start top-0 right-0 bg-neutral-600 shadow-xl;
     }
 
     #menu.open #menuHeadlineContainer {
       display: inline-flex;
     }
 
-    @media (min-width: 640px) {
+    @media (min-width: 720px) {
       #menuButton {
         @apply hidden;
       }
