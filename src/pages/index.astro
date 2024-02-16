@@ -10,7 +10,7 @@ import Layout from "../layouts/Layout.astro";
       <h2 class="text-center text-2xl p-4">Henahax Voice Server</h2>
       <div class="voiceContainerContainer">
         <div class="voiceContainer">
-          <h3 class="flex gap-2 items-center text-lg px-1">
+          <h3 class="flex gap-2 items-center px-1">
             <i class="fa-brands fa-teamspeak"></i>TeamSpeak
           </h3>
           <div id="ts3viewer_1124630" class="voice p-4"></div>
@@ -22,7 +22,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <div class="voiceContainer">
-          <h3 class="flex gap-2 items-center text-lg px-1">
+          <h3 class="flex gap-2 items-center px-1">
             <i class="fa-brands fa-discord"></i>Discord
           </h3>
           <iframe
@@ -44,14 +44,37 @@ import Layout from "../layouts/Layout.astro";
     <section class="bg-red-500 w-full">
       <h2 class="text-center text-2xl p-4">Projekte</h2>
 
-      <div class="bg-gray-500 p-4 w-fit mx-auto">
+      <div class="bg-gray-500 p-4 w-fit mx-auto rounded-3xl">
         <h3>Webtools</h3>
-        <div class="flex gap-4 justify-around items-center flex-wrap">
-          <div class="bg-lime-500">
-            <h3 class="flex gap-2 items-center text-lg px-1">Reset</h3>
+        <div
+          class="grid grid-cols-2 auto-cols-fr gap-4 justify-around items-center"
+        >
+          <div class="bg-lime-500 p-4 h-full">
+            <h3 class="flex gap-2 items-center">
+              Guild Wars 2 Reset Checklist
+            </h3>
+            <div class="flex flex-row items-center gap-8 flex-nowrap">
+              <i class="fa-solid fa-calendar-check text-6xl p-2"></i>
+              <ul class="py-2 list-disc">
+                <li>Checkliste für tägliche und monatliche Aufgaben</li>
+                <li>Auswahl angezeigte Aufgaben</li>
+                <li>Abhaken von abgeschlossenen Aufgaben</li>
+                <li>Anzeige relevanter Timer</li>
+              </ul>
+            </div>
           </div>
-          <div class="bg-green-500">
-            <h3 class="flex gap-2 items-center text-lg px-1">MF</h3>
+          <div class="bg-green-500 p-4 h-full">
+            <h3 class="flex gap-2 items-center">
+              Guild Wars 2 MagicFind Checklist
+            </h3>
+            <div class="flex flex-row items-center gap-10 flex-nowrap">
+              <i class="fa-solid fa-clover text-6xl"></i>
+              <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -82,8 +105,8 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .voice {
-    @apply w-full rounded-2xl;
-    min-height: 24rem;
+    @apply w-full rounded-2xl h-full;
+    min-height: 26rem;
   }
 
   .connectButton {
@@ -99,6 +122,10 @@ import Layout from "../layouts/Layout.astro";
   }
 
   #discordWidget {
+  }
+
+  h3 {
+    @apply text-lg;
   }
 </style>
 
