@@ -47,7 +47,7 @@ import Layout from "../layouts/Layout.astro";
       <div class="bg-gray-500 p-4 w-fit mx-auto rounded-3xl">
         <h3>Webtools</h3>
         <div
-          class="grid grid-cols-2 auto-cols-fr gap-4 justify-around items-center"
+          class="projectContainerContainer flex flex-wrap flex-row gap-4 justify-around items-center"
         >
           <div class="projectContainer">
             <h3 class="flex gap-2 items-center">
@@ -78,7 +78,6 @@ import Layout from "../layouts/Layout.astro";
           </div>
         </div>
       </div>
-      <div></div>
     </section>
   </main>
 </Layout>
@@ -128,8 +127,13 @@ import Layout from "../layouts/Layout.astro";
     @apply text-lg;
   }
 
+  .projectContainerContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Two columns, auto-fit with minimum width of 200px */
+  }
   .projectContainer {
-    @apply bg-green-500 p-4 h-full;
+    @apply bg-green-500 p-4;
+    height: 100%;
   }
 </style>
 
