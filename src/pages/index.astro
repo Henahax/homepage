@@ -44,12 +44,12 @@ import Layout from "../layouts/Layout.astro";
     <section class="bg-red-500 w-full">
       <h2 class="text-center text-2xl p-4">Projekte</h2>
 
-      <div class="bg-gray-500 p-4 w-fit mx-auto rounded-3xl">
+      <div class="projects">
         <h3>Webtools</h3>
         <div
-          class="projectContainerContainer flex flex-wrap flex-row gap-4 justify-around items-center"
+          class="projectContainer"
         >
-          <div class="projectContainer">
+          <div class="project">
             <h3 class="flex gap-2 items-center">
               Guild Wars 2 Reset Checklist
             </h3>
@@ -63,7 +63,7 @@ import Layout from "../layouts/Layout.astro";
               </ul>
             </div>
           </div>
-          <div class="projectContainer">
+          <div class="project">
             <h3 class="flex gap-2 items-center">
               Guild Wars 2 MagicFind Checklist
             </h3>
@@ -127,13 +127,15 @@ import Layout from "../layouts/Layout.astro";
     @apply text-lg;
   }
 
-  .projectContainerContainer{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Two columns, auto-fit with minimum width of 200px */
+  .projects{
+    @apply bg-gray-500 p-4 mx-auto rounded-3xl;
   }
-  .projectContainer {
-    @apply bg-green-500 p-4;
-    height: 100%;
+  .projectContainer{
+    @apply flex flex-row flex-wrap gap-4;
+   }
+
+  .project {
+    @apply bg-green-500 rounded-xl p-4;
   }
 </style>
 
