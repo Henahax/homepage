@@ -45,36 +45,16 @@ import Layout from "../layouts/Layout.astro";
     <section class="bg-red-500 w-full">
       <h2 class="text-center text-2xl p-4">Projekte</h2>
 
-      <div class="projects">
-        <h3>Webtools</h3>
-        <div class="projectContainer">
-          <div class="project">
-            <h3 class="flex gap-2 items-center">
-              Guild Wars 2 Reset Checklist
-            </h3>
-            <div class="flex flex-row items-center gap-8 flex-nowrap h-full">
-              <i class="fa-solid fa-calendar-check text-6xl p-2"></i>
-              <ul class="py-2 list-disc">
-                <li>Checkliste für tägliche und monatliche Aufgaben</li>
-                <li>Auswahl angezeigte Aufgaben</li>
-                <li>Abhaken von abgeschlossenen Aufgaben</li>
-                <li>Anzeige relevanter Timer</li>
-              </ul>
-            </div>
-          </div>
-          <div class="project">
-            <h3 class="flex gap-2 items-center">
-              Guild Wars 2 MagicFind Checklist
-            </h3>
-            <div class="flex flex-row items-center gap-10 flex-nowrap h-full">
-              <i class="fa-solid fa-clover text-6xl"></i>
-              <ul class="py-2 list-disc h-full">
-                <li>Checkliste für MagicFind Quellen</li>
-                <li>Berechnen der Summe und Vergleich mit Obergrenze</li>
-                <li>Hilft Verwendung wertvoller Gegenstände einzusparen</li>
-              </ul>
-            </div>
-          </div>
+      <div class="projects grid grid-cols-1 md:grid-cols-2 gap-4 w-fit">
+        <div class="project">
+          <h3>Homelab</h3>
+          <p>Homeserver zum experimentieren und zum Hosten von Diensten.</p>
+          <ul>
+            <li>ProxMox</li>
+          </ul>
+        </div>
+        <div class="project">
+          <h3>Guild Wars 2 Tools</h3>
         </div>
       </div>
     </section>
