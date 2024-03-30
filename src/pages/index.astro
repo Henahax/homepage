@@ -9,22 +9,24 @@ import Layout from "../layouts/Layout.astro";
 
     <section id="voice" class="bg-green-500">
       <h2 class="text-center text-2xl p-4">Henahax Voice Server</h2>
-      <div class="voiceContainerContainer">
-        <div class="voiceContainer">
-          <h3 class="flex gap-2 items-center px-1">
-            <i class="fa-brands fa-teamspeak"></i>TeamSpeak
+
+      <div
+        class="container grid grid-cols-1 md:grid-cols-2 gap-4 w-fit mx-auto">
+        <div class="card max-w-96">
+          <h3 class="flex flex-row gap-2 items-center">
+            <i class="fa-brands fa-teamspeak"></i>
+            <span>TeamSpeak</span>
           </h3>
           <div id="ts3viewer_1124630" class="voice p-4"></div>
-          <button
-            class="connectButton"
-            onclick="location.href='ts3server://ts.henahax.de?port=9987'"
-            >Verbinden</button
+          <a class="button" href="ts3server://ts.henahax.de?port=9987"
+            >Verbinden</a
           >
         </div>
 
-        <div class="voiceContainer">
-          <h3 class="flex gap-2 items-center px-1">
-            <i class="fa-brands fa-discord"></i>Discord
+        <div class="card max-w-96">
+          <h3 class="flex flex-row gap-2 items-center">
+            <i class="fa-brands fa-discord"></i>
+            <span>Discord</span>
           </h3>
           <iframe
             id="discordWidget"
@@ -33,10 +35,8 @@ import Layout from "../layouts/Layout.astro";
             allowtransparency="true"
             sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
           ></iframe>
-          <button
-            class="connectButton"
-            onclick="location.href='https://discord.com/invite/26Kc9mJYKT'"
-            >Verbinden</button
+          <a class="button" href="https://discord.com/invite/26Kc9mJYKT"
+            >Verbinden</a
           >
         </div>
       </div>
@@ -44,19 +44,6 @@ import Layout from "../layouts/Layout.astro";
 
     <section class="bg-red-500 w-full">
       <h2 class="text-center text-2xl p-4">Projekte</h2>
-
-      <div class="projects grid grid-cols-1 md:grid-cols-2 gap-4 w-fit">
-        <div class="project">
-          <h3>Homelab</h3>
-          <p>Homeserver zum experimentieren und zum Hosten von Diensten.</p>
-          <ul>
-            <li>ProxMox</li>
-          </ul>
-        </div>
-        <div class="project">
-          <h3>Guild Wars 2 Tools</h3>
-        </div>
-      </div>
     </section>
   </main>
 </Layout>
@@ -71,15 +58,20 @@ import Layout from "../layouts/Layout.astro";
     @apply py-24;
   }
 
-  .voiceContainerContainer {
-    @apply flex flex-wrap flex-row m-auto justify-center gap-4;
-  }
-  .voiceContainer {
-    @apply bg-neutral-700 p-4 max-w-96 rounded-3xl flex flex-col gap-2 drop-shadow-lg shadow-lg w-full;
+  h3 {
+    @apply text-lg;
   }
 
-  .voiceContainer:hover {
-    @apply drop-shadow-2xl shadow-2xl;
+  .card {
+    @apply flex flex-col gap-4 bg-slate-600 rounded-3xl p-4;
+  }
+
+  .button {
+    @apply mx-auto rounded-full bg-green-500 px-4 py-2;
+  }
+
+  .button:hover {
+    @apply scale-105;
   }
 
   .voice {
@@ -87,34 +79,8 @@ import Layout from "../layouts/Layout.astro";
     min-height: 26rem;
   }
 
-  .connectButton {
-    @apply px-4 py-2 rounded-full bg-neutral-600 w-fit self-center;
-  }
-
-  .connectButton:hover {
-    @apply scale-110 transition-all ease-in-out;
-  }
-
   #ts3viewer_1124630 {
     @apply bg-white;
-  }
-
-  #discordWidget {
-  }
-
-  h3 {
-    @apply text-lg;
-  }
-
-  .projects {
-    @apply bg-gray-500 p-4 mx-auto rounded-3xl;
-  }
-  .projectContainer {
-    @apply flex flex-row flex-wrap gap-4;
-  }
-
-  .project {
-    @apply bg-green-500 rounded-xl p-4;
   }
 </style>
 
