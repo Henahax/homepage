@@ -25,16 +25,14 @@ const { title } = Astro.props;
   </head>
   <body>
     <header
-      class="absolute w-full top-0 h-16 inline-flex justify-between items-center px-2 pl-7 text-white"
-    >
+      class="absolute w-full top-0 h-16 inline-flex justify-between items-center px-2 pl-7 text-white">
       <a class="text-4xl font-bold" href="#">
         <h1>henahax</h1>
       </a>
       <nav id="menu" class="flex p-2 gap-x-4 items-center">
         <div
           id="menuHeadlineContainer"
-          class="inline-flex items-center w-full justify-between"
-        >
+          class="inline-flex items-center w-full justify-between">
           <div class="p-3 text-sm">Menü</div>
           <button id="closeButton" class="mnuButton w-12 h-12 rounded-full"
             ><i class="fa-solid fa-x"></i></button
@@ -53,8 +51,7 @@ const { title } = Astro.props;
     </header>
     <slot />
     <footer
-      class="absolute flex z-10 -mt-16 bg-black bg-opacity-50 h-16 w-full justify-center items-center"
-    >
+      class="absolute flex z-10 -mt-16 bg-black bg-opacity-50 h-16 w-full justify-center items-center">
       © henahax.de 2024
     </footer>
   </body>
@@ -62,7 +59,7 @@ const { title } = Astro.props;
   <style is:global>
     html {
       color-scheme: dark;
-      font-family: monospace, system-ui, sans-serif;
+      font-family: Consolas, "Courier New", monospace;
       scroll-snap-type: y mandatory;
     }
 
@@ -121,9 +118,9 @@ const { title } = Astro.props;
       }
     }
 
-    #ts3v_1124630 > div:last-child{
-    display: none;
-  }
+    #ts3v_1124630 > div:last-child {
+      display: none;
+    }
   </style>
 
   <script>
