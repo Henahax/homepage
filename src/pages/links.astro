@@ -6,14 +6,12 @@ import links from "../../public/links.json";
 ---
 
 <Layout title="@henahax">
-
-  <section>
-    <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-4">
     <div class="text-center">
       <div class="bg-white rounded-full h-20 w-20 mx-auto"></div>
       <div class="text-xl">@henahax</div>
     </div>
-    <ul class="max-w-sm mx-auto flex flex-col gap-4 w-full">
+    <ul class="max-w-sm mx-auto flex flex-col gap-4 w-full text-white">
       {
         links.map((link) => (
           <Link
@@ -28,13 +26,4 @@ import links from "../../public/links.json";
       }
     </ul>
   </div>
-  </section>
 </Layout>
-
-<style>
-  section {
-    @apply min-h-dvh py-24 px-8;
-    scroll-snap-align: start end;
-    font-family: system-ui, sans-serif;
-  }
-</style>

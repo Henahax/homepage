@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
   title: string;
 }
@@ -15,130 +17,45 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
-  <body>
-    <header
-      class="absolute w-full top-0 h-16 inline-flex justify-between items-center px-2 pl-7 text-white">
-      <a class="text-4xl font-bold" href="#">
-        <h1>henahax</h1>
-      </a>
-      <nav id="menu" class="flex p-2 gap-x-4 items-center">
-        <div
-          id="menuHeadlineContainer"
-          class="inline-flex items-center w-full justify-between">
-          <div class="p-3 text-sm">Menü</div>
-          <button id="closeButton" class="mnuButton w-12 h-12 rounded-full"
-            ><i class="fa-solid fa-x"></i></button
-          >
-        </div>
-        <a href="/" class="navlink"><i class="fa-solid fa-house"></i>Home</a>
-        <a href="#voice" class="navlink"
-          ><i class="fa-solid fa-headphones"></i><nobr>Voice Server</nobr></a
-        >
-        <a href="#" class="navlink"><i class="fa-solid fa-code"></i>Projekte</a>
-        <a href="/links" class="navlink"><i class="fa-solid fa-at"></i>Links</a>
-      </nav>
-      <button id="menuButton" class="mnuButton w-12 h-12 rounded-full"
-        ><i class="fa-solid fa-bars"></i></button
-      >
-    </header>
-    <slot />
-    <footer
-      class="absolute flex z-10 -mt-16 bg-black bg-opacity-50 h-16 w-full justify-center items-center">
+
+  <body class="flex flex-col min-h-dvh">
+    <div class="navbar bg-base-100">
+      <div class="flex-1">
+        <a class="btn btn-ghost text-xl">daisyUI</a>
+      </div>
+      <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="/links">Links</a></li>
+          <li><a>Link</a></li>
+          <li><a>Link</a></li>
+          <li>
+            <details>
+              <summary> Parent </summary>
+              <ul class="p-2 bg-base-100 rounded-t-none">
+                <li><a>Link 1</a></li>
+                <li><a>Link 2</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <footer class="footer py-4 bg-base-200 text-neutral-content flex-grow-0">
       © henahax.de 2024
     </footer>
   </body>
-
-  <style is:global>
-    html {
-      color-scheme: dark;
-      font-family: Consolas, "Courier New", monospace;
-      scroll-snap-type: y mandatory;
-    }
-
-    header {
-      position: fixed;
-      transition: 0.5s;
-    }
-
-    header.sticky {
-      @apply bg-black bg-opacity-50 z-50;
-    }
-
-    .navlink {
-      @apply flex items-center gap-2 p-2 rounded-full w-full;
-    }
-
-    .navlink:hover {
-      @apply bg-black bg-opacity-5;
-    }
-
-    #menuButton {
-      display: block;
-    }
-
-    .mnuButton {
-      @apply bg-black bg-opacity-5;
-    }
-
-    .mnuButton:hover {
-      @apply bg-opacity-10;
-    }
-
-    #menuHeadlineContainer {
-      @apply hidden;
-    }
-
-    #menu {
-      @apply hidden;
-    }
-
-    #menu.open {
-      @apply fixed flex flex-col z-50 rounded-bl-2xl w-fit items-start top-0 right-0 bg-neutral-600 shadow-xl;
-    }
-
-    #menu.open #menuHeadlineContainer {
-      display: inline-flex;
-    }
-
-    @media (min-width: 720px) {
-      #menuButton {
-        @apply hidden;
-      }
-
-      #menu {
-        @apply flex;
-      }
-    }
-
-    #ts3v_1124630 > div:last-child {
-      display: none;
-    }
-  </style>
-
-  <script>
-    var closeButton = document.querySelector("#closeButton");
-    var menu = document.querySelector("#menu");
-    var menuButton = document.querySelector("#menuButton");
-
-    menuButton?.addEventListener("click", function () {
-      menu?.classList.add("open");
-    });
-
-    closeButton?.addEventListener("click", function () {
-      menu?.classList.remove("open");
-    });
-
-    window.addEventListener("scroll", function () {
-      var header = this.document.querySelector("header");
-      header?.classList.toggle("sticky", window.scrollY > 0);
-    });
-  </script>
 </html>
