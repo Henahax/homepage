@@ -3,19 +3,25 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Henahax">
-  <main class="">
-    <section class="bg-red-500 w-full">
-      <h2 class="text-center text-2xl p-4">Server</h2>
-      <div id="ts3viewer_1124630" class="voice p-4"></div>
+  <h2 class="text-xl">Öffentliche Server</h2>
+  <div class="grid md:grid-cols-2 gap-y-4 gap-x-8 my-4 h-full">
+    <div class="flex flex-col gap-2">
+      <h3 class="text-lg px-2 flex flex-row gap-2 items-center"><i class="fa-brands fa-teamspeak"></i>TeamSpeak</h3>
+      <div id="ts3viewer_1124630" class="p-4 bg-white rounded-lg min-h-fit"></div>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="text-lg px-2 flex flex-row gap-2 items-center"><i class="fa-brands fa-discord"></i>Discord</h3>
       <iframe
-        id="discordWidget"
-        class="voice"
-        src="https://discord.com/widget?id=185552226998157313&theme=dark"
-        allowtransparency="true"
-        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+      id="discordWidget"
+      class="w-full h-full rounded-md min-h-96"
+      src="https://discord.com/widget?id=185552226998157313&theme=dark"
+      allowtransparency="true"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
       ></iframe>
-    </section>
-  </main>
+    </div>
+  </div>
+      
+
 </Layout>
 
 <script

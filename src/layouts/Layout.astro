@@ -31,17 +31,20 @@ const { title } = Astro.props;
     <div class="bg-base-200 w-full">
            <div class="navbar max-w-screen-xl mx-auto">
       <div class="flex-1">
-        <a class="btn btn-ghost text-xl">daisyUI</a>
+        <a class="btn btn-ghost text-2xl">Henahax</a>
       </div>
       <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
-          <li><a href="/links">Links</a></li>
-          <li>
+          <li class="hidden sm:block"><a href="/">Home</a></li>
+          <li class="hidden sm:block"><a href="/server">Server</a></li>
+          <li class="hidden sm:block"><a href="/links">Links</a></li>
+          <li class="sm:hidden">
             <details>
               <summary> <i class="fa-solid fa-bars"></i> Menü</summary>
               <ul class="p-2 bg-base-100 rounded-t-none">
+                <li><a href="/">Home</a></li>
+                <li><a href="/server">Server</a></li>
                 <li><a href="/links">Links</a></li>
-
               </ul>
             </details>
           </li>
@@ -59,3 +62,9 @@ const { title } = Astro.props;
     </footer>
   </body>
 </html>
+
+<style>
+  html{
+    font-family: Consolas,monaco,monospace; 
+  }
+</style>
