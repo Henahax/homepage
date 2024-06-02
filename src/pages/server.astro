@@ -1,35 +1,34 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="Henahax">
-  <h2 class="text-xl">Öffentliche Server</h2>
-  <div class="grid md:grid-cols-2 gap-y-4 gap-x-8 my-4 h-full">
-    <div class="flex flex-col gap-2">
-      <h3 class="text-lg px-2 flex flex-row gap-2 items-center"><i class="fa-brands fa-teamspeak"></i>TeamSpeak</h3>
-      <div id="ts3viewer_1124630" class="p-4 bg-white rounded-xl min-h-fit"></div>
-    </div>
-    <div class="flex flex-col gap-2">
-      <h3 class="text-lg px-2 flex flex-row gap-2 items-center"><i class="fa-brands fa-discord"></i>Discord</h3>
-      <iframe
-      id="discordWidget"
-      class="w-full h-full rounded-xl min-h-96"
-      src="https://discord.com/widget?id=185552226998157313&theme=dark"
-      allowtransparency="true"
-      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-      ></iframe>
-    </div>
-  </div>
-      
-
+	<h2 class="text-xl">Öffentliche Server</h2>
+	<div class="my-4 grid h-full gap-x-8 gap-y-4 md:grid-cols-2">
+		<div class="flex flex-col gap-2">
+			<h3 class="flex flex-row items-center gap-2 px-2 text-lg">
+				<i class="fa-brands fa-teamspeak"></i>TeamSpeak
+			</h3>
+			<div id="ts3viewer_1124630" class="min-h-fit rounded-xl bg-white p-4"></div>
+		</div>
+		<div class="flex flex-col gap-2">
+			<h3 class="flex flex-row items-center gap-2 px-2 text-lg">
+				<i class="fa-brands fa-discord"></i>Discord
+			</h3>
+			<iframe
+				id="discordWidget"
+				class="h-full min-h-96 w-full rounded-xl"
+				src="https://discord.com/widget?id=185552226998157313&theme=dark"
+				allowtransparency="true"
+				sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+			></iframe>
+		</div>
+	</div>
 </Layout>
 
-<script
-  is:inline
-  src="https://static.tsviewer.com/short_expire/js/ts3viewer_loader.js"
-></script>
+<script is:inline src="https://static.tsviewer.com/short_expire/js/ts3viewer_loader.js"></script>
 <script>
-  var ts3v_url_1 =
-    "https://www.tsviewer.com/ts3viewer.php?ID=1124630&text=757575&text_size=12&text_family=1&text_s_color=000000&text_s_weight=normal&text_s_style=normal&text_s_variant=normal&text_s_decoration=none&text_i_color=&text_i_weight=normal&text_i_style=normal&text_i_variant=normal&text_i_decoration=none&text_c_color=&text_c_weight=normal&text_c_style=normal&text_c_variant=normal&text_c_decoration=none&text_u_color=000000&text_u_weight=normal&text_u_style=normal&text_u_variant=normal&text_u_decoration=none&text_s_color_h=&text_s_weight_h=bold&text_s_style_h=normal&text_s_variant_h=normal&text_s_decoration_h=none&text_i_color_h=000000&text_i_weight_h=bold&text_i_style_h=normal&text_i_variant_h=normal&text_i_decoration_h=none&text_c_color_h=&text_c_weight_h=normal&text_c_style_h=normal&text_c_variant_h=normal&text_c_decoration_h=none&text_u_color_h=&text_u_weight_h=bold&text_u_style_h=normal&text_u_variant_h=normal&text_u_decoration_h=none&iconset=default_mono_2014";
-  ts3v_display.init(ts3v_url_1, 1124630, 100);
+	var ts3v_url_1 =
+		'https://www.tsviewer.com/ts3viewer.php?ID=1124630&text=757575&text_size=12&text_family=1&text_s_color=000000&text_s_weight=normal&text_s_style=normal&text_s_variant=normal&text_s_decoration=none&text_i_color=&text_i_weight=normal&text_i_style=normal&text_i_variant=normal&text_i_decoration=none&text_c_color=&text_c_weight=normal&text_c_style=normal&text_c_variant=normal&text_c_decoration=none&text_u_color=000000&text_u_weight=normal&text_u_style=normal&text_u_variant=normal&text_u_decoration=none&text_s_color_h=&text_s_weight_h=bold&text_s_style_h=normal&text_s_variant_h=normal&text_s_decoration_h=none&text_i_color_h=000000&text_i_weight_h=bold&text_i_style_h=normal&text_i_variant_h=normal&text_i_decoration_h=none&text_c_color_h=&text_c_weight_h=normal&text_c_style_h=normal&text_c_variant_h=normal&text_c_decoration_h=none&text_u_color_h=&text_u_weight_h=bold&text_u_style_h=normal&text_u_variant_h=normal&text_u_decoration_h=none&iconset=default_mono_2014'
+	ts3v_display.init(ts3v_url_1, 1124630, 100)
 </script>
