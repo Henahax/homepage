@@ -41,7 +41,7 @@ jobs:
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
       - name: Build Docker image
-        run: docker build . --file Dockerfile --tag henahax/Homepage:latest
+        run: docker build . --file Dockerfile --tag henahax/homepage:latest
 
       - name: Push to Docker Hub
-        run: docker push henahax/Homepage:latest
+        run: docker push henahax/homepage:latest
