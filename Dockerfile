@@ -5,4 +5,4 @@ RUN npm ci
 RUN npm run build
 RUN rm -rf src/ static/ emailTemplates/ docker-compose.yml
 USER node:node
-CMD ["node","build/index.js"]
+CMD node ./dist/server/entry.mjs
