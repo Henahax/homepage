@@ -1,0 +1,31 @@
+---
+const games = [
+	{
+		id: 'guildwars2',
+		name: 'Guild Wars 2',
+		description: 'bla bla bla',
+		link: 'https://www.guildwars2.com/',
+		icon: '',
+		background: ''
+	}
+]
+const active = ['guildwars2', 'dota2', 'deadlock', 'slaythespire']
+const history = ['pokerogue']
+---
+
+<div class="card mx-auto my-8 w-fit">
+	<div role="tablist" class="tabs tabs-bordered tabs-lg">
+		<input
+			type="radio"
+			name="my_tabs_1"
+			role="tab"
+			class="tab"
+			aria-label="active games"
+			checked="checked"
+		/>
+		<div role="tabpanel" class="tab-content p-10">Tab content 1</div>
+
+		<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="recent history" />
+		<div role="tabpanel" class="tab-content p-10">Tab content 2</div>
+	</div>
+</div>
