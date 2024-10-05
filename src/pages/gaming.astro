@@ -7,14 +7,46 @@ const games = [
 		link: 'https://www.guildwars2.com/',
 		icon: '',
 		background: ''
+	},
+	{
+		id: 'dota2',
+		name: 'Dota 2',
+		description: 'bla bla bla',
+		link: 'https://www.dota2.com/',
+		icon: '',
+		background: ''
+	},
+	{
+		id: 'deadlock',
+		name: 'Deadlock',
+		description: 'bla bla bla',
+		link: 'https://store.steampowered.com/app/1422450/Deadlock/',
+		icon: '',
+		background: ''
+	},
+	{
+		id: 'slaythespire',
+		name: 'Slay the Spire',
+		description: 'bla bla bla',
+		link: 'https://store.steampowered.com/app/646570/Slay_the_Spire/',
+		icon: '',
+		background: ''
+	},
+	{
+		id: 'pokerogue',
+		name: 'PokéRogue',
+		description: 'bla bla bla',
+		link: 'https://pokerogue.net/',
+		icon: '',
+		background: ''
 	}
 ]
 const active = ['guildwars2', 'dota2', 'deadlock', 'slaythespire']
 const history = ['pokerogue']
 ---
 
-<div class="card mx-auto my-8 w-fit">
-	<div role="tablist" class="tabs tabs-bordered tabs-lg">
+<div class="card mx-auto w-full">
+	<div role="tablist" class="tabs tabs-bordered tabs-lg mx-auto">
 		<input
 			type="radio"
 			name="my_tabs_1"
@@ -23,9 +55,26 @@ const history = ['pokerogue']
 			aria-label="active games"
 			checked="checked"
 		/>
-		<div role="tabpanel" class="tab-content p-10">Tab content 1</div>
+		<div role="tabpanel" class="tab-content p-10">
+			<div class="carousel carousel-center bg-neutral rounded-box max-w-md space-x-4 p-4">
+				{active.map((id) => {
+					const game = games.find((g) => g.id === id);
+					return game ? <div class="carousel-item w-full">
+				  {game.name}
+				</div> : null;
+				})}
+				
+			  </div>
+		</div>
 
 		<input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="recent history" />
-		<div role="tabpanel" class="tab-content p-10">Tab content 2</div>
+		<div role="tabpanel" class="tab-content p-10">
+			<ul>
+				{history.map((id) => {
+					const game = games.find((g) => g.id === id);
+					return game ? <li>{game.name}</li> : null;
+				})}
+			</ul>
+		</div>
 	</div>
 </div>
