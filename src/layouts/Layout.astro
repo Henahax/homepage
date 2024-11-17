@@ -1,5 +1,5 @@
 ---
-import '@/styles/globals.css'
+import "@/styles/globals.css";
 import { ViewTransitions } from "astro:transitions";
 import { Button } from "@/components/ui/button";
 
@@ -19,11 +19,18 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <ViewTransitions />
   </head>
   <body class="dark min-h-dvh flex flex-col">
     <header class="inline-flex p-2 bg-neutral-900 items-center">
-      <Button className='text-2xl font-black' variant="ghost">Henahax</Button>
+      <Button className="text-2xl font-black" variant="ghost">Henahax</Button>
       <ul class="inline-flex gap-2 grow justify-end">
         <li><Button variant="ghost"><a href="/">Home</a></Button></li>
         <li><Button variant="ghost"><a href="/server">Server</a></Button></li>
@@ -38,6 +45,6 @@ const { title } = Astro.props;
 </html>
 <style is:global>
   :root {
-	font-family: Consolas, monaco, monospace;
+    font-family: Consolas, monaco, monospace;
   }
 </style>

@@ -4,21 +4,24 @@ interface Props {
   link: string;
   icons: string;
   color?: string;
-  background: string;
+  background?: string;
+  backgroundImage?: string;
 }
 
-const { name, link, icons, color, background } = Astro.props;
+const { name, link, icons, color, background, backgroundImage } = Astro.props;
 ---
 
-<li class="rounded-full flex h-12">
-  <a class="flex w-full text-lg justify-center items-center" href={link}>{name}</a>
+<li class="rounded-full flex h-12 border-2">
+  <a class="flex w-full justify-center items-center gap-2" href={link}><i class={icons}/>{name}</a>
 </li>
 
-<style define:vars={{ color, background }}>
+<style define:vars={{ color, background, backgroundImage }}>
 	li {
 	  color: var(--color);
 	  background-color: var(--background);
+    background-image: var(--backgroundImage);
 	}
+
 	li:hover{
 		box-shadow: 0 0 2rem rgba(255,255,255,0.5);
 	}

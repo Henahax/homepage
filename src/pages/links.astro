@@ -16,21 +16,68 @@ const links = [
     icons: "fa-solid fa-envelope",
     background: "#0085ff",
   },
+  {
+    name: "Twitter",
+    link: "https://twitter.henahax.de",
+    icons: "fa-brands fa-x-twitter",
+    background: "#000",
+  },
+  {
+    name: "Instagram",
+    link: "https://instagram.henahax.de",
+    icons: "fa-brands fa-instagram",
+    backgroundImage: "linear-gradient(-135deg, #1400c8, #b900b4, #f50000)",
+  },
+  {
+    name: "Steam",
+    link: "https://steam.henahax.de",
+    icons: "fa-brands fa-steam-symbol",
+    background: "#171a21",
+  },
+  {
+    name: "Discord",
+    link: "https://discordapp.com/users/128418924084723712",
+    icons: "fa-brands fa-discord",
+    background: "#5865f2",
+  },
+  {
+    name: "GitHub",
+    link: "https://github.henahax.de",
+    icons: "fa-brands fa-github",
+    background: "#000",
+  },
+  {
+    name: "DockerHub",
+    link: "https://docker.henahax.de",
+    icons: "fa-brands fa-docker",
+    backgroundImage:
+      "linear-gradient(90deg, rgb(28, 144, 237) 0%, rgb(29, 99, 237) 100%)",
+  },
+  {
+    name: "OnlyFans",
+    link: "/onlyfans",
+    icons: "fa-solid fa-lock",
+    background: "#00AFF0",
+  },
 ];
 ---
 
 <Layout title="henahax.de">
-  <ul class="max-w-sm mx-auto flex flex-col gap-4">
-    {
-      links.map((link) => (
-        <Link
-          name={link.name}
-          link={link.link}
-          icons={link.icons}
-          color={link.color}
-          background={link.background}
-        />
-      ))
-    }
-  </ul>
+  <div class="flex flex-col w-full gap-4">
+    <h2 class="flex w-full justify-center text-3xl font-black">@henahax</h2>
+    <ul class="max-w-sm mx-auto flex flex-col gap-4 w-full">
+      {
+        links.map((link) => (
+          <Link
+            name={link.name}
+            link={link.link}
+            icons={link.icons}
+            color={link.color}
+            background={link.background}
+            backgroundImage={link.backgroundImage}
+          />
+        ))
+      }
+    </ul>
+  </div>
 </Layout>
