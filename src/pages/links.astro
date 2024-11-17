@@ -1,70 +1,36 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Link from '../components/Link.astro'
+import Layout from "../layouts/Layout.astro";
+import Link from "@/components/Link.astro";
+
+const links = [
+  {
+    name: "Webseite",
+    link: "https://henahax.de",
+    icons: "fa-solid fa-globe",
+    color: "#262626",
+    background: "#fff",
+  },
+  {
+    name: "E-Mail",
+    link: "mailto:mail@henahax.de",
+    icons: "fa-solid fa-envelope",
+    background: "#0085ff",
+  },
+];
 ---
 
-<Layout title="@henahax">
-	<div class="flex flex-col gap-4">
-		<div class="flex flex-col gap-2 text-center">
-			<img src="/henahax.jpeg" class="mx-auto size-32 rounded-full"/>
-			<h3 class="text-2xl">@henahax</h3>
-		</div>
-		<ul class="mx-auto flex w-full max-w-sm flex-col gap-4 text-white">
-			<Link
-				name={'Webseite'}
-				link={'https://henahax.de'}
-				icon={'fa-solid fa-globe'}
-				color={'#262626'}
-				backgroundColor={'#fff'}
-			/>
-			<Link
-				name={'E-Mail'}
-				link={'mailto:mail@henahax.de'}
-				icon={'fa-solid fa-envelope'}
-				backgroundColor={'#0085ff'}
-			/>
-			<Link
-				name={'Twitter'}
-				link={'https://twitter.henahax.de'}
-				icon={'fa-brands fa-x-twitter'}
-				backgroundColor={'#000'}
-			/>
-			<Link
-				name={'Instagram'}
-				link={'https://instagram.henahax.de'}
-				icon={'fa-brands fa-instagram'}
-				backgroundImage={'linear-gradient(-135deg,#1400c8,#b900b4,#f50000)'}
-			/>
-			<Link
-				name={'Steam'}
-				link={'https://steam.henahax.de'}
-				icon={'fa-brands fa-steam-symbol'}
-				backgroundColor={'#171a21'}
-			/>
-			<Link
-				name={'Discord'}
-				link={'https://discordapp.com/users/128418924084723712'}
-				icon={'fa-brands fa-discord'}
-				backgroundColor={'#5865f2'}
-			/>
-			<Link
-				name={'GitHub'}
-				link={'https://github.henahax.de'}
-				icon={'fa-brands fa-github'}
-				backgroundColor={'#000'}
-			/>
-			<Link
-				name={'DockerHub'}
-				link={'https://docker.henahax.de'}
-				icon={'fa-brands fa-docker'}
-				backgroundImage={'linear-gradient(90deg, rgb(28, 144, 237) 0%, rgb(29, 99, 237) 100%)'}
-			/>
-			<Link
-				name={'OnlyFans'}
-				link={'/onlyfans'}
-				icon={'fa-solid fa-lock'}
-				backgroundColor={'#00AFF0'}
-			/>
-		</ul>
-	</div>
+<Layout title="henahax.de">
+  <ul class="max-w-sm mx-auto flex flex-col gap-4">
+    {
+      links.map((link) => (
+        <Link
+          name={link.name}
+          link={link.link}
+          icons={link.icons}
+          color={link.color}
+          background={link.background}
+        />
+      ))
+    }
+  </ul>
 </Layout>
