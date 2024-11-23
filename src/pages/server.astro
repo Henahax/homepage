@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Link } from "@/components/Link.tsx";
 
 // https://stackoverflow.com/questions/44837450/recommended-method-to-prevent-any-content-inside-iframe-from-setting-cookies
 
@@ -21,14 +22,49 @@ const discordData = await discordResponse.json();
 
 <Layout title="henahax.de">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>ts3</div>
     <div id="ts3viewer_1124630"></div>
     <div class="discord flex flex-col rounded">
-      <div class="discordHeader p-4 rounded-t-lg">
-        Header
+      <div
+        class="discordHeader px-4 py-5 rounded-t-lg flex justify-between items-center"
+      >
+        <h2 class="inline-flex items-center gap-2 text-2xl font-black">
+          <i class="fa-brands fa-discord"></i>Discord
+        </h2>
+        <div class="text-sm">
+          {discordData.members.length} Mitglied{
+            discordData.members.length === 1 ? "" : "er"
+          } online
+        </div>
       </div>
-      {discordData.name}
-      <div>member online</div>
-      {discordData.members.map((member) => <div>test</div>)}
+      <div class="p-4 flex flex-col h-full">
+        <div class="grow flex flex-col gap-4">
+            <div class="flex flex-col"><div class="text-xs uppercase text-neutral-400">Server</div>
+          <div class="text-2xl">{discordData.name}</div>
+        </div>
+          <div class="flex flex-col gap-2 text-neutral-400">
+            <div class="text-xs uppercase">Mitgleider online</div>
+            <ul class="flex flex-col gap-2">
+              {
+                discordData.members.map((member: any) => (
+                  <li class="flex gap-2 items-center">
+                    <img class="size-6 rounded-full" src={member.avatar_url} />
+                    {member.username}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <Link
+          className="w-full"
+          variant={"outline"}
+            href="https://discord.com/invite/zwnKrhgT?utm_source=Discord%20Widget&utm_medium=Connect"
+            >Beitreten</Link
+          >
+        </div>
+      </div>
     </div>
     <iframe
       src="https://discord.com/widget?id=185552226998157313&theme=dark"
@@ -48,12 +84,16 @@ const discordData = await discordResponse.json();
     border-radius: 1rem;
   }
 
-  .discord{
+  .discord {
     border-radius: 1rem;
-    background-color: hsl(225 calc(1*6.3%) 12.5% /1);
+    background-color: hsl(225 calc(1 * 6.3%) 12.5% /1);
   }
 
   .discordHeader {
     background-color: hsl(235 calc(1 * 85.6%) 64.7% /1);
+  }
+
+  .joinButton {
+    align-content: center;
   }
 </style>

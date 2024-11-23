@@ -1,7 +1,7 @@
 ---
 import "@/styles/globals.css";
 import { ViewTransitions } from "astro:transitions";
-import { Button } from "@/components/ui/button";
+import {Link} from "@/components/Link.tsx"
 
 interface Props {
   title: string;
@@ -19,23 +19,17 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <ViewTransitions />
   </head>
   <body class="dark min-h-dvh flex flex-col">
     <header class="inline-flex p-2 bg-neutral-900 items-center">
-      <Button className="text-2xl font-black" variant="ghost">Henahax</Button>
+      <Link href='#' variant="ghost" className="text-2xl font-black">Henahax</Link>
       <ul class="inline-flex gap-2 grow justify-end">
-        <li><Button variant="ghost"><a href="/">Home</a></Button></li>
-        <li><Button variant="ghost"><a href="/server">Server</a></Button></li>
-        <li><Button variant="ghost"><a href="/gaming">Gaming</a></Button></li>
-        <li><Button variant="ghost"><a href="/links">Links</a></Button></li>
+        <li><Link href='/' variant="ghost">Home</Link></li>
+        <li><Link href='/server' variant="ghost">Server</Link></li>
+        <li><Link href='/gaming' variant="ghost">Gaming</Link></li>
+        <li><Link href='/links' variant="ghost">Links</Link></li>
       </ul>
     </header>
     <app class="grow p-8">
