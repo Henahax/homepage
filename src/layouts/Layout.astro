@@ -23,16 +23,18 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
   <body class="dark min-h-dvh flex flex-col">
-    <header class="inline-flex p-2 bg-neutral-900 items-center">
-      <Link href='#' variant="ghost" className="text-2xl font-black">Henahax</Link>
-      <ul class="inline-flex gap-2 grow justify-end">
+    <header class="bg-neutral-900 inline-flex justify-center">
+      <div class="inline-flex p-2 bg-neutral-900 items-center max-w-screen-2xl w-full">
+      <Link href='#' variant="ghost" className="text-2xl font-black hidden sm:block">Henahax</Link>
+      <ul class="inline-flex gap-2 grow justify-center sm:justify-end">
         <li><Link href='/' variant="ghost">Home</Link></li>
         <li><Link href='/server' variant="ghost">Server</Link></li>
         <li><Link href='/gaming' variant="ghost">Gaming</Link></li>
         <li><Link href='/links' variant="ghost">Links</Link></li>
       </ul>
+    </div>
     </header>
-    <app class="grow p-8">
+    <app class="grow p-4 w-full mx-auto max-w-screen-2xl">
       <slot />
     </app>
     <footer class="flex justify-center p-4 text-xs">© henahax.de 2024</footer>
@@ -41,5 +43,8 @@ const { title } = Astro.props;
 <style is:global>
   :root {
     font-family: Consolas, monaco, monospace;
+  }
+  app{
+    align-content: center;
   }
 </style>
