@@ -1,4 +1,4 @@
-version: '2.1'
+version: "2.1"
 services:
   nginx:
     image: henahax/homepage:latest
