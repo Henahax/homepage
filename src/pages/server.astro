@@ -1,11 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ServerElement from "@/components/ServerElement.astro";
-
-const discordResponse = await fetch(
-  "https://discord.com/api/guilds/185552226998157313/widget.json"
-);
-const discordData = await discordResponse.json();
+import ServerTeamSpeak from "@/components/ServerTeamSpeak.astro";
+import ServerDiscord from "@/components/ServerDiscord.astro";
 ---
 
 <script
@@ -20,72 +16,8 @@ const discordData = await discordResponse.json();
 
 <Layout title="Server - henahax.de">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto max-w-screen-lg">
-    <ServerElement color="#e0e0e0" background="#1c2537" headerBackground="#2580c3" name={"todo"} members={"0 / 32"} link="https://tmspk.gg/henahax.de/">
-      <Fragment slot="title">
-        <i class="fa-brands fa-teamspeak"></i>TeamSpeak
-      </Fragment>
-        <div slot="body" class="flex flex-col gap-2 text-neutral-400">
-        </div>
-    </ServerElement>
-    <ServerElement color="#ffffff" background={"#1e2124"} headerBackground={"#5865F2"} name={discordData.name} members={discordData.presence_count} link="https://discord.com/invite/zwnKrhgT?utm_source=Discord%20Widget&utm_medium=Connect">
-      <Fragment slot="title">
-        <i class="fa-brands fa-discord"></i>Discord
-      </Fragment>
-        <div slot="body" class="flex flex-col gap-4 text-neutral-400">
-          <div class="flex flex-col">
-            <div class="text-xs uppercase text-neutral-400">Server</div>
-            <div class="text-2xl text-white">{discordData.name}</div>
-          </div>
-          <div class="channels flex flex-col gap-1">
-            {discordData.channels.length > 0 &&
-              <div class="text-xs uppercase">channel</div>
-<ul class="flex flex-col text-white gap-1 px-2">
-  {discordData.channels.map((channel: any) => {
-    const membersInChannel = discordData.members.filter(
-      (member: any) => member.channel_id === channel.id
-    );
-    return (
-      
-        <li class="flex text-sm flex-col">
-          <div>{channel.name}</div>
-          <ul class="flex flex-col text-neutral-400 px-2">
-            {membersInChannel.map((member: any) => (
-              <li class="flex gap-2 items-center text-sm">
-                <img
-                  class="w-4 h-4 rounded-full"
-                  src={member.avatar_url}
-                  alt={`${member.username}'s avatar`}
-                />
-                {member.username}
-              </li>
-            ))}
-          </ul>
-        </li>
-      )
-
-  })}
-</ul>
-
-            } 
-            </div>
-          <div class="flex flex-col gap-1 grow">
-          {discordData.members.length > 0 &&
-            <div class="text-xs uppercase">online</div>
-            <ul class="flex flex-col text-white px-2">
-            {
-              discordData.members.map((member: any) => (
-                <li class="flex gap-2 items-center text-sm text-neutral-400">
-                  <img class="size-4 rounded-full" src={member.avatar_url} />
-                  {member.username}
-                </li>
-              ))
-            }
-          </ul>
-          } 
-          </div>
-        </div>
-    </ServerElement>
-
+    <ServerTeamSpeak />
+    <ServerDiscord />
     <div id="ts3viewer_1124630"></div>
     <iframe
       src="https://discord.com/widget?id=185552226998157313&theme=dark"
@@ -95,7 +27,6 @@ const discordData = await discordResponse.json();
       frameborder="0"
       sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
     ></iframe>
-
   </div>
 </Layout>
 
@@ -108,5 +39,5 @@ const discordData = await discordResponse.json();
 
   .channels:not(:has(li)) {
     display: none;
-}
+  }
 </style>

@@ -1,0 +1,55 @@
+---
+import ServerElement from "@/components/ServerElement.astro";
+
+const discordResponse = await fetch(
+  "https://discord.com/api/guilds/185552226998157313/widget.json"
+);
+const discordData = await discordResponse.json();
+---
+
+<ServerElement color="#ffffff" background={"#1e2124"} headerBackground={"#5865F2"} name={discordData.name} members={discordData.presence_count} link="https://discord.com/invite/zwnKrhgT?utm_source=Discord%20Widget&utm_medium=Connect">
+    <Fragment slot="title">
+      <i class="fa-brands fa-discord"></i>Discord
+    </Fragment>
+      <div slot="body" class="flex flex-col gap-4 text-neutral-400">
+        <div class="channels flex flex-col gap-1">
+          {discordData.channels.length > 0 &&
+            <div class="text-xs uppercase">channel</div>
+              <ul class="flex flex-col text-white gap-1 px-2">
+              {discordData.channels.map((channel: any) => (
+                <li class="flex text-sm flex-col">
+                  <div>{channel.name}</div>
+                  <ul class="flex flex-col text-neutral-400 px-2">
+                    {discordData.members
+                      .filter((member: any) => member.channel_id === channel.id)
+                      .map((member: any) => (
+                        <li class="flex gap-2 items-center text-sm">
+                          <img
+                            class="w-4 h-4 rounded-full"
+                            src={member.avatar_url}
+                            alt={`${member.username}'s avatar`}
+                          />
+                          {member.username}
+                        </li>
+                      ))}
+                  </ul>
+                </li>
+              ))}
+              </ul>
+            }
+            </div>
+            <div class="flex flex-col gap-1 grow">
+            {discordData.members.length > 0 &&
+            <div class="text-xs uppercase">online</div>
+            <ul class="flex flex-col text-white px-2">
+            {discordData.members.map((member: any) => (
+                <li class="flex gap-2 items-center text-sm text-neutral-400">
+                  <img class="size-4 rounded-full" src={member.avatar_url} />
+                  {member.username}
+                </li>
+              ))}
+          </ul>
+          } 
+        </div>
+      </div>
+  </ServerElement>
