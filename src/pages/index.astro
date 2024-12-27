@@ -1,9 +1,63 @@
 ---
 import Layout from "../layouts/Layout.astro";
+// idee: https://www.youtube.com/watch?v=jMVhxBB3l0w
 ---
 
 <Layout title="henahax.de">
-    <div>Test<div>
-</Layout> 
+    <div id="screen" class="mx-auto bg-white rounded-xl">
+        <h1
+    id="title"
+    class="text-6xl sm:text-8xl content-center mx-auto w-fit"
+    data-value="HENAHAX"
+  >
+    HENAHAX
+  </h1>
+    </div>
+  
+</Layout>
+
 <style>
+    #screen{
+        aspect-ratio: 10 / 16;
+        max-height: 75dvh;
+        align-content: center;
+    }
+
+    h1{
+        color: #00ff00;
+    }
 </style>
+
+<script lang="js">
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  let interval = null;
+
+  var effect = (event) => {
+    let iteration = 0;
+
+    clearInterval(interval);
+
+    interval = setInterval(() => {
+      event.target.innerText = event.target.innerText
+        .split("")
+        .map((letter, index) => {
+          if (index < iteration) {
+            return event.target.dataset.value[index];
+          }
+
+          return letters[Math.floor(Math.random() * 26)];
+        })
+        .join("");
+
+      if (iteration >= event.target.dataset.value.length) {
+        clearInterval(interval);
+      }
+
+      iteration += 1 / 3;
+    }, 50);
+  };
+
+  effect({ target: document.querySelector("h1") });
+  document.querySelector("h1").onmouseover = effect;
+</script>
