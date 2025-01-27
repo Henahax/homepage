@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Link from "@/components/Link.astro";
 
 const links = [
   {
@@ -68,15 +67,7 @@ const links = [
     <ul class="max-w-sm mx-auto flex flex-col gap-4 w-full">
       {
         links.map((link) => (
-          <Link
-            name={link.name}
-            link={link.link}
-            icons={link.icons}
-            color={link.color}
-            background={link.background}
-            backgroundImage={link.backgroundImage}
-          />
-          
+          <li></li>
         ))
       }
     </ul>

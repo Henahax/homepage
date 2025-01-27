@@ -1,13 +1,22 @@
 ---
 import "@/styles/globals.css";
-import { ViewTransitions } from "astro:transitions";
-import { Link } from "@/components/Link.tsx";
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+const menuItems = [
+  { href: "/", label: "Home", icon: "fa-solid fa-house" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" },
+];
+
+console.log(currentPath);
 ---
 
 <!doctype html>
@@ -26,38 +35,48 @@ const { title } = Astro.props;
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <ViewTransitions />
   </head>
-  <body class="dark min-h-dvh flex flex-col">
-    <header class="bg-neutral-900 inline-flex justify-center">
-      <div
-        class="inline-flex p-2 bg-neutral-900 items-center max-w-screen-2xl w-full"
-      >
-        <Link
-          href="#"
-          variant="ghost"
-          className="text-2xl font-black hidden sm:flex items-center"
-        >
-          Henahax
-        </Link>
-        <ul class="inline-flex gap-2 grow justify-end sm:justify-end">
-          <li><Link href="/" variant="ghost">Home</Link></li>
-          <li><Link href="/server" variant="ghost">Server</Link></li>
-          <li><Link href="/links" variant="ghost">Links</Link></li>
-        </ul>
-      </div>
-    </header>
-    <app class="grow p-4 w-full mx-auto max-w-screen-2xl">
+  <body class="min-h-dvh flex flex-col">
+    <app class="flex flex-col grow p-4 justify-center items-center">
       <slot />
     </app>
-    <footer class="flex justify-center p-4 text-xs">© henahax.de 2024</footer>
+
+    <nav
+      class="fixed bottom-4 w-fit self-center h-20 p-4 flex justify-center items-center rounded-xl border-neutral-400 border backdrop-blur-md"
+    >
+      <ul class="flex justify-center space-x-4">
+        {
+          menuItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="border border-white backdrop-blur-lg hover:backdrop-brightness-50"
+              >
+                <i class={item.icon} /> {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
   </body>
+  <style is:global>
+    :root {
+      font-family: Consolas, monaco, monospace;
+    }
+
+    body {
+      background-image: url("/cool-background.png");
+    }
+
+    app {
+      align-content: center;
+    }
+
+    nav ul li a {
+      color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+  </style>
 </html>
-<style is:global>
-  :root {
-    font-family: Consolas, monaco, monospace;
-  }
-  app {
-    align-content: center;
-  }
-</style>
