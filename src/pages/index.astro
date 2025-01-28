@@ -1,30 +1,35 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Work from "@/components/work.md";
+import Hobbies from "@/components/hobbies.md";
+import Gaming from "@/components/gaming.md";
+
 ---
 
 <Layout title="henahax.de"> 
   <div>Bild</div>
   <div>Name</div>
   <div>Icon Links</div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <div class="@container grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div class="sm:col-span-2">Desc</div>
     <div>
-      Work
-      <div class="grid grid-cols-2">
-        <div>role:</div>
-        <div>dev</div>
-        <div>location:</div>
-        <div>Munich</div>
-      </div>
+      <Work>
     </div>
-    <div>hobbies</div>
-    <div>dev</div>
-    <div>gaming</div>
+    <div class="backdrop-blur-lg">
+      <Hobbies/>
+    </div>
+    <div class="backdrop-blur-lg">dev</div>
+    <div>
+      <Gaming>
+    </div>
   </div>
 </Layout>
 
 <style>
   .grid > div{
     border: 1px solid black;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid white;
   }
 </style>
