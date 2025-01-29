@@ -1,0 +1,16 @@
+---
+const { class: className, title: title } = Astro.props;
+---
+
+<div class:list={["border border-white p-2 rounded-xl backdrop-blur-lg", className]}>
+    {
+        title ? 
+            <h3>{title}</h3>
+            <div>
+                <slot/>
+            </div>
+            :
+            <slot />
+    }
+</div>
+
