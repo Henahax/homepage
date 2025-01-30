@@ -11,16 +11,13 @@ const currentPath = Astro.url.pathname;
 
 const menuItems = [
   { href: "/", label: "Home", icon: "fa-solid fa-house" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact" },
+  { href: "/servers", label: "Server", icon: "fa-solid fa-server" },
+  { href: "/links", label: "Links", icon: "fa-solid fa-link" }
 ];
-
-console.log(currentPath);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -36,13 +33,13 @@ console.log(currentPath);
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="min-h-dvh flex flex-col">
+  <body class="min-h-dvh flex flex-col bg-background text-foreground font-con">
     <app class="flex flex-col grow p-4 justify-center items-center">
       <slot />
     </app>
 
     <nav
-      class="fixed bottom-4 w-fit self-center h-20 p-4 flex justify-center items-center rounded-xl border-neutral-400 border backdrop-blur-md"
+      class="fixed bottom-4 w-fit self-center h-20 p-4 flex justify-center items-center rounded-xl border backdrop-blur-md text-muted-foreground border-muted-foreground"
     >
       <ul class="flex justify-center space-x-4">
         {
@@ -50,9 +47,9 @@ console.log(currentPath);
             <li>
               <a
                 href={item.href}
-                class="border border-white backdrop-blur-lg"
+                class="border border-muted-foreground backdrop-blur-lg hover:text-foreground hover:border-foreground flex items-center gap-2"
               >
-                <i class={item.icon} /> {item.label}
+                <i class={item.icon} /><Fragment class:list={"hidden sm:flex"}>{item.label}</Fragment>
               </a>
             </li>
           ))
@@ -61,13 +58,8 @@ console.log(currentPath);
     </nav>
   </body>
   <style is:global>
-    :root {
-      font-family: Consolas, monaco, monospace;
-    }
-
     body {
-      background-image: url("/cool-background.png");
-      background-size: cover;
+      font-family: Consolas, monaco, monospace;
     }
 
     app {
@@ -75,7 +67,6 @@ console.log(currentPath);
     }
 
     nav ul li a {
-      color: white;
       padding: 1rem;
       border-radius: 0.5rem;
     }

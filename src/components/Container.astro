@@ -1,16 +1,15 @@
 ---
-const { class: className, title: title } = Astro.props;
+const { class: className } = Astro.props;
 ---
 
-<div class:list={["border border-white p-2 rounded-xl backdrop-blur-lg", className]}>
-    {
-        title ? 
-            <h3>{title}</h3>
-            <div>
-                <slot/>
-            </div>
-            :
-            <slot />
-    }
-</div>
+<div class:list={["border border-white rounded-xl backdrop-blur-lg", className]}>
 
+    <h3 slot="title" class="flex items-center gap-2 p-4 justify-between text-muted-foreground">
+  <slot name="title" />
+</h3>
+
+  <div class="flex flex-col gap-4">
+    <slot name="content" />
+  </div>
+
+</div>

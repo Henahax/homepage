@@ -1,6 +1,55 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Container from "@/components/Container.astro";
+
+const games = [
+  {
+    category: "aktiv",
+    games: [
+      {
+        name: "Deadlock",
+        link: "https://store.steampowered.com/app/1422450/Deadlock/",
+        image:
+          "https://cdn2.steamgriddb.com/icon_thumb/9c202dfab71567e6c5a1526236bfc6f2.png",
+      },
+      {
+        name: "Guild Wars 2",
+        link: "https://www.guildwars2.com",
+        image:
+          "https://cdn2.steamgriddb.com/icon/8910f41d3f22b34450934ea4c13eacf5/32/256x256.png",
+      },
+      {
+        name: "Dota 2",
+        link: "https://www.dota2.com",
+        image:
+          "https://cdn2.steamgriddb.com/icon/db98dc0dbafde48e8f74c0de001d35e4/32/128x128.png",
+      },
+    ],
+  },
+  {
+    category: "unregelmäßig",
+    games: [
+      {
+        name: "Slay the Spire",
+        link: "https://store.steampowered.com/app/646570/Slay_the_Spire/",
+        image:
+          "https://cdn2.steamgriddb.com/icon/70ece1e1e0931919438fcfc6bd5f199c/32/256x256.png",
+      },
+      {
+        name: "GeoGuessr",
+        link: "https://www.geoguessr.com",
+        image:
+          "https://cdn2.steamgriddb.com/logo_thumb/93c4b151141a06d95ddaeca3ebf766b4.png",
+      },
+      {
+        name: "FoodGuessr",
+        link: "https://foodguessr.com",
+        image:
+          "https://cdn2.steamgriddb.com/logo_thumb/93c4b151141a06d95ddaeca3ebf766b4.png",
+      },
+    ],
+  },
+];
 ---
 
 <Layout title="henahax.de">
@@ -8,23 +57,59 @@ import Container from "@/components/Container.astro";
     <div class="sm:col-span-2">Bild</div>
     <div class="sm:col-span-2">Name</div>
     <div class="sm:col-span-2">Icon Links</div>
-    <Container class="sm:col-span-2">Desc</Container>
-    <Container>work</Container>
-    <Container>hobbies</Container>
-    <Container>dev</Container>
-    <Container title="gaming">
-      <h4>aktiv</h4>
+    <Container class="sm:col-span-2">
+      <Fragment slot="title">desc</Fragment>
+    </Container>
+    <Container>
+      <Fragment slot="title">work</Fragment>
+    </Container>
+    <Container>
+      <Fragment slot="title">hobbies</Fragment>
+    </Container>
+    <Container>
+      <Fragment slot="title">
+        dev
+        <a
+          class="text-2xl text-foreground hover:text-muted-foreground"
+          href="https://github.henahax.de"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </Fragment>
+    </Container>
+    <Container>
+      <Fragment slot="title">
+        gaming
+        <a
+          class="text-2xl text-foreground hover:text-muted-foreground"
+          href="https://steamcommunity.com/id/henahax/"
+        >
+          <i class="fa-brands fa-steam"></i>
+        </a>
+      </Fragment>
 
-      <ul>
-        <li>game 1</li>
-        <li>game 2</li>
-      </ul>
-
-      <h4>unregelmäßig</h4>
-      <ul>
-        <li>game 1</li>
-        <li>game 2</li>
-      </ul>
+      <div slot="content" class="p-8 flex flex-col gap-4 pt-4">
+        {
+          games.map((category) => (
+            <div>
+              <h4 class="text-xs text-muted-foreground">{category.category}</h4>
+              <ul class="flex flex-col gap-2 py-2">
+                {category.games.map((game) => (
+                  <li class="flex items-center gap-2">
+                    <a
+                      href={game.link}
+                      class="underline hover:text-muted-foreground flex gap-2 items-center"
+                    >
+                      <img src={game.image} class="size-8" />
+                      {game.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
     </Container>
   </div>
 </Layout>
