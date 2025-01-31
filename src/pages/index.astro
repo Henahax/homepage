@@ -1,115 +1,130 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Container from "@/components/Container.astro";
 
-const games = [
+const links = [
   {
-    category: "aktiv",
-    games: [
-      {
-        name: "Deadlock",
-        link: "https://store.steampowered.com/app/1422450/Deadlock/",
-        image:
-          "https://cdn2.steamgriddb.com/icon_thumb/9c202dfab71567e6c5a1526236bfc6f2.png",
-      },
-      {
-        name: "Guild Wars 2",
-        link: "https://www.guildwars2.com",
-        image:
-          "https://cdn2.steamgriddb.com/icon/8910f41d3f22b34450934ea4c13eacf5/32/256x256.png",
-      },
-      {
-        name: "Dota 2",
-        link: "https://www.dota2.com",
-        image:
-          "https://cdn2.steamgriddb.com/icon/db98dc0dbafde48e8f74c0de001d35e4/32/128x128.png",
-      },
-    ],
+    name: "GitHub",
+    link: "https://github.henahax.de",
+    icon: "fa-brands fa-github",
   },
   {
-    category: "unregelmäßig",
-    games: [
-      {
-        name: "Slay the Spire",
-        link: "https://store.steampowered.com/app/646570/Slay_the_Spire/",
-        image:
-          "https://cdn2.steamgriddb.com/icon/70ece1e1e0931919438fcfc6bd5f199c/32/256x256.png",
-      },
-      {
-        name: "GeoGuessr",
-        link: "https://www.geoguessr.com",
-        image:
-          "https://cdn2.steamgriddb.com/logo_thumb/93c4b151141a06d95ddaeca3ebf766b4.png",
-      },
-      {
-        name: "FoodGuessr",
-        link: "https://foodguessr.com",
-        image:
-          "https://cdn2.steamgriddb.com/logo_thumb/93c4b151141a06d95ddaeca3ebf766b4.png",
-      },
-    ],
+    name: "Steam",
+    link: "https://steam.henahax.de",
+    icon: "fa-brands fa-steam",
+  },
+  {
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/in/tobias-halupczok/",
+    icon: "fa-brands fa-linkedin",
+  },
+];
+
+const gamesActive = [
+  {
+    name: "Deadlock",
+    link: "https://store.steampowered.com/app/1422450/Deadlock/",
+    image:
+      "https://cdn2.steamgriddb.com/icon_thumb/9c202dfab71567e6c5a1526236bfc6f2.png",
+  },
+  {
+    name: "Guild Wars 2",
+    link: "https://guildwars2.com",
+    image:
+      "https://cdn2.steamgriddb.com/icon/8910f41d3f22b34450934ea4c13eacf5/32/256x256.png",
+  },
+  {
+    name: "Dota 2",
+    link: "https://dota2.com",
+    image:
+      "https://cdn2.steamgriddb.com/icon/db98dc0dbafde48e8f74c0de001d35e4/32/128x128.png",
+  },
+  {
+    name: "Slay the Spire",
+    link: "https://store.steampowered.com/app/646570/Slay_the_Spire/",
+    image:
+      "https://cdn2.steamgriddb.com/icon/70ece1e1e0931919438fcfc6bd5f199c/32/256x256.png",
+  },
+];
+
+const gamesCasual = [
+  {
+    name: "GeoGuessr",
+    link: "https://geoguessr.com",
+  },
+  {
+    name: "FoodGuessr",
+    link: "https://foodguessr.com",
   },
 ];
 ---
 
 <Layout title="henahax.de">
-  <div class="@container grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div class="sm:col-span-2">Bild</div>
     <div class="sm:col-span-2">Name</div>
-    <div class="sm:col-span-2">Icon Links</div>
-    <Container class="sm:col-span-2">
-      <Fragment slot="title">desc</Fragment>
-    </Container>
-    <Container>
-      <Fragment slot="title">work</Fragment>
-    </Container>
-    <Container>
-      <Fragment slot="title">hobbies</Fragment>
-    </Container>
-    <Container>
-      <Fragment slot="title">
-        dev
-        <a
-          class="text-2xl text-foreground hover:text-muted-foreground"
-          href="https://github.henahax.de"
-        >
-          <i class="fa-brands fa-github"></i>
-        </a>
-      </Fragment>
-    </Container>
-    <Container>
-      <Fragment slot="title">
-        gaming
-        <a
-          class="text-2xl text-foreground hover:text-muted-foreground"
-          href="https://steamcommunity.com/id/henahax/"
-        >
+    <div class="sm:col-span-2">
+      <div class="flex justify-center items-center gap-4 text-2xl">
+        {links.map((link) => (
+          <a href={link.link}>
+            <i class={link.icon}></i>
+          </a>
+        ))}
+      </div>
+    </div>
+    <div class="card sm:col-span-2">desc</div>
+    <div class="card">work</div>
+    <div class="card">hobbies</div>
+    <div class="card">dev</div>
+    <div class="card">
+      <div class="cardTitle">
+        Gaming
+        <a href="https://steam.henahax.de">
           <i class="fa-brands fa-steam"></i>
         </a>
-      </Fragment>
+      </div>
 
-      <div slot="content" class="p-8 flex flex-col gap-4 pt-4">
+      <div class="grid grid-cols-2">
+        <div class="col-span-2">aktiv:</div>
         {
-          games.map((category) => (
-            <div>
-              <h4 class="text-xs text-muted-foreground">{category.category}</h4>
-              <ul class="flex flex-col gap-2 py-2">
-                {category.games.map((game) => (
-                  <li class="flex items-center gap-2">
-                    <a
-                      href={game.link}
-                      class="underline hover:text-muted-foreground flex gap-2 items-center"
-                    >
-                      <img src={game.image} class="size-8" />
-                      {game.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          gamesActive.map((game) => (
+            <a
+              href={game.link}
+              class="grid subgrid grid-cols-[auto_1fr] col-span-2 items-center gap-2 py-1"
+            >
+              <img src={game.image} alt={game.name} class="size-8" />
+              <div>{game.name}</div>
+            </a>
           ))
         }
       </div>
-    </Container>
+
+      <div>
+        <div>gelegentlich:</div>
+        <div class="flex flex-wrap gap-x-2">
+          {gamesCasual.map((game) => <a href={game.link}>{game.name}</a>)}
+        </div>
+      </div>
+    </div>
   </div>
 </Layout>
+
+<style>
+  .card {
+    border: 1px solid red;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cardTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cardTitle a i {
+  }
+</style>

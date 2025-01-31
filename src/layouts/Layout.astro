@@ -14,10 +14,12 @@ const menuItems = [
   { href: "/servers", label: "Server", icon: "fa-solid fa-server" },
   { href: "/links", label: "Links", icon: "fa-solid fa-link" }
 ];
+
+console.log(currentPath);
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -33,7 +35,7 @@ const menuItems = [
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="min-h-dvh flex flex-col bg-background text-foreground font-con">
+  <body class="min-h-dvh flex flex-col">
     <app class="flex flex-col grow p-4 justify-center items-center">
       <slot />
     </app>
