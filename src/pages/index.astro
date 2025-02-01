@@ -83,13 +83,13 @@ const gamesCasual = [
         </a>
       </div>
 
-      <div class="grid grid-cols-2">
-        <div class="col-span-2">aktiv:</div>
+      <div class="grid grid-cols-2 ">
+        <div class="col-span-2 text-sm">aktiv:</div>
         {
           gamesActive.map((game) => (
             <a
               href={game.link}
-              class="grid subgrid grid-cols-[auto_1fr] col-span-2 items-center gap-2 py-1"
+              class="grid subgrid grid-cols-[auto_1fr] col-span-2 items-center gap-2 px-2 py-1.5 hover:bg-neutral-800 rounded-xl"
             >
               <img src={game.image} alt={game.name} class="size-8" />
               <div>{game.name}</div>
@@ -99,9 +99,11 @@ const gamesCasual = [
       </div>
 
       <div>
-        <div>gelegentlich:</div>
+        <div class="text-sm">gelegentlich:</div>
         <div class="flex flex-wrap gap-x-2">
-          {gamesCasual.map((game) => <a href={game.link}>{game.name}</a>)}
+          {gamesCasual.map((game) => 
+          <a href={game.link} class="hover:bg-neutral-800 px-2 rounded-full">{game.name}</a>
+          )}
         </div>
       </div>
     </div>
@@ -125,6 +127,8 @@ const gamesCasual = [
     gap: 1rem;
   }
 
-  .cardTitle a i {
+  .cardTitle a:hover{
+    /* todo */
+    background-color: var(--color-neutral-800);
   }
 </style>
