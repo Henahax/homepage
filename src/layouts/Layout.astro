@@ -35,7 +35,7 @@ console.log(currentPath);
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="min-h-dvh flex flex-col text-neutral-50 bg-neutral-950">
+  <body class="min-h-dvh flex flex-col">
     <app class="flex flex-col grow p-4 justify-center items-center">
       <slot />
     </app>
@@ -43,11 +43,16 @@ console.log(currentPath);
   <style is:global>
     body {
       font-family: Consolas, monaco, monospace;
+      @apply text-foreground;
+      @apply bg-background;
+    }
+
+    a:hover i {
+      
     }
 
     app {
       align-content: center;
     }
-
   </style>
 </html>
