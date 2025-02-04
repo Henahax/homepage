@@ -7,6 +7,13 @@ import Card from "@/lib/Card.astro";
   <Card transitionName="work">
     <i slot="icon" class="fa-solid fa-briefcase" transition:name="iconWork"></i>
     <div slot="title" transition:name="titleWork">Arbeit</div>
-    <div slot="content"></div>
+    <div slot="content" class="grid gap-4 grid-cols-[auto_1fr]">
+      <i class="fa-solid fa-location-dot"></i>München
+      <i class="fa-solid fa-user-tie"></i>Dev
+      <div class="col-span-2 flex gap-4 text-2xl">
+        <i class="fa-brands fa-html5"></i><i class="fa-brands fa-css"></i>Cards
+      </div>
+
+    </div>
   </Card>
 </Layout>
