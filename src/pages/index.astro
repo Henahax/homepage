@@ -63,14 +63,14 @@ const tiles = [
   <div class="grid grid-cols-2 gap-4 w-full max-w-xl justify-self-center">
     <div class="col-span-2">todo: links</div>
 
-
-    {tiles.map((tile) => (
-      <a class="card" href={tile.link} transition:name={tile.name}>
-        <i class={tile.icon} transition:name={"icon" + tile.name}></i>
-        <div transition:name={"title" + tile.name}>{tile.desc}</div>
-      </a>
-    ))}
-
+    {
+      tiles.map((tile) => (
+        <a class="card" href={tile.link} transition:name={tile.name}>
+          <i class={tile.icon} transition:name={"icon" + tile.name} />
+          <div transition:name={"title" + tile.name}>{tile.desc}</div>
+        </a>
+      ))
+    }
   </div>
 </Layout>
 
