@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "@/lib/Card.astro";
+
+const gamesActive = [
+  {
+    name: "Deadlock",
+    link: "https://store.steampowered.com/app/1422450/Deadlock/",
+    image:
+      "https://cdn2.steamgriddb.com/icon_thumb/9c202dfab71567e6c5a1526236bfc6f2.png",
+  },
+  {
+    name: "Guild Wars 2",
+    link: "https://guildwars2.com",
+    image:
+      "https://cdn2.steamgriddb.com/icon/8910f41d3f22b34450934ea4c13eacf5/32/256x256.png",
+  },
+  {
+    name: "Dota 2",
+    link: "https://dota2.com",
+    image:
+      "https://cdn2.steamgriddb.com/icon/db98dc0dbafde48e8f74c0de001d35e4/32/128x128.png",
+  },
+  {
+    name: "Slay the Spire",
+    link: "https://store.steampowered.com/app/646570/Slay_the_Spire/",
+    image:
+      "https://cdn2.steamgriddb.com/icon/70ece1e1e0931919438fcfc6bd5f199c/32/256x256.png",
+  },
+];
+
+const gamesCasual = [
+  {
+    name: "GeoGuessr",
+    link: "https://geoguessr.com",
+  },
+  {
+    name: "FoodGuessr",
+    link: "https://foodguessr.com",
+  },
+];
+---
+
+<Layout title="Gaming - henahax.de">
+  <Card transitionName="gaming">
+    <i slot="icon" class="fa-solid fa-gamepad" transition:name="icongaming"></i>
+    <div slot="title" transition:name="titlegaming">Gaming</div>
+    <div slot="content"></div>
+  </Card>
+</Layout>

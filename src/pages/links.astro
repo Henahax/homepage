@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Card from "@/lib/Card.astro";
 
 const links = [
   {
@@ -61,15 +62,10 @@ const links = [
 ];
 ---
 
-<Layout title="henahax.de">
-  <div class="flex flex-col w-full gap-4">
-    <h2 class="flex w-full justify-center text-3xl font-black">@henahax</h2>
-    <ul class="max-w-sm mx-auto flex flex-col gap-4 w-full">
-      {
-        links.map((link) => (
-          <li></li>
-        ))
-      }
-    </ul>
-  </div>
+<Layout title="Links - henahax.de">
+  <Card transitionName="links">
+    <i slot="icon" class="fa-solid fa-link" transition:name="iconlinks"></i>
+    <div slot="title" transition:name="titlelinks">Links</div>
+    <div slot="content"></div>
+  </Card>
 </Layout>

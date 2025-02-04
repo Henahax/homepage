@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Card from "@/lib/Card.astro";
 ---
 
 <Layout title="Server - henahax.de">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto max-w-screen-lg">
-  </div>
+  <Card transitionName="server">
+    <i slot="icon" class="fa-solid fa-server" transition:name="iconServer"></i>
+    <div slot="title" transition:name="titleServer">Server</div>
+    <div slot="content"></div>
+  </Card>
 </Layout>
-
-<style>
-</style>

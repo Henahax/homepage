@@ -19,136 +19,74 @@ const links = [
   },
 ];
 
-const gamesActive = [
+const tiles = [
   {
-    name: "Deadlock",
-    link: "https://store.steampowered.com/app/1422450/Deadlock/",
-    image:
-      "https://cdn2.steamgriddb.com/icon_thumb/9c202dfab71567e6c5a1526236bfc6f2.png",
+    name: "work",
+    desc: "Arbeit",
+    link: "/work",
+    icon: "fa-solid fa-briefcase",
   },
   {
-    name: "Guild Wars 2",
-    link: "https://guildwars2.com",
-    image:
-      "https://cdn2.steamgriddb.com/icon/8910f41d3f22b34450934ea4c13eacf5/32/256x256.png",
+    name: "dev",
+    desc: "Dev",
+    link: "/dev",
+    icon: "fa-solid fa-code",
   },
   {
-    name: "Dota 2",
-    link: "https://dota2.com",
-    image:
-      "https://cdn2.steamgriddb.com/icon/db98dc0dbafde48e8f74c0de001d35e4/32/128x128.png",
+    name: "server",
+    desc: "Server",
+    link: "/server",
+    icon: "fa-solid fa-server",
   },
   {
-    name: "Slay the Spire",
-    link: "https://store.steampowered.com/app/646570/Slay_the_Spire/",
-    image:
-      "https://cdn2.steamgriddb.com/icon/70ece1e1e0931919438fcfc6bd5f199c/32/256x256.png",
-  },
-];
-
-const gamesCasual = [
-  {
-    name: "GeoGuessr",
-    link: "https://geoguessr.com",
+    name: "hobbies",
+    desc: "Hobbies",
+    link: "/hobbies",
+    icon: "fa-solid fa-icons",
   },
   {
-    name: "FoodGuessr",
-    link: "https://foodguessr.com",
+    name: "gaming",
+    desc: "Gaming",
+    link: "/gaming",
+    icon: "fa-solid fa-gamepad",
+  },
+  {
+    name: "links",
+    desc: "Links/Kontakt",
+    link: "/links",
+    icon: "fa-solid fa-link",
   },
 ];
 ---
 
 <Layout title="henahax.de">
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-    <div class="sm:col-span-2">Bild</div>
-    <h1 class="sm:col-span-2 text-3xl flex gap-2 justify-center">
-      <span>Tobias</span>
-      <span class="text-primary italic">"Henahax"</span>
-      <span>Halupczok</span>
-    </h1>
-    <div class="sm:col-span-2">
-      <div class="flex justify-center items-center gap-4 text-2xl">
-        {
-          links.map((link) => (
-            <a
-              href={link.link}
-              class="border flex justify-center items-center p-2"
-            >
-              <i class={link.icon} />
-            </a>
-          ))
-        }
-      </div>
-    </div>
-    <div class="card sm:col-span-2">desc</div>
-    <div class="card">
-      <div>title Work</div>
-      <div class="grid">
-        <div>location</div>
-        <div>role</div>
-        <div>since</div>
-        <div>technologies</div>
-      </div>
-    </div>
-    <div class="card">hobbies</div>
-    <div class="card">dev</div>
-    <div class="card">
-      <div class="cardTitle">
-        Gaming
-        <a href="https://steam.henahax.de">
-          <i class="fa-brands fa-steam"></i>
-        </a>
-      </div>
+  <div class="grid grid-cols-2 gap-4 w-full max-w-xl justify-self-center">
+    <div class="col-span-2">todo: links</div>
 
-      <div class="grid grid-cols-2">
-        <div class="col-span-2 text-sm">aktiv:</div>
-        {
-          gamesActive.map((game) => (
-            <a
-              href={game.link}
-              class="grid subgrid grid-cols-[auto_1fr] col-span-2 items-center gap-2 px-2 py-1.5 hover:bg-neutral-800 rounded-xl"
-            >
-              <img src={game.image} alt={game.name} class="size-8" />
-              <div>{game.name}</div>
-            </a>
-          ))
-        }
-      </div>
 
-      <div>
-        <div class="text-sm">gelegentlich:</div>
-        <div class="flex flex-wrap gap-x-2">
-          {
-            gamesCasual.map((game) => (
-              <a
-                href={game.link}
-                class="hover:bg-neutral-800 px-2 rounded-full"
-              >
-                {game.name}
-              </a>
-            ))
-          }
-        </div>
-      </div>
-    </div>
+    {tiles.map((tile) => (
+      <a class="card" href={tile.link} transition:name={tile.name}>
+        <i class={tile.icon} transition:name={"icon" + tile.name}></i>
+        <div transition:name={"title" + tile.name}>{tile.desc}</div>
+      </a>
+    ))}
+
   </div>
 </Layout>
 
 <style>
-  .card {
-    border: 1px solid;
-    padding: 1rem;
-    border-radius: 0.5rem;
+  a.card {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    @apply bg-card;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.125rem;
+    border-radius: 1rem;
+    padding: 1rem 0;
   }
 
-  .cardTitle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
+  a.card i {
+    font-size: 1.5rem;
   }
 </style>

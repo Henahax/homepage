@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import "@/styles/globals.css";
 
 interface Props {
@@ -6,20 +7,10 @@ interface Props {
 }
 
 const { title } = Astro.props;
-
-const currentPath = Astro.url.pathname;
-
-const menuItems = [
-  { href: "/", label: "Home", icon: "fa-solid fa-house" },
-  { href: "/servers", label: "Server", icon: "fa-solid fa-server" },
-  { href: "/links", label: "Links", icon: "fa-solid fa-link" }
-];
-
-console.log(currentPath);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -34,25 +25,26 @@ console.log(currentPath);
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <ClientRouter />
   </head>
   <body class="min-h-dvh flex flex-col">
-    <app class="flex flex-col grow p-4 justify-center items-center">
+    <app class="max-w-4xl w-full grow self-center content-center p-4">
       <slot />
     </app>
-  </body>
-  <style is:global>
+  </body><style is:global>
+    @view-transition {
+      navigation: auto;
+    }
+
     body {
       font-family: Consolas, monaco, monospace;
       @apply text-foreground;
       @apply bg-background;
     }
 
-    a:hover i {
-      
-    }
-
-    app {
-      align-content: center;
+    .card {
+      background-color: gray;
+      width: 100%;
     }
   </style>
 </html>

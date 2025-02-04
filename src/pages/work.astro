@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "@/lib/Card.astro";
+---
+
+<Layout title="Arbeit - henahax.de">
+  <Card transitionName="work">
+    <i slot="icon" class="fa-solid fa-briefcase" transition:name="iconWork"></i>
+    <div slot="title" transition:name="titleWork">Arbeit</div>
+    <div slot="content"></div>
+  </Card>
+</Layout>
