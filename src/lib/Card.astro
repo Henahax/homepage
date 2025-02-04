@@ -6,13 +6,25 @@ interface Props {
 const { transitionName } = Astro.props;
 ---
 
-<div
-  class="card flex flex-col p-4 rounded-xl gap-4"
-  transition:name={transitionName}
->
-  <div class="w-full flex gap-4 items-center text-2xl">
-    <slot name="icon" />
-    <slot name="title" />
+<div class="flex flex-col gap-4">
+  <a class="p-2" href="/">
+    <i class="fa-solid fa-angle-left"></i>
+    Zurück
+  </a>
+  <div
+    class="card flex flex-col p-4 rounded-xl gap-4"
+    transition:name={transitionName}
+  >
+    <div class="w-full flex gap-4 items-center text-2xl">
+      <slot name="icon" />
+      <slot name="title" />
+    </div>
+    <slot name="content" />
   </div>
-  <slot name="content" />
 </div>
+
+<style>
+  a:hover {
+    color: gray;
+  }
+</style>
