@@ -5,15 +5,50 @@ import Card from "@/lib/Card.astro";
 
 <Layout title="Arbeit - henahax.de">
   <Card transitionName="work">
-    <i slot="icon" class="fa-solid fa-briefcase" transition:name="iconWork"></i>
-    <div slot="title" transition:name="titleWork">Arbeit</div>
+    <i slot="icon" class="fa-solid fa-briefcase"></i>
+    <div slot="title" class="flex grow">
+      <div class="grow">Arbeit</div>
+      <a href="https://de.linkedin.com/in/tobias-halupczok">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
     <div slot="content" class="grid gap-4 grid-cols-[auto_1fr]">
       <i class="fa-solid fa-location-dot"></i>München
       <i class="fa-solid fa-user-tie"></i>Dev
-      <div class="col-span-2 flex gap-4 text-2xl">
-        <i class="fa-brands fa-html5"></i><i class="fa-brands fa-css"></i>Cards
+      <div class="col-span-2 flex gap-1 flex-wrap">
+        <div class="tag">
+          C#
+        </div>
+        <div class="tag">
+          .NET
+        </div>
+        <div class="tag">
+          SQL
+        </div>
+        <div class="tag">
+          <i class="fa-brands fa-js"></i>JavaScript
+        </div>
+        <div class="tag">
+          <i class="fa-brands fa-html5"></i>HTML
+        </div>
+        <div class="tag">
+          <i class="fa-brands fa-css"></i>CSS
+        </div>
+        
       </div>
 
     </div>
   </Card>
 </Layout>
+
+<style>
+  .tag{
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    gap: 0.5rem;
+    background-color: black;
+    border-radius: calc(infinity * 1px);
+    padding: 0 0.75rem;
+  }
+</style>
