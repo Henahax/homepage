@@ -61,11 +61,10 @@ const tiles = [
 
 <Layout title="henahax.de">
   <div class="grid grid-cols-2 gap-4 w-full max-w-xl justify-self-center">
-    <div class="col-span-2">todo: links</div>
-
+    <div class="col-span-2">henahax.de mit animation wie htmx</div>
     {
       tiles.map((tile) => (
-        <a class="card" href={tile.link} transition:name={tile.name}>
+        <a class="card link" href={tile.link} transition:name={tile.name}>
           <i class={tile.icon} transition:name={"icon" + tile.name} />
           <div transition:name={"title" + tile.name}>{tile.desc}</div>
         </a>
@@ -86,11 +85,4 @@ const tiles = [
     padding: 1rem 0;
   }
 
-  a.card:hover{
-      background-color: darkgray;
-    }
-
-  a.card i {
-    font-size: 1.5rem;
-  }
 </style>

@@ -31,21 +31,62 @@ const { title } = Astro.props;
     <app class="max-w-4xl w-full grow self-center content-center p-4">
       <slot />
     </app>
-  </body>
-  <style is:global>
+  </body><style is:global>
     @view-transition {
       navigation: auto;
     }
 
     body {
+      position: relative;
       font-family: Consolas, monaco, monospace;
-      @apply text-foreground;
-      @apply bg-background;
+      @apply text-neutral-200;
+      @apply bg-neutral-800;
+      background-image: url(./pexels-harold-vasquez-853421-2653362.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
-    .card {
-      background-color: gray;
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+      background: linear-gradient(to left, rgba(0, 0, 0, 1), transparent);
+      pointer-events: none; /* Prevents blocking interactions */
+      border-radius: inherit; /* Ensures it follows the parent's rounded corners */
+    }
+
+    body * {
+      position: relative; /* Ensures content stays above the gradient */
+      z-index: 1;
+    }
+
+    .link {
+      @apply border border-neutral-500 hover:border-neutral-200 shadow-lg backdrop-blur-md;
+    }
+    .link:hover {
+      @apply border-neutral-200;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    .tag {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: calc(infinity * 1px);
+      padding: 0 0.75rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .tag:hover{
+      background-color: rgba(255, 255, 255, 0.2);
     }
   </style>
 </html>

@@ -47,13 +47,6 @@ const links = [
     background: "#000",
   },
   {
-    name: "DockerHub",
-    link: "https://docker.henahax.de",
-    icons: "fa-brands fa-docker",
-    backgroundImage:
-      "linear-gradient(90deg, rgb(28, 144, 237) 0%, rgb(29, 99, 237) 100%)",
-  },
-  {
     name: "OnlyFans",
     link: "/onlyfans",
     icons: "fa-solid fa-lock",
@@ -66,6 +59,20 @@ const links = [
   <Card transitionName="links">
     <i slot="icon" class="fa-solid fa-link"></i>
     <div slot="title">Links</div>
-    <div slot="content"></div>
+    <div slot="content" class="grid grid-cols-[1fr_auto_auto_1fr] gap-2 sm:gap-4 justify-center">
+      {
+        links.map((link) => (
+          <a
+            href={link.link}
+            class="link grid grid-cols-subgrid col-span-full items-center rounded-xl p-4"
+          >
+            <span></span>
+            <i class={link.icons} />
+            <div>{link.name}</div>
+            <span></span>
+          </a>
+        ))
+      }
+    </div>
   </Card>
 </Layout>

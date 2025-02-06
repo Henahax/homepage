@@ -6,26 +6,30 @@ const gamesActive = [
   {
     name: "Deadlock",
     link: "https://store.steampowered.com/app/1422450/Deadlock/",
+    icon: "https://cdn2.steamgriddb.com/icon_thumb/9c202dfab71567e6c5a1526236bfc6f2.png",
     image:
-      "https://cdn2.steamgriddb.com/icon_thumb/9c202dfab71567e6c5a1526236bfc6f2.png",
+      "https://cdn2.steamgriddb.com/hero_thumb/b0813a5fa6b40dd4607abd3ad5868caf.jpg",
   },
   {
     name: "Guild Wars 2",
     link: "https://guildwars2.com",
+    icon: "https://cdn2.steamgriddb.com/icon/8910f41d3f22b34450934ea4c13eacf5/32/256x256.png",
     image:
-      "https://cdn2.steamgriddb.com/icon/8910f41d3f22b34450934ea4c13eacf5/32/256x256.png",
+      "https://cdn2.steamgriddb.com/hero_thumb/51b458b4e6ac5bfdcce31855ad2c0fec.jpg",
   },
   {
     name: "Dota 2",
     link: "https://dota2.com",
+    icon: "https://cdn2.steamgriddb.com/icon/db98dc0dbafde48e8f74c0de001d35e4/32/128x128.png",
     image:
-      "https://cdn2.steamgriddb.com/icon/db98dc0dbafde48e8f74c0de001d35e4/32/128x128.png",
+      "https://cdn2.steamgriddb.com/hero_thumb/0fcbc61acd0479dc77e3cccc0f5ffca7.jpg",
   },
   {
     name: "Slay the Spire",
     link: "https://store.steampowered.com/app/646570/Slay_the_Spire/",
+    icon: "https://cdn2.steamgriddb.com/icon/70ece1e1e0931919438fcfc6bd5f199c/32/256x256.png",
     image:
-      "https://cdn2.steamgriddb.com/icon/70ece1e1e0931919438fcfc6bd5f199c/32/256x256.png",
+      "https://cdn2.steamgriddb.com/hero_thumb/5cfa02f9154d8220d0a911d6ca82ddb5.jpg",
   },
 ];
 
@@ -44,7 +48,70 @@ const gamesCasual = [
 <Layout title="Gaming - henahax.de">
   <Card transitionName="gaming">
     <i slot="icon" class="fa-solid fa-gamepad"></i>
-    <div slot="title">Gaming</div>
-    <div slot="content"></div>
+    <div slot="title" class="flex grow">
+      <div class="grow">Gaming</div>
+      <a href="https://steamcommunity.com/id/henahax/">
+        <i class="fa-brands fa-steam"></i>
+      </a>
+    </div>
+
+    <div slot="content" class="flex flex-col gap-8">
+      <div class="flex flex-col gap-2">
+        <div class="text-sm">aktiv:</div>
+        <div class="flex flex-col gap-2 sm:gap-4">
+          {
+            gamesActive.map((game) => (
+              <a
+                href={game.link}
+                class="link test flex rounded-xl p-4 sm:py-8 items-center gap-2 "
+                style={"background-image: url('" + game.image + "');"}
+              >
+                <img src={game.icon} class="size-8" />
+                <div>{game.name}</div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div class="text-sm">gelegentlich:</div>
+        <div class="flex flex-row flex-wrap gap-2">
+          {
+            gamesCasual.map((game) => (
+              <a href={game.link} class="link border rounded-xl p-2 shadow-xl">
+                {game.name}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
   </Card>
 </Layout>
+
+<style>
+  .test {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .test::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
+  pointer-events: none; /* Prevents blocking interactions */
+  border-radius: inherit; /* Ensures it follows the parent's rounded corners */
+}
+
+.test * {
+  position: relative; /* Ensures content stays above the gradient */
+  z-index: 1;
+}
+</style>
