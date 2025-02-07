@@ -28,7 +28,12 @@ const { title } = Astro.props;
     <ClientRouter />
   </head>
   <body class="min-h-dvh flex flex-col">
+
+    
+todo: logo immer da außer sm
     <app class="max-w-4xl w-full grow self-center content-center p-4">
+
+      
       <slot />
     </app>
   </body>
@@ -66,16 +71,17 @@ const { title } = Astro.props;
       z-index: 1;
     }
 
-    .link {
-      border: 1px solid var(--color-neutral-200)
+    a:hover {
+      color: white;
     }
+
+    .link {
+      border: 1px solid var(--color-neutral-500)
+    }
+
     .link:hover {
       border: 1px solid white;
       background-color: rgba(255, 255, 255, 0.05);
-    }
-
-    a:hover {
-      color: white;
     }
 
     .tag {
@@ -91,5 +97,53 @@ const { title } = Astro.props;
     .tag:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
+
+
+    #henahaxIcon {
+    width: 3rem;
+    height: 3rem;
+    opacity: 0.75;
+    -webkit-animation: sk-rotateplane 8s infinite ease-in-out;
+    animation: sk-rotateplane 8s infinite ease-in-out, drop 0.75s ease-out forwards;
+  }
+
+  @-webkit-keyframes sk-rotateplane {
+    0% {
+      -webkit-transform: perspective(36rem);
+    }
+    100% {
+      -webkit-transform: perspective(36rem) rotateX(360deg);
+    }
+  }
+
+  @keyframes sk-rotateplane {
+    0% {
+      transform: perspective(36rem) rotateX(0deg) rotateY(0deg);
+      -webkit-transform: perspective(36rem) rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+      transform: perspective(36rem) rotateY(-360.1deg) rotateX(0deg);
+      -webkit-transform: perspective(36rem) rotateY(-360.1deg) rotateY(0deg);
+    }
+  }
+
+  #henahax {
+    animation: drop 0.75s ease-out forwards;
+  }
+
+  #tld {
+    animation: drop 1.25s ease-out forwards;
+  }
+
+  @keyframes drop {
+    from {
+      top: -40px;
+      opacity: 0;
+    }
+    to {
+      top: 0px;
+      opacity: 1;
+    }
+  }
   </style>
 </html>
