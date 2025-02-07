@@ -47,13 +47,18 @@ const gamesCasual = [
 
 <Layout title="Gaming - henahax.de">
   <Card transitionName="gaming">
+
     <i slot="icon" class="fa-solid fa-gamepad"></i>
-    <div slot="title" class="flex grow">
-      <div class="grow">Gaming</div>
-      <a href="https://steamcommunity.com/id/henahax/">
-        <i class="fa-brands fa-steam"></i>
-      </a>
-    </div>
+    <span slot="title">Gaming</span>
+    <a
+      slot="link"
+      class="link text-xl size-8 flex justify-center items-center rounded-lg"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://steamcommunity.com/id/henahax/"
+    >
+      <i class="fa-brands fa-steam"></i>
+    </a>
 
     <div slot="content" class="flex flex-col gap-8">
       <div class="flex flex-col gap-2">
@@ -62,6 +67,8 @@ const gamesCasual = [
           {
             gamesActive.map((game) => (
               <a
+                target="_blank"
+                rel="noopener noreferrer"
                 href={game.link}
                 class="link test flex rounded-xl p-4 sm:py-8 items-center gap-2 "
                 style={"background-image: url('" + game.image + "');"}
@@ -79,7 +86,12 @@ const gamesCasual = [
         <div class="flex flex-row flex-wrap gap-2">
           {
             gamesCasual.map((game) => (
-              <a href={game.link} class="link border rounded-xl p-2 shadow-xl">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={game.link}
+                class="link border rounded-xl p-2 shadow-xl"
+              >
                 {game.name}
               </a>
             ))
@@ -99,19 +111,19 @@ const gamesCasual = [
   }
 
   .test::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
-  pointer-events: none; /* Prevents blocking interactions */
-  border-radius: inherit; /* Ensures it follows the parent's rounded corners */
-}
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
+    pointer-events: none; /* Prevents blocking interactions */
+    border-radius: inherit; /* Ensures it follows the parent's rounded corners */
+  }
 
-.test * {
-  position: relative; /* Ensures content stays above the gradient */
-  z-index: 1;
-}
+  .test * {
+    position: relative; /* Ensures content stays above the gradient */
+    z-index: 1;
+  }
 </style>

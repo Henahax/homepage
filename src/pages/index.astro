@@ -52,7 +52,7 @@ const tiles = [
   },
   {
     name: "links",
-    desc: "Links/Kontakt",
+    desc: "Links & Kontakt",
     link: "/links",
     icon: "fa-solid fa-link",
   },
@@ -60,29 +60,74 @@ const tiles = [
 ---
 
 <Layout title="henahax.de">
-  <div class="grid grid-cols-2 gap-4 w-full max-w-xl justify-self-center">
-    <div class="col-span-2">henahax.de mit animation wie htmx</div>
-    {
-      tiles.map((tile) => (
-        <a class="card link" href={tile.link} transition:name={tile.name}>
-          <i class={tile.icon} transition:name={"icon" + tile.name} />
-          <div transition:name={"title" + tile.name}>{tile.desc}</div>
-        </a>
-      ))
-    }
+  <div class="flex flex-col justify-center items-center gap-8">
+    <div class="flex items-center gap-4">
+      <img id="henahaxIcon" src="../henahax.svg" />
+
+      <div class="flex items-baseline">
+        <span id="henahax" class="text-5xl font-semibold">henahax</span>
+        <span id="tld" class="text-xl text-neutral-400">.de</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 max-w-xl w-full">
+      {
+        tiles.map((tile) => (
+          <a class="card link flex flex-col p-4 text-center rounded-xl text-lg gap-2 justify-center items-center" href={tile.link} transition:name={tile.name}>
+            <i class={tile.icon} transition:name={"icon" + tile.name} />
+            <div transition:name={"title" + tile.name}>{tile.desc}</div>
+          </a>
+        ))
+      }
+    </div>
   </div>
 </Layout>
 
 <style>
-  a.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: 1.125rem;
-    border-radius: 1rem;
-    padding: 1rem 0;
+  #henahaxIcon {
+    width: 3rem;
+    height: 3rem;
+    opacity: 0.75;
+    -webkit-animation: sk-rotateplane 8s infinite ease-in-out;
+    animation: sk-rotateplane 8s infinite ease-in-out, drop 0.75s ease-out forwards;
   }
 
+  @-webkit-keyframes sk-rotateplane {
+    0% {
+      -webkit-transform: perspective(36rem);
+    }
+    100% {
+      -webkit-transform: perspective(36rem) rotateX(360deg);
+    }
+  }
+
+  @keyframes sk-rotateplane {
+    0% {
+      transform: perspective(36rem) rotateX(0deg) rotateY(0deg);
+      -webkit-transform: perspective(36rem) rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+      transform: perspective(36rem) rotateY(-360.1deg) rotateX(0deg);
+      -webkit-transform: perspective(36rem) rotateY(-360.1deg) rotateY(0deg);
+    }
+  }
+
+  #henahax {
+    animation: drop 0.75s ease-out forwards;
+  }
+
+  #tld {
+    animation: drop 1.25s ease-out forwards;
+  }
+
+  @keyframes drop {
+    from {
+      top: -40px;
+      opacity: 0;
+    }
+    to {
+      top: 0px;
+      opacity: 1;
+    }
+  }
 </style>

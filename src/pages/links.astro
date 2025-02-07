@@ -6,50 +6,49 @@ const links = [
   {
     name: "Webseite",
     link: "https://henahax.de",
-    icons: "fa-solid fa-globe",
-    color: "#262626",
-    background: "#fff",
+    icon: "fa-solid fa-globe",
+    backgroundImage: "url('../pexels-harold-vasquez-853421-2653362.jpg')",
   },
   {
     name: "E-Mail",
     link: "mailto:mail@henahax.de",
-    icons: "fa-solid fa-envelope",
+    icon: "fa-solid fa-envelope",
     background: "#0085ff",
   },
   {
     name: "Twitter",
     link: "https://twitter.henahax.de",
-    icons: "fa-brands fa-x-twitter",
+    icon: "fa-brands fa-x-twitter",
     background: "#000",
   },
   {
     name: "Instagram",
     link: "https://instagram.henahax.de",
-    icons: "fa-brands fa-instagram",
+    icon: "fa-brands fa-instagram",
     backgroundImage: "linear-gradient(-135deg, #1400c8, #b900b4, #f50000)",
   },
   {
     name: "Steam",
     link: "https://steam.henahax.de",
-    icons: "fa-brands fa-steam-symbol",
+    icon: "fa-brands fa-steam-symbol",
     background: "#171a21",
   },
   {
     name: "Discord",
     link: "https://discordapp.com/users/128418924084723712",
-    icons: "fa-brands fa-discord",
+    icon: "fa-brands fa-discord",
     background: "#5865f2",
   },
   {
     name: "GitHub",
     link: "https://github.henahax.de",
-    icons: "fa-brands fa-github",
+    icon: "fa-brands fa-github",
     background: "#000",
   },
   {
     name: "OnlyFans",
     link: "/onlyfans",
-    icons: "fa-solid fa-lock",
+    icon: "fa-solid fa-lock",
     background: "#00AFF0",
   },
 ];
@@ -59,15 +58,19 @@ const links = [
   <Card transitionName="links">
     <i slot="icon" class="fa-solid fa-link"></i>
     <div slot="title">Links</div>
-    <div slot="content" class="grid grid-cols-[1fr_auto_auto_1fr] gap-2 sm:gap-4 justify-center">
+    <div slot="content" class="grid grid-cols-[1fr_auto_auto_1fr] gap-4 justify-center">
       {
         links.map((link) => (
-          <a
+          <a target="_blank" rel="noopener noreferrer"
             href={link.link}
-            class="link grid grid-cols-subgrid col-span-full items-center rounded-xl p-4"
+            class="link grid grid-cols-subgrid col-span-full items-center rounded-xl p-2 sm:p-4"
+            style={link.backgroundImage ? 
+              `background-image: ${link.backgroundImage}` : 
+              `background-color: ${link.background}`
+            }
           >
             <span></span>
-            <i class={link.icons} />
+            <i class={link.icon} />
             <div>{link.name}</div>
             <span></span>
           </a>
@@ -76,3 +79,10 @@ const links = [
     </div>
   </Card>
 </Layout>
+
+<style>
+  a {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
