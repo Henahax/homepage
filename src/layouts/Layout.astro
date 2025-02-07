@@ -1,6 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import "@/styles/globals.css";
+import "@/styles/global.css";
 
 interface Props {
   title: string;
@@ -41,8 +41,8 @@ const { title } = Astro.props;
     body {
       position: relative;
       font-family: Consolas, monaco, monospace;
-      @apply text-neutral-200;
-      @apply bg-neutral-800;
+      color: var(--color-neutral-200);
+      background-color: var(--color-neutral-800);
       background-image: url(./pexels-harold-vasquez-853421-2653362.jpg);
       background-size: cover;
       background-position: center center;
@@ -67,10 +67,10 @@ const { title } = Astro.props;
     }
 
     .link {
-      @apply border border-neutral-500 hover:border-neutral-200 shadow-lg backdrop-blur-md;
+      border: 1px solid var(--color-neutral-200)
     }
     .link:hover {
-      @apply border-neutral-200;
+      border: 1px solid white;
       background-color: rgba(255, 255, 255, 0.05);
     }
 
