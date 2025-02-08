@@ -1,12 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "@/lib/Card.astro";
+import TSViewer from "@/lib/TSViewer.astro";
+import ServerDiscord from "@/lib/Discord.astro";
 ---
 
 <Layout title="Server - henahax.de">
   <Card transitionName="server">
     <i slot="icon" class="fa-solid fa-server"></i>
     <div slot="title">Server</div>
-    <div slot="content"></div>
+    <div slot="content" class="grid grid-cols-2">
+      <TSViewer />
+<ServerDiscord/>
+    </div>
   </Card>
 </Layout>
+
+<style>
+  #test{
+    height: 1000;
+  }
+</style>
