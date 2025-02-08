@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Banner from "@/lib/Banner.astro";
 
 const links = [
   {
@@ -62,14 +63,7 @@ const tiles = [
 <Layout title="henahax.de">
   <div class="flex flex-col justify-center items-center gap-8">
 
-    <a href="/" class="flex items-center gap-4 sm:hidden">
-      <img id="henahaxIcon" src="../henahax.svg" />
-
-      <div class="flex items-baseline">
-        <span id="henahax" class="text-5xl font-semibold">henahax</span>
-        <span id="tld" class="text-xl text-neutral-400">.de</span>
-      </div>
-    </a>
+    <Banner isLayout={false} />
 
     <div class="grid grid-cols-2 gap-4 max-w-xl w-full">
       {

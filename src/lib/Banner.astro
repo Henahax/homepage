@@ -1,0 +1,14 @@
+---
+const { isLayout } = Astro.props;
+---
+
+<a href="/"   class:list={['flex items-center gap-4 w-fit self-center', { "max-sm:hidden": isLayout, "sm:hidden": !isLayout }]}>
+    <img id="henahaxIcon" src="../henahax.svg" />
+
+    <div class="flex items-baseline">
+      <span id="henahax" class="text-5xl font-semibold">henahax</span>
+      <span id="tld" class="text-xl text-neutral-400">.de</span>
+    </div>
+  </a>
+
+

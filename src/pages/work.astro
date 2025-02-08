@@ -5,13 +5,24 @@ import Card from "@/lib/Card.astro";
 
 <Layout title="Arbeit - henahax.de">
   <Card transitionName="work">
+
+
+
+
     <i slot="icon" class="fa-solid fa-briefcase"></i>
-    <div slot="title" class="flex grow">
-      <div class="grow">Arbeit</div>
-      <a target="_blank" rel="noopener noreferrer" href="https://de.linkedin.com/in/tobias-halupczok">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-    </div>
+    <span slot="title">Arbeit</span>
+    <a
+      slot="link"
+      class="link"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://de.linkedin.com/in/tobias-halupczok"
+    >
+    <i class="fa-brands fa-linkedin"></i>
+    </a>
+
+
+
     <div slot="content" class="grid gap-2 grid-cols-[auto_1fr] items-center">
       <i class="fa-solid fa-location-dot"></i>München
       <i class="fa-solid fa-user-tie"></i>Dev
