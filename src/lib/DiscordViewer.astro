@@ -1,12 +1,14 @@
 ---
+import Server from "@/lib/Server.astro";
+
 const discordResponse = await fetch(
   "https://discord.com/api/guilds/185552226998157313/widget.json"
 );
 const discordData = await discordResponse.json();
 ---
 
-
-    <div class="flex flex-col gap-4 text-neutral-400">
+<Server>
+    <div slot="content" class="flex flex-col gap-4 text-neutral-400">
       <div class="channels flex flex-col gap-1">
         {discordData.channels.length > 0 &&
           <div class="text-xs uppercase">channel</div>
@@ -47,3 +49,4 @@ const discordData = await discordResponse.json();
         } 
       </div>
     </div>
+  </Server>
