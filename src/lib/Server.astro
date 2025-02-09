@@ -1,13 +1,27 @@
-<div class="border border-neutral-500 p-4 rounded-xl flex flex-col gap-4">
+---
+interface Props {
+  connectLink: string;
+}
+
+const { connectLink } = Astro.props;
+---
+
+<div class="server border border-neutral-500 p-4 rounded-xl flex flex-col gap-4 text-sm">
     <div class="flex gap-4 text-lg items-center justify-between">
         <div class="flex gap-4 items-center">
         <slot name="icon"/>
         <slot name="title"/>
     </div>
-        <a href="ts3server://henahax.de?port=9987" class="link text-sm border border-neutral-500 px-4 py-2 rounded-full">
+        <a href={connectLink} target="_blank" rel="noopener noreferrer" class="link text-sm border border-neutral-500 px-4 py-2 rounded-full">
             <i class="fa-solid fa-plug"></i>
-            Verbinden todo discord
+            <span class="max-sm:hidden">Verbinden</span>
         </a>
     </div>
     <slot name="content"/>
 </div>
+
+<style>
+ .server {
+    background-color: rgba(255,255,255,0.1);
+ }
+</style>
