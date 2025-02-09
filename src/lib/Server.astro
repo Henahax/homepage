@@ -1,3 +1,13 @@
-<div class="border border-neutral-500 p-4 rounded-xl">
+<div class="border border-neutral-500 p-4 rounded-xl flex flex-col gap-4">
+    <div class="flex gap-4 text-lg items-center justify-between">
+        <div class="flex gap-4 items-center">
+        <slot name="icon"/>
+        <slot name="title"/>
+    </div>
+        <a href="ts3server://henahax.de?port=9987" class="link text-sm border border-neutral-500 px-4 py-2 rounded-full">
+            <i class="fa-solid fa-plug"></i>
+            Verbinden todo discord
+        </a>
+    </div>
     <slot name="content"/>
 </div>
