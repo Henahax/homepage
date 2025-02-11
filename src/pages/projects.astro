@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Card from '@/lib/Card.astro'
+
+const projects = [
+	{
+		name: 'Homepage',
+		link: 'https://github.henahax.de',
+		description: 'Persönliche Homepage, Portfolio',
+		technologies: ['NodeJS', 'Astro', 'TypeScript', 'Tailwind', 'HTML', 'CSS']
+	},
+  {
+		name: 'HomeLab',
+		link: 'https://github.henahax.de',
+		description: 'Persönliche Serverumgebung für lokale und öffentliche Dienste',
+		technologies: ['ProxMox', 'Linux', 'Docker', 'DNS', 'VPN']
+	},
+  {
+		name: 'Teasure Hunt',
+		link: 'https://github.henahax.de',
+		description: 'Schnitzeljags Web-App',
+		technologies: ['NodeJS', 'Sveltekit', 'TypeScript', 'Tailwind', 'HTML', 'CSS']
+	},
+  {
+		name: 'GW2Tools',
+		link: 'https://github.henahax.de',
+		description: 'Guild Wars 2 Rechner und Werkzeuge',
+		technologies: ['NodeJS', 'Sveltekit', 'TypeScript', 'Tailwind', 'HTML', 'CSS']
+	}
+]
+---
+
+<Layout title="Projekte - henahax.de">
+	<Card transitionName="projects">
+		<i slot="icon" class="fa-solid fa-code"></i>
+		<div slot="title">Projekte</div>
+		<div slot="content" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+			{
+				projects.map((project) => (
+					<a href={project.link} class="">
+						<div>{project.name}</div>
+						<div>{project.description}</div>
+						<div class="flex flex-wrap gap-2 py-2">
+							{project.technologies.map((technology) => (
+								<div class="tag">{technology}</div>
+							))}
+						</div>
+					</a>
+				))
+			}
+		</div>
+	</Card>
+</Layout>

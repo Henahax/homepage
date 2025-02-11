@@ -1,79 +1,82 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Banner from "@/lib/Banner.astro";
+import Layout from '../layouts/Layout.astro'
+import Banner from '@/lib/Banner.astro'
 
 const links = [
-  {
-    name: "GitHub",
-    link: "https://github.henahax.de",
-    icon: "fa-brands fa-github",
-  },
-  {
-    name: "Steam",
-    link: "https://steam.henahax.de",
-    icon: "fa-brands fa-steam",
-  },
-  {
-    name: "LinkedIn",
-    link: "https://www.linkedin.com/in/tobias-halupczok/",
-    icon: "fa-brands fa-linkedin",
-  },
-];
+	{
+		name: 'GitHub',
+		link: 'https://github.henahax.de',
+		icon: 'fa-brands fa-github'
+	},
+	{
+		name: 'Steam',
+		link: 'https://steam.henahax.de',
+		icon: 'fa-brands fa-steam'
+	},
+	{
+		name: 'LinkedIn',
+		link: 'https://www.linkedin.com/in/tobias-halupczok/',
+		icon: 'fa-brands fa-linkedin'
+	}
+]
 
 const tiles = [
-  {
-    name: "work",
-    desc: "Arbeit",
-    link: "/work",
-    icon: "fa-solid fa-briefcase",
-  },
-  {
-    name: "dev",
-    desc: "Dev",
-    link: "/dev",
-    icon: "fa-solid fa-code",
-  },
-  {
-    name: "server",
-    desc: "Server",
-    link: "/server",
-    icon: "fa-solid fa-server",
-  },
-  {
-    name: "hobbies",
-    desc: "Hobbies",
-    link: "/hobbies",
-    icon: "fa-solid fa-icons",
-  },
-  {
-    name: "gaming",
-    desc: "Gaming",
-    link: "/gaming",
-    icon: "fa-solid fa-gamepad",
-  },
-  {
-    name: "links",
-    desc: "Links & Kontakt",
-    link: "/links",
-    icon: "fa-solid fa-link",
-  },
-];
+	{
+		name: 'professional',
+		desc: 'Professionell',
+		link: '/professional',
+		icon: 'fa-solid fa-briefcase'
+	},
+	{
+		name: 'projects',
+		desc: 'Projekte',
+		link: '/projects',
+		icon: 'fa-solid fa-code'
+	},
+	{
+		name: 'server',
+		desc: 'Server',
+		link: '/server',
+		icon: 'fa-solid fa-server'
+	},
+	{
+		name: 'hobbies',
+		desc: 'Hobbies',
+		link: '/hobbies',
+		icon: 'fa-solid fa-icons'
+	},
+	{
+		name: 'gaming',
+		desc: 'Gaming',
+		link: '/gaming',
+		icon: 'fa-solid fa-gamepad'
+	},
+	{
+		name: 'links',
+		desc: 'Links & Kontakt',
+		link: '/links',
+		icon: 'fa-solid fa-link'
+	}
+]
 ---
 
 <Layout title="henahax.de">
-  <div class="flex flex-col justify-center items-center gap-8">
+	<div class="flex flex-col items-center justify-center gap-8">
+		<Banner isLayout={false} />
 
-    <Banner isLayout={false} />
-
-    <div class="grid grid-cols-2 gap-4 max-w-xl w-full">
-      {
-        tiles.map((tile) => (
-          <a class="card link flex flex-col backdrop-blur-md p-4 text-center rounded-xl text-lg gap-2 justify-center items-center" href={tile.link} transition:name={tile.name}>
-            <i class={tile.icon} transition:name={"icon" + tile.name} />
-            <div transition:name={"title" + tile.name}>{tile.desc}</div>
-          </a>
-        ))
-      }
-    </div>
-  </div>
+		<div class="grid w-full max-w-xl grid-cols-2 gap-4">
+			{
+				tiles.map((tile) => (
+					<a
+						class="card link flex flex-col items-center justify-center gap-2 rounded-xl p-4 text-center text-lg backdrop-blur-md"
+						href={tile.link}
+						transition:name={tile.name}
+					>
+						<i class={tile.icon} transition:name={'icon' + tile.name} />
+						<div transition:name={'title' + tile.name}>{tile.desc}</div>
+					</a>
+				))
+			}
+		</div>
+	</div>
 </Layout>

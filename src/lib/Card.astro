@@ -1,42 +1,42 @@
 ---
 interface Props {
-  transitionName: string;
+	transitionName: string
 }
 
-const { transitionName } = Astro.props;
+const { transitionName } = Astro.props
 ---
 
 <div class="flex flex-col">
-  <a class="link back p-2 rounded-xl hover:backdrop-blur-md" href="/">
-    <i class="fa-solid fa-angle-left"></i>
-    Zurück
-  </a>
+	<a class="link back rounded-xl p-2 hover:backdrop-blur-md" href="/">
+		<i class="fa-solid fa-angle-left"></i>
+		Zurück
+	</a>
 
-  <div
-    class="card flex flex-col p-4 rounded-xl gap-4 shadow-2xl backdrop-blur-md border border-neutral-500"
-    transition:name={transitionName}
-  >
-    <div class="cardHeader flex gap-4 items-center text-2xl justify-between">
-      <div class="flex gap-4 items-center text-lg">
-        <slot name="icon"/>
-        <slot name="title" />
-      </div>
-      <slot name="link" />
-    </div>
+	<div
+		class="card flex flex-col gap-4 rounded-xl border border-neutral-500 p-4 shadow-2xl backdrop-blur-md"
+		transition:name={transitionName}
+	>
+		<div class="cardHeader flex items-center justify-between gap-4 text-2xl">
+			<div class="flex items-center gap-4 text-lg">
+				<slot name="icon" />
+				<slot name="title" />
+			</div>
+			<slot name="link" />
+		</div>
 
-    <div>
-      <slot name="content" />
-    </div>
-  </div>
+		<div>
+			<slot name="content" />
+		</div>
+	</div>
 </div>
 
 <style>
-  .contentContainer {
-    max-height: calc(100dvh - 10rem);
-    overflow-y: auto;
-  }
+	.contentContainer {
+		max-height: calc(100dvh - 10rem);
+		overflow-y: auto;
+	}
 
-  .back {
-    border: none;
-  }
+	.back {
+		border: none;
+	}
 </style>

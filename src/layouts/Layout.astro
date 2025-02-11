@@ -1,104 +1,104 @@
 ---
-import "@/styles/global.css";
-import { ClientRouter } from "astro:transitions";
-import Banner from "@/lib/Banner.astro";
+import '@/styles/global.css'
+import { ClientRouter } from 'astro:transitions'
+import Banner from '@/lib/Banner.astro'
 
 interface Props {
-  title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/henahax.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script src="https://static.tsviewer.com/short_expire/js/ts3viewer_loader.js"></script>
-    <ClientRouter />
-  </head>
-  <body class="min-h-dvh flex flex-col">
-    <app class="flex flex-col max-w-4xl w-full grow self-center content-center p-4 gap-8 justify-center">
-      <Banner isLayout={true} />
-      <slot />
-    </app>
-  </body>
-  
-  <style is:global>
-    @view-transition {
-      navigation: auto;
-    }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/henahax.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+			integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<script src="https://static.tsviewer.com/short_expire/js/ts3viewer_loader.js"></script>
+		<ClientRouter />
+	</head>
+	<body class="flex min-h-dvh flex-col">
+		<app
+			class="flex w-full max-w-4xl grow flex-col content-center justify-center gap-8 self-center p-4"
+		>
+			<Banner isLayout={true} />
+			<slot />
+		</app>
+	</body><style is:global>
+		@view-transition {
+			navigation: auto;
+		}
 
-    body {
-      position: relative;
-      font-family: Consolas, monaco, monospace;
-      color: var(--color-neutral-200);
-      background-color: var(--color-neutral-800);
-      background-image: url(./pexels-harold-vasquez-853421-2653362.jpg);
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
+		body {
+			position: relative;
+			font-family: Consolas, monaco, monospace;
+			color: var(--color-neutral-200);
+			background-color: var(--color-neutral-800);
+			background-image: url(./pexels-harold-vasquez-853421-2653362.jpg);
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
 
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to left, rgba(0, 0, 0, 1), transparent);
-      pointer-events: none;
-    }
+		body::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(to left, rgba(0, 0, 0, 1), transparent);
+			pointer-events: none;
+		}
 
-    body * {
-      position: relative;
-      z-index: 1;
-    }
+		body * {
+			position: relative;
+			z-index: 1;
+		}
 
-    a:hover {
-      color: white;
-    }
+		a:hover {
+			color: white;
+		}
 
-    .link {
-      border: 1px solid var(--color-neutral-500)
-    }
+		.link {
+			border: 1px solid var(--color-neutral-500);
+		}
 
-    .link:hover {
-      border: 1px solid white;
-      background-color: rgba(255, 255, 255, 0.05);
-    }
+		.link:hover {
+			border: 1px solid white;
+			background-color: rgba(255, 255, 255, 0.05);
+		}
 
-    .tag {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-radius: calc(infinity * 1px);
-      padding: 0 0.75rem;
-      background-color: rgba(255, 255, 255, 0.2);
-      color: white;
-    }
+		.tag {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			border-radius: calc(infinity * 1px);
+			padding: 0 0.75rem;
+			background-color: rgba(255, 255, 255, 0.2);
+			color: white;
+		}
 
-    .tag:hover {
-      background-color: rgba(255, 255, 255, 0.3);
-    }
+		.tag:hover {
+			background-color: rgba(255, 255, 255, 0.3);
+		}
 
-    #ts3v_1124630 > div:first-child, #ts3v_1124630 > div:last-child {
-      display: none;
-}
-
-  </style>
+		#ts3v_1124630 > div:first-child,
+		#ts3v_1124630 > div:last-child {
+			display: none;
+		}
+	</style>
 </html>
