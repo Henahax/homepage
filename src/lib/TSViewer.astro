@@ -11,6 +11,14 @@ export const prerender = false
 
 <script src="https://static.tsviewer.com/short_expire/js/ts3viewer_loader.js" defer></script>
 <script>
+	// Declare ts3v_display on the window object
+	declare global {
+		interface Window {
+			ts3v_display?: {
+				init: (url: string, id: number, refresh: number) => void;
+			};
+		}
+	}
 	// Function to initialize TSViewer
 	function initTSViewer() {
 		var ts3v_url = 'https://www.tsviewer.com/ts3viewer.php?ID=1124630&iconset=default_mono_2014'
