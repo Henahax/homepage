@@ -1,0 +1,32 @@
+---
+interface Props {
+	connectLink: string
+}
+
+const { connectLink } = Astro.props
+---
+
+<div class="card subcard server flex flex-col gap-4 p-4 text-sm">
+	<div class="flex items-center justify-between gap-4 text-lg">
+		<div class="flex items-center gap-4">
+			<slot name="icon" />
+			<slot name="title" />
+		</div>
+		<a
+			href={connectLink}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="link rounded-full border border-neutral-500 px-4 py-2 text-sm"
+		>
+			<i class="fa-solid fa-plug"></i>
+			<span class="max-sm:hidden">Verbinden</span>
+		</a>
+	</div>
+	<slot name="content" />
+</div>
+
+<style>
+	.server {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+</style>

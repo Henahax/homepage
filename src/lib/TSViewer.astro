@@ -1,0 +1,29 @@
+---
+import Server from '@/lib/Server.astro'
+export const prerender = false
+---
+
+<Server connectLink="ts3server://henahax.de?port=9987">
+	<i slot="icon" class="fa-brands fa-teamspeak"></i>
+	<div slot="title">TeamSpeak</div>
+	<div slot="content" id="ts3viewer_1124630"></div>
+</Server>
+
+<script src="https://static.tsviewer.com/short_expire/js/ts3viewer_loader.js" defer></script>
+<script>
+	// Function to initialize TSViewer
+	function initTSViewer() {
+		var ts3v_url = 'https://www.tsviewer.com/ts3viewer.php?ID=1124630&iconset=default_mono_2014'
+		if (window.ts3v_display) {
+			window.ts3v_display.init(ts3v_url, 1124630, 100)
+		} else {
+			console.error('TSViewer failed to load.')
+		}
+	}
+
+	// Initialize on DOM load
+	document.addEventListener('DOMContentLoaded', initTSViewer)
+
+	// Re-initialize on view transitions
+	document.addEventListener('astro:page-load', initTSViewer)
+</script>

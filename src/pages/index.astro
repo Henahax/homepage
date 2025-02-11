@@ -1,42 +1,52 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro'
+import Banner from '@/lib/Banner.astro'
+
+const tiles = [
+	{
+		name: 'server',
+		desc: 'Server',
+		link: '/server',
+		icon: 'fa-solid fa-server'
+	},
+	{
+		name: 'gaming',
+		desc: 'Gaming',
+		link: '/gaming',
+		icon: 'fa-solid fa-gamepad'
+	},
+	{
+		name: 'projects',
+		desc: 'Projekte',
+		link: '/projects',
+		icon: 'fa-solid fa-code'
+	},
+	{
+		name: 'links',
+		desc: 'Links & Kontakt',
+		link: '/links',
+		icon: 'fa-solid fa-link'
+	}
+]
 ---
 
-<Layout title="Henahax">
-    <div class="flex justify-center py-32">
-      <img src="/henahax.svg" class="logo mx-auto"/>
-    <div>
+<Layout title="henahax.de">
+	<div class="flex flex-col items-center justify-center gap-8">
+		<Banner isLayout={false} />
+
+		<div class="grid w-full max-w-md grid-cols-1 gap-4 sm:grid-cols-2">
+			{
+				tiles.map((tile) => (
+					<a
+						class="card link flex flex-col items-center justify-center gap-2 rounded-xl p-4 text-center text-lg backdrop-blur-md"
+						href={tile.link}
+						transition:name={tile.name}
+					>
+						<i class={tile.icon} transition:name={'icon' + tile.name} />
+						<div transition:name={'title' + tile.name}>{tile.desc}</div>
+					</a>
+				))
+			}
+		</div>
+	</div>
 </Layout>
-
-  
-<style>
-	.logo {
-    width: 12rem;
-    height: 12rem;
-    fill: white;
-    margin: auto;
-    -webkit-animation: sk-rotateplane 8s infinite ease-in-out;
-    animation: sk-rotateplane 8s infinite ease-in-out;
-}
-
-@-webkit-keyframes sk-rotateplane {
-  0% { -webkit-transform: perspective(36rem) }
-  100% { -webkit-transform: perspective(36rem) rotateX(360deg) }
-}
-
-@keyframes sk-rotateplane {
-  0% { 
-    transform: perspective(36rem) rotateX(0deg) rotateY(0deg);
-    -webkit-transform: perspective(36rem) rotateX(0deg) rotateY(0deg) 
-  } 100% { 
-    transform: perspective(36rem) rotateY(-360.1deg) rotateX(0deg);
-    -webkit-transform: perspective(36rem) rotateY(-360.1deg) rotateY(0deg) 
-  } 
-}
-
-@media (min-width: 1024px) {
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-}
-</style>
