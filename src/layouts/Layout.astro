@@ -36,7 +36,8 @@ const { title } = Astro.props
 			<Banner isLayout={true} />
 			<slot />
 		</app>
-	</body><style is:global>
+	</body>
+	<style is:global>
 		@view-transition {
 			navigation: auto;
 		}
@@ -73,13 +74,20 @@ const { title } = Astro.props
 			color: white;
 		}
 
-		.link {
+		.card {
 			border: 1px solid var(--color-neutral-500);
+			backdrop-filter: blur(var(--blur-md));
+			padding: 1rem;
+			border-radius: 1rem;
 		}
 
-		.link:hover {
+		a.card:hover {
 			border: 1px solid white;
 			background-color: rgba(255, 255, 255, 0.05);
+		}
+
+		.subcard{
+			border-radius: 0.75rem;
 		}
 
 		.tag {
@@ -88,12 +96,9 @@ const { title } = Astro.props
 			gap: 0.5rem;
 			border-radius: calc(infinity * 1px);
 			padding: 0 0.75rem;
-			background-color: rgba(255, 255, 255, 0.2);
+			background-color: rgba(255, 255, 255, 0.25);
 			color: white;
-		}
-
-		.tag:hover {
-			background-color: rgba(255, 255, 255, 0.3);
+			height: fit-content;
 		}
 
 		#ts3v_1124630 > div:first-child,

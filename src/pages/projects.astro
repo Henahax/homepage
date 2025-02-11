@@ -18,7 +18,7 @@ const projects = [
   {
 		name: 'Teasure Hunt',
 		link: 'https://github.henahax.de',
-		description: 'Schnitzeljags Web-App',
+		description: 'Schnitzeljagd Web-App',
 		technologies: ['NodeJS', 'Sveltekit', 'TypeScript', 'Tailwind', 'HTML', 'CSS']
 	},
   {
@@ -34,13 +34,13 @@ const projects = [
 	<Card transitionName="projects">
 		<i slot="icon" class="fa-solid fa-code"></i>
 		<div slot="title">Projekte</div>
-		<div slot="content" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+		<div slot="content" class="grid grid-rows-[auto_auto_auto] sm:grid-rows-[auto_auto_auto_auto_auto_auto] grid-cols-1 sm:grid-cols-2 gap-4">
 			{
 				projects.map((project) => (
-					<a href={project.link} class="">
-						<div>{project.name}</div>
+					<a href={project.link} class="card subcard grid grid-rows-subgrid row-span-3 gap-4">
+						<div class="text-lg">{project.name}</div>
 						<div>{project.description}</div>
-						<div class="flex flex-wrap gap-2 py-2">
+						<div class="flex flex-wrap gap-2 py-2 content-start">
 							{project.technologies.map((technology) => (
 								<div class="tag">{technology}</div>
 							))}
