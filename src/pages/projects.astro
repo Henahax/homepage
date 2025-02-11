@@ -9,19 +9,19 @@ const projects = [
 		description: 'Persönliche Homepage, Portfolio',
 		technologies: ['NodeJS', 'Astro', 'TypeScript', 'Tailwind', 'HTML', 'CSS']
 	},
-  {
+	{
 		name: 'HomeLab',
 		link: 'https://github.henahax.de',
 		description: 'Persönliche Serverumgebung für lokale und öffentliche Dienste',
 		technologies: ['ProxMox', 'Linux', 'Docker', 'DNS', 'VPN']
 	},
-  {
+	{
 		name: 'Teasure Hunt',
 		link: 'https://github.henahax.de',
 		description: 'Schnitzeljagd Web-App',
 		technologies: ['NodeJS', 'Sveltekit', 'TypeScript', 'Tailwind', 'HTML', 'CSS']
 	},
-  {
+	{
 		name: 'GW2Tools',
 		link: 'https://github.henahax.de',
 		description: 'Guild Wars 2 Rechner und Werkzeuge',
@@ -34,13 +34,16 @@ const projects = [
 	<Card transitionName="projects">
 		<i slot="icon" class="fa-solid fa-code"></i>
 		<div slot="title">Projekte</div>
-		<div slot="content" class="grid grid-rows-[auto_auto_auto] sm:grid-rows-[auto_auto_auto_auto_auto_auto] grid-cols-1 sm:grid-cols-2 gap-4">
+		<div
+			slot="content"
+			class="grid grid-cols-1 grid-rows-[auto_auto_auto] gap-4 sm:grid-cols-2 sm:grid-rows-[auto_auto_auto_auto_auto_auto]"
+		>
 			{
 				projects.map((project) => (
-					<a href={project.link} class="card subcard grid grid-rows-subgrid row-span-3 gap-4">
+					<a href={project.link} class="card subcard row-span-3 grid grid-rows-subgrid gap-4 p-4">
 						<div class="text-lg">{project.name}</div>
 						<div>{project.description}</div>
-						<div class="flex flex-wrap gap-2 py-2 content-start">
+						<div class="flex flex-wrap content-start gap-2 py-2">
 							{project.technologies.map((technology) => (
 								<div class="tag">{technology}</div>
 							))}

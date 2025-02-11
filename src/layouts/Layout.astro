@@ -36,8 +36,7 @@ const { title } = Astro.props
 			<Banner isLayout={true} />
 			<slot />
 		</app>
-	</body>
-	<style is:global>
+	</body><style is:global>
 		@view-transition {
 			navigation: auto;
 		}
@@ -77,7 +76,6 @@ const { title } = Astro.props
 		.card {
 			border: 1px solid var(--color-neutral-500);
 			backdrop-filter: blur(var(--blur-md));
-			padding: 1rem;
 			border-radius: 1rem;
 		}
 
@@ -86,7 +84,7 @@ const { title } = Astro.props
 			background-color: rgba(255, 255, 255, 0.05);
 		}
 
-		.subcard{
+		.subcard {
 			border-radius: 0.75rem;
 		}
 
