@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Banner from '@/lib/Banner.astro'
+---
+
+<Layout title="henahax.de">
+	<div class="flex flex-col items-center justify-center gap-8">
+		<Banner isLayout={false} />
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 text-9xl gap-8 p-4">
+            <i class="fa-solid fa-fan animate-spin"></i>
+            <i class="fa-solid fa-fan animate-spin"></i>
+            <i class="fa-solid fa-fan animate-spin"></i>
+        </div>
+		
+	</div>
+</Layout>
