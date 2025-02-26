@@ -16,12 +16,6 @@ const links = [
 		background: '#0085ff'
 	},
 	{
-		name: 'Twitter',
-		link: 'https://twitter.henahax.de',
-		icon: 'fa-brands fa-x-twitter',
-		background: '#000'
-	},
-	{
 		name: 'Instagram',
 		link: 'https://instagram.henahax.de',
 		icon: 'fa-brands fa-instagram',
@@ -58,7 +52,7 @@ const links = [
 	<Card transitionName="links">
 		<i slot="icon" class="fa-solid fa-link"></i>
 		<div slot="title">Links</div>
-		<div slot="content" class="grid grid-cols-[1fr_auto_auto_1fr] justify-center gap-4">
+		<div slot="content" class="grid grid-cols-[1fr_auto_auto_1fr] justify-center gap-x-2 gap-y-4">
 			{
 				links.map((link) => (
 					<a
