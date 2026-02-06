@@ -23,7 +23,7 @@
   };
 
   // ✅ Svelte 5 rune for props (reactive)
-  const { guildId, invite, refreshMs = 60_000 } = $props<{
+  const { guildId, invite, refreshMs = 300_000 } = $props<{
     guildId: string;
     invite: string;
     refreshMs?: number;
@@ -92,7 +92,8 @@
             <li class="flex text-sm flex-col">
                 <details open>
                     <summary>
-                        {channel.name}
+                        <i class="fa-solid fa-volume-high"></i>
+                          {channel.name}
                     </summary>
                     <ul class="flex flex-col px-2">
                 {#each (data.members ?? []).filter(m => m.channel_id === channel.id) as member}

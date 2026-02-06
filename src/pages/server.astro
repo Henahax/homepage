@@ -1,8 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Card from '@/lib/Card.astro'
-import TSViewer from '@/lib/TSViewer.astro'
-import ServerDiscord from '@/lib/DiscordViewer.astro'
+import ServerElement from '@/lib/Server.astro'
+import TSViewer from '@/lib/ServerViewerTS.astro'
+
+import ServerDiscord from '@/lib/ServerViewerDiscord.svelte'
+import ServerTS from '@/lib/ServerViewerTS.svelte'
+
+const guildId = "185552226998157313";
+const invite = "https://discord.com/invite/KKPurzUu";
 ---
 
 <Layout title="Server - henahax.de">
@@ -11,7 +17,22 @@ import ServerDiscord from '@/lib/DiscordViewer.astro'
 		<div slot="title">Server</div>
 		<div slot="content" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 			<TSViewer />
-			<ServerDiscord />
+			
+			<ServerElement connectLink=''>
+				<i slot="icon" class="fa-brands fa-teamspeak"></i>
+				<div slot="title">TeamSpeak</div>
+				<div slot="content" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+				<ServerTS/>
+			</div>
+			</ServerElement>
+
+			<ServerElement connectLink=''>
+				  <i slot="icon" class="fa-brands fa-discord"></i>
+  				<div slot="title">Discord</div>
+  				<div slot="content" class="flex flex-col gap-4">
+    				<ServerDiscord guildId={guildId} invite={invite} client:visible />
+  				</div>
+			</ServerElement>
 		</div>
 	</Card>
 </Layout>
