@@ -1,6 +1,8 @@
 <!-- src/components/discord/DiscordViewer.svelte -->
 <script lang="ts">
   import { onMount } from 'svelte';
+	import ViewerChannel from './ViewerChannel.svelte'
+  import ViewerClient from './ViewerClient.svelte';
 
   // Types for Discord widget JSON
   type WidgetChannel = { id: string; name: string; position?: number };
@@ -90,27 +92,32 @@
         <ul class="flex flex-col text-white gap-1">
           {#each data.channels as channel}
             <li class="flex text-sm flex-col">
-                <details open>
-                    <summary>
-                        <i class="fa-solid fa-volume-high"></i>
-                          {channel.name}
-                    </summary>
-                    <ul class="flex flex-col px-2">
-                {#each (data.members ?? []).filter(m => m.channel_id === channel.id) as member}
-                  <li class="flex gap-2 items-center text-sm">
-                    <img
-                      class="w-4 h-4 rounded-full"
-                      src={member.avatar_url}
-                      alt={`${member.username}'s avatar`}
-                      loading="lazy"
-                      decoding="async"
-                      referrerpolicy="no-referrer"
-                    />
-                    {member.username}
-                  </li>
-                {/each}
-              </ul>
-                </details>
+              <ViewerChannel>
+  <i slot="icon" class="fa-solid fa-volume-high text-xs"></i>
+  <div slot="name">{channel.name}</div>
+<div slot="content">
+  {#if (data.members ?? []).some(m => m.channel_id === channel.id)}
+
+      <ul class="flex flex-col pl-9 gap-1">
+        {#each (data.members ?? []).filter(m => m.channel_id === channel.id) as member}
+          <ViewerClient>
+            <img slot="icon"
+              class="w-4 h-4 rounded-full"
+              src={member.avatar_url}
+              alt={`${member.username}'s avatar`}
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+            <div slot="name">{member.username}</div>
+          </ViewerClient>
+        {/each}
+      </ul>
+    
+  {/if}
+</div>
+</ViewerChannel>
+
             </li>
           {/each}
         </ul>
@@ -122,17 +129,20 @@
         <div class="text-xs uppercase">online</div>
         <ul class="flex flex-col text-white">
           {#each data.members as member}
-            <li class="flex gap-2 items-center text-sm">
-              <img
-                class="size-4 rounded-full"
-                src={member.avatar_url}
-                alt={`${member.username}'s avatar`}
-                loading="lazy"
-                decoding="async"
-                referrerpolicy="no-referrer"
-              />
+          <ViewerClient>
+            <img
+              slot="icon"
+              class="w-4 h-4 rounded-full"
+              src={member.avatar_url}
+              alt={`${member.username}'s avatar`}
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+            <div slot="name">
               {member.username}
-            </li>
+            </div>
+          </ViewerClient>
           {/each}
         </ul>
       </div>
@@ -141,15 +151,3 @@
 {:else}
   <div class="text-sm">Keine Daten verfügbar.</div>
 {/if}
-
-<style>
-    details > summary {
-        cursor: pointer;
-       color: var(--color-neutral-400);
-       transition: all 0.25s;
-    }
-
-    details > summary:hover {
-        color: var(--color-white)
-    }
-</style>

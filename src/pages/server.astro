@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Card from '@/lib/Card.astro'
-import ServerElement from '@/lib/Server.astro'
-import TSViewer from '@/lib/ServerViewerTS.astro'
+import Layout from '@/layouts/Layout.astro'
+import Card from '@/components/Card.astro'
+import ServerElement from '@/components/Server.astro'
+import TSViewer from '@/components/ServerViewerTS.astro'
 
-import ServerDiscord from '@/lib/ServerViewerDiscord.svelte'
-import ServerTS from '@/lib/ServerViewerTS.svelte'
+import ServerDiscord from '@/components/ViewerDiscord.svelte'
+import ServerTS from '@/components/ViewerTeamSpeak.svelte'
 
 const guildId = "185552226998157313";
 const invite = "https://discord.com/invite/KKPurzUu";
@@ -22,7 +22,7 @@ const invite = "https://discord.com/invite/KKPurzUu";
 				<i slot="icon" class="fa-brands fa-teamspeak"></i>
 				<div slot="title">TeamSpeak</div>
 				<div slot="content" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-				<ServerTS/>
+				<ServerTS client:visible/>
 			</div>
 			</ServerElement>
 
