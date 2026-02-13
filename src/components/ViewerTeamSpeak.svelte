@@ -3,15 +3,12 @@
 
   import TeamSpeakChannelList from "./ViewerTeamSpeakChannelList.svelte";
 
-  let tree:any = [];
-  let loading = true;
+  let tree = $state<any[]>([]);
+  let loading = $state(true);
 
   async function load() {
     const res = await fetch("/api/teamspeak");
     tree = await res.json();
-
-    console.log("--- Viewer ---");
-    console.log(tree);
 
     loading = false;
   }
@@ -26,5 +23,5 @@
 {#if loading}
   <p>Loading TeamSpeak…</p>
 {:else}
-  <TeamSpeakChannelList {tree} />
+  <TeamSpeakChannelList tree={tree} />
 {/if}

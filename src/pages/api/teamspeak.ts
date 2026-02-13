@@ -5,9 +5,6 @@ export const GET: APIRoute = async () => {
     try {
         const tree = await getTree();
 
-        console.log("--- API ---");
-        console.log(tree);
-
         return new Response(JSON.stringify(tree), {
             headers: { "Content-Type": "application/json" }
         });
