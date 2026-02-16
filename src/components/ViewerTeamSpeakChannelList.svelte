@@ -7,7 +7,8 @@
 
   // Normalize incoming tree data. Accepts nested arrays using `subchannels` or `children`,
   // or a flat list with `parentId` references. Ensures `children` and `clients` exist
-  // and sorts channels by `order` recursively.
+  // Normalize incoming tree data. API provides a nested `subchannels` tree already
+  // ordered by TeamSpeak; just convert `subchannels` -> `children` and ensure clients exist.
   function normalizeTree(input) {
     if (!Array.isArray(input)) return [];
 
@@ -17,49 +18,13 @@
       clients: Array.isArray(item.clients) ? item.clients : [],
     });
 
-    // If items contain parentId and there are no nested subchannels/children, treat as flat list
-    const hasParentId = input.some((c) => c && Object.prototype.hasOwnProperty.call(c, 'parentId'));
-    const hasNested = input.some((c) => c && ((Array.isArray(c.subchannels) && c.subchannels.length) || (Array.isArray(c.children) && c.children.length)));
-
-    if (hasParentId && !hasNested) {
-      const map = new Map();
-      input.forEach((raw) => {
-        const it = ensureShape(raw);
-        map.set(it.id, { ...it, children: [] });
-      });
-
-      const roots = [];
-      for (const item of map.values()) {
-        const pid = item.parentId;
-        if (pid && map.has(pid)) {
-          map.get(pid).children.push(item);
-        } else {
-          roots.push(item);
-        }
-      }
-
-      const sortRec = (arr) => {
-        arr.sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
-        arr.forEach((c) => sortRec(c.children));
-      };
-      sortRec(roots);
-      return roots;
-    }
-
-    // Otherwise assume nested structure; convert `subchannels` -> `children` and normalize
-    const convert = (arr) =>
+    const convert = (arr = []) =>
       arr.map((raw) => {
         const it = ensureShape(raw);
-        return { ...it, children: convert(it.children || []) };
+        return { ...it, children: convert(it.children) };
       });
 
-    const out = convert(input);
-    const sortRec = (arr) => {
-      arr.sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
-      arr.forEach((c) => sortRec(c.children));
-    };
-    sortRec(out);
-    return out;
+    return convert(input);
   }
 
   // Detect spacer channels

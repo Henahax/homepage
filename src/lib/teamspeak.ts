@@ -15,6 +15,7 @@ export async function getTree() {
         // Connect/login on demand so callers always get the current state
         if (!(query as any).connected) {
             await query.connect();
+            // Verbinden als Henahax, TODO: fix
             await query.login('query', '1PU29TYU'); // todo: move to env
             await query.virtualServers.use(1);
         }
@@ -52,36 +53,65 @@ export async function getTree() {
             }
         });
 
-        // Build hierarchy
-        const tree: any[] = [];
+        // Build hierarchy using TS3 linked-list `order` logic.
+        const byParent = new Map<number, any[]>();
 
+        // Group channels by parent
         channelMap.forEach(channel => {
-            // Treat as root if: no parent, parent is 0, or parent doesn't exist in map
-            if (channel.parentId === 0 || channel.parentId === null || channel.parentId === undefined) {
-                tree.push(channel);
-            } else {
-                const parent = channelMap.get(channel.parentId);
-                if (parent) {
-                    parent.subchannels.push(channel);
-                } else {
-                    // Parent doesn't exist - treat as root
-                    tree.push(channel);
-                }
+            const parentId = channel.parentId ?? 0;
+
+            if (!byParent.has(parentId)) {
+                byParent.set(parentId, []);
             }
+
+            byParent.get(parentId)!.push(channel);
         });
 
-        // Sort siblings by numeric `order` (missing/non-numeric orders go last)
-        const toNum = (v: any) => {
-            const n = Number(v);
-            return Number.isFinite(n) ? n : Number.MAX_SAFE_INTEGER;
+        // Sort a group using TS3 linked-list ordering
+        const sortGroup = (group: any[]) => {
+            const sorted: any[] = [];
+            const remaining = new Set(group.map(g => g.id));
+
+            // First element = order === 0
+            let current = group.find(c => Number(c.order) === 0);
+
+            // If none has order 0 (edge case), fall back to numeric sort
+            if (!current) {
+                return group.slice().sort((a, b) => Number(a.order) - Number(b.order));
+            }
+
+            while (current) {
+                sorted.push(current);
+                remaining.delete(current.id);
+                current = group.find(c => Number(c.order) === current.id);
+            }
+
+            // Append any leftover channels (cycles or missing links) sorted by numeric order
+            if (remaining.size) {
+                const leftovers = group.filter(g => remaining.has(g.id));
+                leftovers.sort((a, b) => Number(a.order) - Number(b.order));
+                sorted.push(...leftovers);
+            }
+
+            return sorted;
         };
 
-        const sortTree = (nodes: any[]) => {
-            nodes.sort((a, b) => toNum(a.order) - toNum(b.order));
-            nodes.forEach(n => sortTree(n.subchannels));
+        // Recursively build tree
+        const buildTree = (parentId = 0): any[] => {
+            const group = byParent.get(parentId);
+            if (!group) return [];
+
+            const sorted = sortGroup(group);
+
+            return sorted.map(channel => ({
+                ...channel,
+                subchannels: buildTree(channel.id)
+            }));
         };
 
-        sortTree(tree);
+        const tree = buildTree(0);
+
+        console.log(JSON.stringify(tree));
 
         return tree;
 
