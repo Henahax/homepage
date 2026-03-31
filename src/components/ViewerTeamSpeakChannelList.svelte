@@ -67,10 +67,12 @@
             {#if channel.clients && channel.clients.length}
               <ul class="flex flex-col pl-9 gap-1">
                 {#each channel.clients as client}
-                  <ViewerClient>
-                    <i slot="icon" class="fa-solid fa-circle text-sky-700"></i>
-                    <div slot="name">{client.nickname}</div>
-                  </ViewerClient>
+                  {#if client.type == 0}
+                    <ViewerClient>
+                      <i slot="icon" class="fa-solid fa-circle text-sky-700"></i>
+                      <div slot="name">{client.nickname}</div>
+                    </ViewerClient>
+                  {/if}
                 {/each}
               </ul>
             {/if}

@@ -7,8 +7,10 @@
   let loading = $state(true);
 
   async function load() {
-    const res = await fetch("/api/teamspeak");
+    const res = await fetch("http://192.168.0.11:8082/api/teamspeak/tree");
     tree = await res.json();
+
+    console.log(tree);
 
     loading = false;
   }
