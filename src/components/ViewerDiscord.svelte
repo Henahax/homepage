@@ -95,6 +95,12 @@
               <ViewerChannel>
   <i slot="icon" class="fa-solid fa-volume-high text-xs"></i>
   <div slot="name">{channel.name}</div>
+            <div slot="usercount" class="text-xs text-neutral-500">
+  {#if ((data.members ?? []).filter(m => m.channel_id === channel.id).length) > 0}
+    <i class="fa-solid fa-user"></i>
+    {(data.members ?? []).filter(m => m.channel_id === channel.id).length}
+  {/if}
+</div>
 <div slot="content">
   {#if (data.members ?? []).some(m => m.channel_id === channel.id)}
 
@@ -117,7 +123,6 @@
   {/if}
 </div>
 </ViewerChannel>
-
             </li>
           {/each}
         </ul>
