@@ -63,8 +63,15 @@
         <ViewerChannel>
           <i slot="icon" class="fa-solid fa-message"></i>
           <div slot="name">{channel.name}</div>
+
+          <div slot="usercount" class="text-xs text-neutral-500">
+            {#if (channel.clients?.filter(c => c.type == 0).length ?? 0) > 0}
+            <i class="fa-solid fa-user"></i> 
+            {channel.clients?.filter(c => c.type == 0).length}
+            {/if}
+          </div>
           <div slot="content">
-            {#if channel.clients && channel.clients.length}
+            {#if (channel.clients?.filter(c => c.type == 0).length ?? 0) > 0}
               <ul class="flex flex-col pl-9 gap-1">
                 {#each channel.clients as client}
                   {#if client.type == 0}

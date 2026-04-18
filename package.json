@@ -10,9 +10,9 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/node": "^10.0.4",
-		"@astrojs/svelte": "^8.0.4",
-		"astro": "^6.1.2",
+		"@astrojs/node": "^10.0.5",
+		"@astrojs/svelte": "^8.0.5",
+		"astro": "^6.1.8",
 		"svelte": "^5.49.2",
 		"teamspeak.js": "^1.11.2",
 		"teamspeak3.js": "^1.6.0",

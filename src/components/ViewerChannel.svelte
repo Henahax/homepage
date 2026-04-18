@@ -4,10 +4,11 @@
 
 <details open>
     <summary class="flex">
-        <div class="grid grid-cols-[auto_auto_1fr] items-center gap-2 text-neutral-300">
+        <div class="grid grid-cols-[auto_auto_1fr_auto] w-full items-center gap-2 text-neutral-300">
             <i class="arrow fa-solid fa-angle-right text-xs"></i>
             <slot name="icon"/>
             <slot name="name"/>
+            <slot name="usercount"/>
         </div>
     </summary>
     <slot name="content" class="grid-cols-full"/>
