@@ -1,8 +1,23 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Card from '@/lib/Card.astro'
-import TSViewer from '@/lib/TSViewer.astro'
-import ServerDiscord from '@/lib/DiscordViewer.astro'
+import Layout from '@/layouts/Layout.astro'
+import Card from '@/components/Card.astro'
+import ServerElement from '@/components/Server.astro'
+import TSViewerOld from '@/components/ServerViewerTSOld.astro'
+
+import ServerDiscord from '@/components/ViewerDiscord.svelte'
+import ServerTS from '@/components/ViewerTeamSpeak.svelte'
+
+const guildId = "185552226998157313";
+const invite = "https://discord.com/invite/KKPurzUu";
+
+enum Mode {
+	default,
+	old,
+	dev
+}
+
+
+const mode: Mode = Mode.default;
 ---
 
 <Layout title="Server - henahax.de">
@@ -10,8 +25,27 @@ import ServerDiscord from '@/lib/DiscordViewer.astro'
 		<i slot="icon" class="fa-solid fa-server"></i>
 		<div slot="title">Server</div>
 		<div slot="content" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-			<TSViewer />
-			<ServerDiscord />
+			{mode !== Mode.default  && 
+			<TSViewerOld/>
+			}
+			
+			{mode !== Mode.old  && 
+			<ServerElement connectLink='teamspeak://ts.henahax.net?port=9987'>
+				<i slot="icon" class="fa-brands fa-teamspeak"></i>
+				<div slot="title">TeamSpeak</div>
+				<div slot="content" class="flex flex-col gap-4">
+				<ServerTS client:visible/>
+			</div>
+			</ServerElement>
+			}
+
+			<ServerElement connectLink='https://discord.henahax.net/'>
+				  <i slot="icon" class="fa-brands fa-discord"></i>
+  				<div slot="title">Discord</div>
+  				<div slot="content" class="flex flex-col gap-4">
+    				<ServerDiscord guildId={guildId} invite={invite} client:visible />
+  				</div>
+			</ServerElement>
 		</div>
 	</Card>
 </Layout>
