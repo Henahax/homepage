@@ -9,15 +9,6 @@ import ServerTS from '@/components/ViewerTeamSpeak.svelte'
 
 const guildId = "185552226998157313";
 const invite = "https://discord.com/invite/KKPurzUu";
-
-enum Mode {
-	default,
-	old,
-	dev
-}
-
-
-const mode: Mode = Mode.default;
 ---
 
 <Layout title="Server - henahax.de">
@@ -25,11 +16,11 @@ const mode: Mode = Mode.default;
 		<i slot="icon" class="fa-solid fa-server"></i>
 		<div slot="title">Server</div>
 		<div slot="content" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-			{mode !== Mode.default  && 
-			<TSViewerOld/>
-			}
 			
-			{mode !== Mode.old  && 
+			<!--
+			<TSViewerOld/>
+			-->
+			
 			<ServerElement connectLink='teamspeak://ts.henahax.net?port=9987'>
 				<i slot="icon" class="fa-brands fa-teamspeak"></i>
 				<div slot="title">TeamSpeak</div>
@@ -37,7 +28,6 @@ const mode: Mode = Mode.default;
 				<ServerTS client:visible/>
 			</div>
 			</ServerElement>
-			}
 
 			<ServerElement connectLink='https://discord.henahax.net/'>
 				  <i slot="icon" class="fa-brands fa-discord"></i>
