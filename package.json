@@ -16,7 +16,6 @@
 		"astro": "^6.4.4",
 		"svelte": "^5.49.2",
 		"teamspeak.js": "^1.11.2",
-		"teamspeak3.js": "^1.6.0",
 		"typescript": "^5.9.3"
 	},
 	"devDependencies": {
