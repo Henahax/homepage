@@ -1,6 +1,8 @@
 import type { APIRoute } from "astro";
 import { getTree } from "../../lib/teamspeak";
 
+export const prerender = false;
+
 export const GET: APIRoute = async () => {
     try {
         const tree = await getTree();
