@@ -1,11 +1,10 @@
-name: CI
+name: Create & Publish Docker Image
 
 on:
-  push:
-    branches: ['main']
-  pull_request:
-    branches: ['main']
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   Docker:
@@ -14,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 26
+          node-version: 24
 
       - name: setup git config
         run: |
@@ -29,7 +28,7 @@ jobs:
 
       - name: Save version
         id: version
-        run: echo ::set-output name=tag::$(echo $(node -p -e "require('./package.json').version"))
+        run: echo "tag=$(node -p -e "require('./package.json').version")" >> $GITHUB_OUTPUT
 
       - name: Increase version
         run: npm version patch
