@@ -17,11 +17,6 @@ const mode = Number(import.meta.env.TEAMSPEAK_VIEWER_MODE ?? 0);
 		<i slot="icon" class="fa-solid fa-server"></i>
 		<div slot="title">Server</div>
 		<div slot="content" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-
-			{mode !== 0 &&
-			<TSViewerOld/>
-			}
-			
 			{mode !== 1 &&
 			<ServerElement connectLink='teamspeak://ts.henahax.net?port=9987'>
 				<i slot="icon" class="fa-brands fa-teamspeak"></i>
@@ -30,6 +25,10 @@ const mode = Number(import.meta.env.TEAMSPEAK_VIEWER_MODE ?? 0);
 				<ServerTS client:visible/>
 			</div>
 			</ServerElement>
+			}
+
+			{mode !== 0 &&
+			<TSViewerOld/>
 			}
 
 			<ServerElement connectLink='https://discord.henahax.net/'>
