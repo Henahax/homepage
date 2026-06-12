@@ -50,7 +50,7 @@
     <li class="flex flex-col gap-1 w-full">
       {#if isSpacer(channel)}
         <!-- Spacer rendering -->
-        <div class="select-none uppercase text-xs">
+        <div class="select-none uppercase text-xs px-4">
           {spacerLabel(channel.name) || " "}
         </div>
         {#if channel.children && channel.children.length}

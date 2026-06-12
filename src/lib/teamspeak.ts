@@ -26,10 +26,7 @@ type TeamspeakClient = {
     nickname?: string;
 };
 
-const TEAMSPEAK_BASE_URL = process.env.TEAMSPEAK_BASE_URL || 'http://localhost';
-const TEAMSPEAK_QUERY_PORT = process.env.TEAMSPEAK_QUERY_PORT || '10080';
-const TEAMSPEAK_API_KEY = process.env.TEAMSPEAK_API_KEY || '';
-const TEAMSPEAK_SERVER_ID = process.env.TEAMSPEAK_SERVER_ID || '1';
+const VOICE_API_URL = process.env.VOICE_API_URL || 'http://localhost';
 const CACHE_TTL = Number(process.env.TEAMSPEAK_CACHE_TTL_MS ?? process.env.TEAMSPEAK_CACHE_TTL ?? '60000');
 
 let cachedTree: { tree: any; ts: number } | null = null;
@@ -37,9 +34,7 @@ let inflightFetch: Promise<any> | null = null;
 
 async function fetchTeamspeakData(endpoint: 'channellist' | 'clientlist') {
     const response = await fetch(
-        `${TEAMSPEAK_BASE_URL}:${TEAMSPEAK_QUERY_PORT}/${TEAMSPEAK_SERVER_ID}/${endpoint}?api-key=${encodeURIComponent(
-            TEAMSPEAK_API_KEY
-        )}`,
+        `${VOICE_API_URL}`,
         {
             headers: {
                 'Content-Type': 'application/json'
