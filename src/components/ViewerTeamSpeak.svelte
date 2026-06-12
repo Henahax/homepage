@@ -7,7 +7,7 @@
   let loading = $state(true);
 
   async function load() {
-    const res = await fetch("http://services:8082/api/teamspeak/tree");
+    const res = await fetch("https://api.henahax.net/api/teamspeak/tree");
     tree = await res.json();
 
     console.log(tree);
