@@ -2,6 +2,16 @@
 import Layout from '@/layouts/Layout.astro'
 import Card from '@/components/Card.astro'
 
+const games = Object.values(import.meta.glob("./games/*.md", { eager: true }));
+
+const active_games = games
+  .filter((game: any) => game.frontmatter.status === 'active')
+  .toSorted((a: any, b: any) => a.frontmatter.index - b.frontmatter.index);
+
+  const casual_games = games
+  .filter((game: any) => game.frontmatter.status === 'casual')
+  .toSorted((a: any, b: any) => a.frontmatter.index - b.frontmatter.index);
+
 const gamesActive = [
 	{
 		name: 'Guild Wars 2',
@@ -90,8 +100,50 @@ const gamesCasual = [
 						))
 					}
 				</div>
+			</div>	
+		</div>	
+	</Card>
+	<Card transitionName="gaming">
+		<i slot="icon" class="fa-solid fa-gamepad"></i>
+		<span slot="title">Gaming</span>
+
+		<a
+			slot="link"
+			target="_blank"
+			rel="noopener noreferrer"
+			href="https://steamcommunity.com/id/henahax/"
+		>
+			<i class="fa-brands fa-steam"></i>
+		</a>
+
+		<div slot="content" class="flex flex-col gap-8">
+			<div class="flex flex-col gap-2">
+				<div>active:</div>
+				<div class="flex gap-2 flex-wrap">
+					{
+						active_games.map((game: any, i: number) => (
+							<details open={i === 0} name="active" class="card subcard backgroundCard w-full flex flex-col gap-4">
+								<summary>{game.frontmatter.title}</summary>
+								<div>test</div>
+							</details>
+						))
+					}
+					</div>
+				</div>
+				<div class="flex flex-col gap-2">
+				<div>casual:</div>
+				<div class="flex gap-2 flex-wrap">
+					{
+						casual_games.map((game: any, i: number) => (
+							<details open={i === 0} name="casual" class="card subcard backgroundCard w-fit">
+								<summary>{game.frontmatter.title}</summary>
+								<div>test</div>
+							</details>
+						))
+					}
+				</div>
 			</div>
-		</div>
+		</div>	
 	</Card>
 </Layout>
 
