@@ -16,10 +16,10 @@ const gamesActive = [
 		image: 'https://cdn2.steamgriddb.com/hero_thumb/0fcbc61acd0479dc77e3cccc0f5ffca7.jpg'
 	},
 	{
-		name: 'Slay the Spire',
-		link: 'https://store.steampowered.com/app/646570/Slay_the_Spire/',
-		icon: 'https://cdn2.steamgriddb.com/icon/70ece1e1e0931919438fcfc6bd5f199c/32/256x256.png',
-		image: 'https://cdn2.steamgriddb.com/hero_thumb/5cfa02f9154d8220d0a911d6ca82ddb5.jpg'
+		name: 'Slay the Spire 2',
+		link: 'https://store.steampowered.com/app/2868840/Slay_the_Spire_2/',
+		icon: 'https://cdn2.steamgriddb.com/icon_thumb/78fa1b4c07f8922f9f348794f59e0db3.png',
+		image: 'https://cdn2.steamgriddb.com/hero_thumb/775f2b72be53bca3388d908ec8e28e83.jpg'
 	}
 ]
 
@@ -33,13 +33,17 @@ const gamesCasual = [
 		link: 'https://geoguessr.com'
 	},
 	{
+		name: 'Pokelike',
+		link: 'https://pokelike.xyz/'
+	},
+	{
 		name: 'FoodGuessr',
 		link: 'https://foodguessr.com'
 	}
 ]
 ---
 
-<Layout title="Gaming - henahax.de">
+<Layout title="Gaming - henahax.net">
 	<Card transitionName="gaming">
 		<i slot="icon" class="fa-solid fa-gamepad"></i>
 		<span slot="title">Gaming</span>
@@ -55,7 +59,7 @@ const gamesCasual = [
 
 		<div slot="content" class="flex flex-col gap-8">
 			<div class="flex flex-col gap-2">
-				<div class="text-sm">aktiv:</div>
+				<div class="text-sm">active:</div>
 				<div class="flex flex-col gap-4">
 					{
 						gamesActive.map((game) => (
@@ -75,7 +79,7 @@ const gamesCasual = [
 			</div>
 
 			<div class="flex flex-col gap-2">
-				<div class="text-sm">gelegentlich:</div>
+				<div class="text-sm">casual:</div>
 				<div class="flex flex-row flex-wrap gap-2">
 					{
 						gamesCasual.map((game) => (
@@ -93,58 +97,9 @@ const gamesCasual = [
 			</div>	
 		</div>	
 	</Card>
-	<Card transitionName="gaming">
-		<i slot="icon" class="fa-solid fa-gamepad"></i>
-		<span slot="title">Gaming</span>
-
-		<a
-			slot="link"
-			target="_blank"
-			rel="noopener noreferrer"
-			href="https://steamcommunity.com/id/henahax/"
-		>
-			<i class="fa-brands fa-steam"></i>
-		</a>
-
-		<div slot="content" class="">
-			<div class="flex">
-					{
-						gamesActive.map((game) => (
-							<article class="my-card">
-								<div>{game.name}</div>
-							</article>
-						))
-					}
-				</div>
-		</div>
-
-		</Card>
 </Layout>
 
 <style>
-	.my-card {
-		width: 15rem;
-		height: 21rem;
-		padding:1rem;
-		border-radius: 1rem;
-		background-color: gray;
-		box-shadow: -1rem 0 3rem #000;
-
-		transition: .25s ease-in-out;
-	}
-
-	.my-card:hover {
-		transform: translateY(-1rem);
-	}
-
-	.my-card:hover~.my-card {
-		transform: translatex(5rem);
-	}
-
-	.my-card:not(:first-child){
-		margin-left: -5rem;
-	}
-
 	.backgroundCard {
 		position: relative;
 		background-size: cover;
