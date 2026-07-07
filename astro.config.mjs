@@ -1,23 +1,23 @@
 // @ts-check
 import { defineConfig } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
-import node from '@astrojs/node';
-import svelte from '@astrojs/svelte';
+import node from '@astrojs/node'
+import svelte from '@astrojs/svelte'
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    resolve: {
-      alias: {
-        '@': new URL('./src', import.meta.url).pathname
-      }
-    },
-    plugins: [tailwindcss()]
-  },
+	vite: {
+		resolve: {
+			alias: {
+				'@': new URL('./src', import.meta.url).pathname
+			}
+		},
+		plugins: [tailwindcss()]
+	},
 
-  adapter: node({
-    mode: 'standalone'
-  }),
+	adapter: node({
+		mode: 'standalone'
+	}),
 
-  integrations: [svelte()]
+	integrations: [svelte()]
 })
