@@ -42,6 +42,14 @@
 		return (name || '').replace(/^\[(c)?spacer[^\]]*\]/i, '').trim()
 	}
 
+	function countryFlagUrl(country) {
+		const code = String(country || '')
+			.trim()
+			.toLowerCase()
+		if (code.length !== 2) return null
+		return `https://flagcdn.com/w20/${code}.png`
+	}
+
 	let normalizedTree = $derived(normalizeTree(tree))
 </script>
 
@@ -76,8 +84,17 @@
 								{#each channel.clients as client}
 									{#if client.type == 0}
 										<ViewerClient>
-											<i slot="icon" class="fa-solid fa-circle text-sky-700"></i>
+											<i slot="icon" class="fa-solid fa-circle text-sky-600 opacity-75"></i>
 											<div slot="name">{client.nickname}</div>
+											<div slot="add">
+												{#if countryFlagUrl(client.country)}
+													<img
+														src={countryFlagUrl(client.country)}
+														alt={client.country}
+														class="w-4 h-4 rounded-sm opacity-75"
+													/>
+												{/if}
+											</div>
 										</ViewerClient>
 									{/if}
 								{/each}
