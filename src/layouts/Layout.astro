@@ -36,38 +36,77 @@ const { title } = Astro.props
 			<Banner isLayout={true} />
 			<slot />
 		</app>
+		<footer class="w-full flex items-end">
+			
+			<div class="marquee">
+				<div class="marquee__track">
+					<span>© 2026 henahax.net</span>
+					<span>Servers</span>
+					<span>Gaming</span>
+					<span>Projects</span>
+					<span aria-hidden="true">© 2026 henahax.net</span>
+					<span aria-hidden="true">Servers</span>
+					<span aria-hidden="true">Gaming</span>
+					<span aria-hidden="true">Projects</span>
+					<span aria-hidden="true">© 2026 henahax.net</span>
+					<span aria-hidden="true">Servers</span>
+					<span aria-hidden="true">Gaming</span>
+					<span>Projects</span>
+				</div>
+			</div>
+				
+			<a id="source" class="flex gap-4 items-center text-center p-4 rounded-tl-lg border border-neutral-500 text-xs" href="https://github.com/henahax/homepage">
+			<i class="fa-brands fa-github"></i>
+				Source
+		</a>
+		</footer>
 	</body>
 	<style is:global>
 		@view-transition {
 			navigation: auto;
 		}
 
+		:root {
+			--foreground: var(--color-neutral-950);
+			--background: var(--color-yellow-300);
+		}
+
+		.marquee {
+  			overflow: hidden;
+  			white-space: nowrap;
+  			width: 100%;
+  			padding: 0.5rem 0;
+			color: var(--foreground);
+			background-color: var(--background);
+		}
+
+		.marquee__track {
+  			display: flex;
+  			width: max-content;
+  			animation: marquee 15s linear infinite;
+		}
+
+		.marquee__track span {
+  			flex-shrink: 0;
+  			padding-right: 4rem; /* Abstand zwischen Wiederholungen */
+		}
+
+		@keyframes marquee {
+  			from {
+    			transform: translateX(0);
+  			}
+  			to {
+    			transform: translateX(-50%);
+  			}
+		}
+
+
 		body {
 			position: relative;
 			font-family: Consolas, monaco, monospace;
 			color: var(--color-neutral-200);
-			background-color: var(--color-neutral-800);
-			background-image: url(../pexels-harold-vasquez-853421-2653362.jpg);
-			background-size: cover;
-			background-position: center center;
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-		}
+			background-color: var(--color-neutral-950);
 
-		body::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(to left, rgba(0, 0, 0, 1), transparent);
-			pointer-events: none;
-		}
-
-		body * {
-			position: relative;
-			z-index: 1;
 		}
 
 		a:hover {
@@ -100,11 +139,5 @@ const { title } = Astro.props
 			color: white;
 			height: fit-content;
 		}
-
-		#ts3v_1124630 > div:first-child,
-		#ts3v_1124630 > div:last-child {
-			display: none;
-		}
-
 	</style>
 </html>
