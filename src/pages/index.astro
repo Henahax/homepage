@@ -38,7 +38,7 @@ const tiles = [
 			{
 				tiles.map((tile) => (
 					<a
-						class="box card menu-option border-2"
+						class="card card-shape menu-option border-2"
 						href={tile.link}
 						transition:name={tile.name}
 					>
@@ -63,8 +63,9 @@ const tiles = [
 		width: 100%;
 		font-size: 1.5rem;
 		border-width: 0.125rem;
-		background-color: var(--background);
+		background-color: var(--primary);
 		color: var(--foreground);
+		animation: shadow-move 2s infinite ease-in-out;
 	}
 
 	.menu-option:hover,

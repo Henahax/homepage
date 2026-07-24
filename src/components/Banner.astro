@@ -5,7 +5,7 @@ const { isLayout } = Astro.props
 <a
 	href="/"
 	class:list={[
-		'flex w-fit items-center gap-4 self-center',
+		'tilt flex w-fit items-center gap-4 self-center',
 		{ 'max-sm:hidden': isLayout, 'sm:hidden': !isLayout }
 	]}
 	transition:name="banner"
