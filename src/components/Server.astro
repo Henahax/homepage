@@ -6,7 +6,7 @@ interface Props {
 const { connectLink } = Astro.props
 ---
 
-<div class="card subcard server flex flex-col gap-4 p-4 text-sm">
+<div class="card-shape-inner server flex flex-col gap-4 p-4 text-sm">
 	<div class="flex items-center justify-between gap-4 text-lg">
 		<div class="flex items-center gap-2">
 			<slot name="icon" />
@@ -27,6 +27,6 @@ const { connectLink } = Astro.props
 
 <style>
 	.server {
-		background-color: rgba(255, 255, 255, 0.1);
+		background-color: rgba(0, 0, 0, 0.5);
 	}
 </style>

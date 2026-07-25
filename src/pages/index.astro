@@ -34,7 +34,7 @@ const tiles = [
 	<div class="flex flex-col items-center justify-center gap-8">
 		<Banner isLayout={false} />
 
-		<div class="flex flex-col items-center justify-center gap-4 w-full max-w-xs">
+		<div class="flex flex-col items-center justify-center gap-4 w-full max-w-2xs">
 			{
 				tiles.map((tile) => (
 					<a
@@ -63,7 +63,7 @@ const tiles = [
 		width: 100%;
 		font-size: 1.5rem;
 		border-width: 0.125rem;
-		background-color: var(--primary);
+		background: var(--primary-gradient);
 		color: var(--foreground);
 		animation: shadow-move 2s infinite ease-in-out;
 	}

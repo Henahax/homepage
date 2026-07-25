@@ -11,7 +11,7 @@ const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -21,12 +21,11 @@ const { title } = Astro.props
 		<title>{title}</title>
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-			integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+			integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
-		<script src="https://static.tsviewer.com/short_expire/js/ts3viewer_loader.js"></script>
 		<ClientRouter />
 	</head>
 	<body class="flex min-h-dvh flex-col">
@@ -44,10 +43,38 @@ const { title } = Astro.props
 					<span>Servers</span>
 					<span>Gaming</span>
 					<span>Projects</span>
+					<span aria-hidden="true">© 2026 henahax.net</span>
+					<span aria-hidden="true">Servers</span>
+					<span aria-hidden="true">Gaming</span>
+					<span aria-hidden="true">Projects</span>
+					<span aria-hidden="true">© 2026 henahax.net</span>
+					<span aria-hidden="true">Servers</span>
+					<span aria-hidden="true">Gaming</span>
+					<span aria-hidden="true">Projects</span>
+					<span aria-hidden="true">© 2026 henahax.net</span>
+					<span aria-hidden="true">Servers</span>
+					<span aria-hidden="true">Gaming</span>
+					<span aria-hidden="true">Projects</span>
+					<span aria-hidden="true">© 2026 henahax.net</span>
+					<span aria-hidden="true">Servers</span>
+					<span aria-hidden="true">Gaming</span>
+					<span aria-hidden="true">Projects</span>
+					<span aria-hidden="true">© 2026 henahax.net</span>
+					<span aria-hidden="true">Servers</span>
+					<span aria-hidden="true">Gaming</span>
+					<span aria-hidden="true">Projects</span>
+					<span aria-hidden="true">© 2026 henahax.net</span>
+					<span aria-hidden="true">Servers</span>
+					<span aria-hidden="true">Gaming</span>
+					<span aria-hidden="true">Projects</span>
+					<span aria-hidden="true">© 2026 henahax.net</span>
+					<span aria-hidden="true">Servers</span>
+					<span aria-hidden="true">Gaming</span>
+					<span aria-hidden="true">Projects</span>
 				</div>
 			</div>
 				
-			<a id="source" class="flex gap-2 items-center text-center px-2 py-4 rounded-tl-lg border border-neutral-500 text-xs" href="https://github.com/henahax/homepage">
+			<a id="source" class="flex gap-2 items-center text-center px-2 py-4 rounded-tl-lg border text-xs" href="https://github.com/henahax/homepage">
 			<i class="fa-brands fa-github"></i>
 				Source
 		</a>
@@ -59,9 +86,14 @@ const { title } = Astro.props
 		}
 
 		:root {
-			--primary: var(--color-teal-500);
 			--foreground: var(--color-neutral-950);
-			--background: var(--color-neutral-700);
+			--background: var(--color-neutral-800);
+			
+			--primary: var(--color-teal-500);
+
+			--primary-light: var(--color-teal-400);
+			--primary-dark: var(--color-teal-600);
+			--primary-gradient: linear-gradient(180deg, var(--primary-light), var(--primary), var(--primary-dark));
 		}
 
 		body {
@@ -74,25 +106,32 @@ const { title } = Astro.props
 			border-radius: 1rem 0.5rem 1rem 0.5rem;
 		}
 
+		.card-shape-inner {
+			border-radius: 0.75rem 0.25rem 0.75rem 0.25rem;
+		}
+
 		.tilt {
 			transform: skew(-5deg) rotate(-5deg);
 		}
 
 		.tilt-shadow {
-			box-shadow: 0.5rem 0.5rem 0 black;
 			animation: shadow-move 2s infinite ease-in-out;
 		}
 
 		@keyframes shadow-move {
 			0% {
-				box-shadow: 0.5rem 0.5rem 0 black;
+				box-shadow: 0rem 0rem 2rem var(--color-neutral-500), 0.25rem 0.25rem 0 blue, 0.5rem 0.375rem var(--color-neutral-900);
 			}
 			50% {
-				box-shadow: 0.75rem 0.75rem 0 black;
+				box-shadow: 0rem 0rem 1rem var(--color-neutral-500), 0.75rem 0.5rem 0 red, 1.5rem 1rem var(--color-neutral-900);
 			}
 			100% {
-				box-shadow: 0.5rem 0.5rem 0 black;
+				box-shadow: 0rem 0rem 2rem var(--color-neutral-500), 0.25rem 0.25rem 0 blue, 0.5rem 0.375rem var(--color-neutral-900);
 			}
+		}
+
+		footer {
+			
 		}
 
 		.marquee {
@@ -101,14 +140,15 @@ const { title } = Astro.props
   			width: 100%;
   			padding: 0.5rem 0;
 			color: var(--foreground);
-			background-color: var(--primary);
+			background: var(--primary-gradient);
 			text-transform: uppercase;
+			box-shadow:	0rem 0rem 2rem var(--color-neutral-500);
 		}
 
 		.marquee-track {
   			display: flex;
   			width: max-content;
-  			animation: marquee 15s linear infinite;
+  			animation: marquee 20s linear infinite;
 		}
 
 		.marquee-track span {
@@ -117,15 +157,13 @@ const { title } = Astro.props
 		}
 
 		@keyframes marquee {
-  			from {
-    			transform: translateX(0%);
-  			}
   			to {
     			transform: translateX(-50%);
   			}
 		}
 
 		footer a#source{
+			color: var(--primary);
 			background-color: var(--foreground);
 		}
 	</style>
