@@ -1,28 +1,28 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
 @layer base {
-	.prose {
-		@apply max-w-none text-inherit;
-	}
+  .prose {
+    @apply max-w-none text-inherit;
+  }
 
-	.prose :where(h1, h2, h3, h4, h5, h6) {
-		@apply leading-tight font-semibold text-white;
-	}
+  .prose :where(h1, h2, h3, h4, h5, h6) {
+    @apply leading-tight font-semibold text-white;
+  }
 
-	.prose h1 {
-		@apply text-3xl;
-	}
+  .prose h1 {
+    @apply text-3xl;
+  }
 
-	.prose h2 {
-		@apply text-2xl;
-	}
+  .prose h2 {
+    @apply text-2xl;
+  }
 
-	.prose h3 {
-		@apply text-xl;
-	}
+  .prose h3 {
+    @apply text-xl;
+  }
 
-	.prose h4 {
-		@apply text-lg;
-	}
+  .prose h4 {
+    @apply text-lg;
+  }
 }
