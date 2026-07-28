@@ -46,9 +46,9 @@ const projects = [
 ---
 
 <Layout title="Projects - henahax.net">
-  <Card transitionName="projects">
-    <i slot="icon" class="fa-solid fa-code"></i>
-    <div slot="title">Projects</div>
+  <Card transitionName="projects-card">
+    <i slot="icon" class="fa-solid fa-code" transition:name="projects-icon"></i>
+    <div slot="title" transition:name="projects-title">Projects</div>
     <div
       slot="content"
       class="grid grid-cols-1 grid-rows-[auto_auto_auto] gap-4 sm:grid-cols-2 sm:grid-rows-[auto_auto_auto_auto_auto_auto]"

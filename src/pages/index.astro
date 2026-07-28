@@ -4,27 +4,19 @@ import Banner from "@/components/Banner.astro";
 
 const tiles = [
   {
-    name: "server",
-    desc: "Servers",
-    link: "/servers",
+    name: "servers",
     icon: "fa-solid fa-server",
   },
   {
     name: "gaming",
-    desc: "Gaming",
-    link: "/gaming",
     icon: "fa-solid fa-gamepad",
   },
   {
     name: "projects",
-    desc: "Projects",
-    link: "/projects",
     icon: "fa-solid fa-code",
   },
   {
     name: "links",
-    desc: "Links",
-    link: "/links",
     icon: "fa-solid fa-link",
   },
 ];
@@ -40,13 +32,13 @@ const tiles = [
       {
         tiles.map((tile) => (
           <a
-            class="card card-shape menu-option border-2"
-            href={tile.link}
-            transition:name={tile.name}
+            class="card card-shape menu-option"
+            href={"/" + tile.name}
+            transition:name={tile.name + "-card"}
           >
-            <div class="flex items-center gap-4">
-              <i class={tile.icon} transition:name={"icon" + tile.name} />
-              <div transition:name={"title" + tile.name}>{tile.desc}</div>
+            <div>
+              <i class={tile.icon} transition:name={tile.name + "-icon"} />
+              <div transition:name={tile.name + "-title"}>{tile.name}</div>
             </div>
           </a>
         ))
@@ -61,13 +53,13 @@ const tiles = [
     transform: skew(-5deg) rotate(-5deg);
     display: flex;
     align-items: center;
-    gap: 1rem;
     width: 100%;
     font-size: 1.5rem;
     border-width: 0.125rem;
     background: var(--primary-gradient);
     color: var(--foreground);
     animation: shadow-move 2s infinite ease-in-out;
+    text-transform: uppercase;
   }
 
   .menu-option:hover,
@@ -76,7 +68,9 @@ const tiles = [
   }
 
   .menu-option > div {
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     transition: transform 180ms ease-out;
     will-change: transform;
   }

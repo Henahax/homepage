@@ -47,9 +47,10 @@ const gamesCasual = [
 ---
 
 <Layout title="Gaming - henahax.net">
-  <Card transitionName="gaming">
-    <i slot="icon" class="fa-solid fa-gamepad"></i>
-    <span slot="title">Gaming</span>
+  <Card transitionName="gaming-card">
+    <i slot="icon" class="fa-solid fa-gamepad" transition:name="gaming-icon"
+    ></i>
+    <div slot="title" transition:name="gaming-title">Gaming</div>
 
     <a
       slot="link"
@@ -74,7 +75,7 @@ const gamesCasual = [
                 style={"background-image: url('" + game.image + "');"}
               >
                 <img src={game.icon} class="size-8" />
-                <div>{game.name}</div>
+                <div class="game-title">{game.name}</div>
               </a>
             ))
           }
@@ -117,7 +118,7 @@ const gamesCasual = [
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
     pointer-events: none; /* Prevents blocking interactions */
     border-radius: inherit; /* Ensures it follows the parent's rounded corners */
   }
@@ -125,5 +126,9 @@ const gamesCasual = [
   .backgroundCard * {
     position: relative; /* Ensures content stays above the gradient */
     z-index: 1;
+  }
+
+  .game-title {
+    color: var(--background);
   }
 </style>

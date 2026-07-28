@@ -12,9 +12,10 @@ const mode = Number(import.meta.env.TEAMSPEAK_VIEWER_MODE ?? 0);
 ---
 
 <Layout title="Servers - henahax.net">
-  <Card transitionName="server">
-    <i slot="icon" class="fa-solid fa-server"></i>
-    <div slot="title">Servers</div>
+  <Card transitionName="servers-card">
+    <i slot="icon" class="fa-solid fa-server" transition:name="servers-icon"
+    ></i>
+    <div slot="title" transition:name="servers-title">Servers</div>
     <div slot="content" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
       <ServerElement connectLink="teamspeak://ts.henahax.net?port=9987">
         <i slot="icon" class="fa-brands fa-teamspeak"></i>

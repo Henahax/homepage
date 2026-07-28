@@ -49,9 +49,9 @@ const links = [
 ---
 
 <Layout title="Links - henahax.net">
-  <Card transitionName="links">
-    <i slot="icon" class="fa-solid fa-link"></i>
-    <div slot="title">Links</div>
+  <Card transitionName="links-card">
+    <i slot="icon" class="fa-solid fa-link" transition:name="links-icon"></i>
+    <div slot="title" transition:name="links-title">Links</div>
     <div
       slot="content"
       class="grid grid-cols-[1fr_auto_auto_1fr] justify-center gap-x-2 gap-y-4"
@@ -85,5 +85,17 @@ const links = [
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0.75rem;
+    color: var(--background);
+    border-radius: 0.75rem;
+  }
+
+  a:hover {
+    outline: 0.125rem solid var(--primary);
+    outline-offset: -0.25rem;
+  }
+
+  a:focus {
+    outline: 0.125rem solid var(--secondary);
+    outline-offset: 0.125rem;
   }
 </style>
