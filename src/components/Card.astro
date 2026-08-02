@@ -7,7 +7,7 @@ const { transitionName } = Astro.props;
 ---
 
 <div class="flex flex-col">
-  <a class="card-back flex items-center gap-2 rounded-xl p-2" href="/">
+  <a class="card-back" href="/">
     <i class="fa-solid fa-angle-left"></i>
     <div>Back</div>
   </a>
@@ -27,32 +27,5 @@ const { transitionName } = Astro.props;
 <style>
   .card-back {
     color: var(--secondary);
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    background: var(--primary-gradient);
-    border: 1px solid var(--foreground);
-    padding: 1rem;
-  }
-
-  .card-header {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 1.5rem;
-    color: var(--foreground);
-    text-transform: uppercase;
-  }
-
-  .card-content {
-  }
-
-  a:hover {
-    backdrop-filter: blur(var(--blur-md));
-    background-color: rgba(255, 255, 255, 0.05);
   }
 </style>

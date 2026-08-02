@@ -54,7 +54,7 @@ const links = [
     <div slot="title" transition:name="links-title">Links</div>
     <div
       slot="content"
-      class="grid grid-cols-[1fr_auto_auto_1fr] justify-center gap-x-2 gap-y-4"
+      class="grid grid-cols-[1fr_auto_auto_1fr] justify-center gap-x-2 gap-y-2"
     >
       {
         links.map((link) => (
@@ -62,7 +62,7 @@ const links = [
             target="_blank"
             rel="noopener noreferrer"
             href={link.link}
-            class="card subcard col-span-full grid grid-cols-subgrid items-center"
+            class="subcard link-card col-span-full"
             style={
               link.backgroundImage
                 ? `background-image: ${link.backgroundImage}`
@@ -79,23 +79,3 @@ const links = [
     </div>
   </Card>
 </Layout>
-
-<style>
-  a {
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 0.75rem;
-    color: var(--background);
-    border-radius: 0.75rem;
-  }
-
-  a:hover {
-    outline: 0.125rem solid var(--primary);
-    outline-offset: -0.25rem;
-  }
-
-  a:focus {
-    outline: 0.125rem solid var(--secondary);
-    outline-offset: 0.125rem;
-  }
-</style>

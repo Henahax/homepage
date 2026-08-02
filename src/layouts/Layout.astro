@@ -107,6 +107,12 @@ const { title } = Astro.props;
       );
 
       --secondary: var(--color-cyan-500);
+      --surface-border: rgba(10, 10, 10, 0.35);
+      --surface-shadow:
+        0.35rem 0.35rem 0 rgba(0, 0, 0, 0.25), 0 0 0.8rem rgba(0, 0, 0, 0.12);
+      --surface-shadow-hover:
+        0.5rem 0.5rem 0 rgba(0, 0, 0, 0.28), 0 0 1.15rem rgba(0, 0, 0, 0.18);
+      --transition-fast: 180ms ease;
     }
 
     body {
@@ -190,19 +196,19 @@ const { title } = Astro.props;
     @keyframes shadow-move {
       0% {
         box-shadow:
-          0.5rem 0.5rem 2rem var(--secondary),
+          0.5rem 0.5rem 2.2rem var(--secondary),
           0.25rem 0.25rem 0 var(--secondary),
           0.5rem 0.5rem var(--foreground);
       }
       50% {
         box-shadow:
-          0.5rem 0.5rem 2rem var(--secondary),
+          0.65rem 0.65rem 2.4rem var(--secondary),
           0.75rem 0.5rem 0 var(--secondary),
           1.5rem 1.25rem var(--foreground);
       }
       100% {
         box-shadow:
-          0.5rem 0.5rem 2rem var(--secondary),
+          0.5rem 0.5rem 2.2rem var(--secondary),
           0.25rem 0.25rem 0 var(--secondary),
           0.5rem 0.5rem var(--foreground);
       }
@@ -240,6 +246,153 @@ const { title } = Astro.props;
       color: var(--primary);
       background-color: var(--foreground);
       border-color: var(--primary);
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      background: var(--primary-gradient);
+      border: 1px solid var(--surface-border);
+      padding: 1rem;
+      border-radius: 1rem 0.5rem 1rem 0.5rem;
+      box-shadow: var(--surface-shadow);
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast);
+    }
+
+    .card-header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      color: var(--foreground);
+      text-transform: uppercase;
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .card-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: fit-content;
+      color: var(--secondary);
+      padding: 0.5rem 0.75rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast),
+        background-color var(--transition-fast);
+    }
+
+    .subcard {
+      border: 1px solid var(--surface-border);
+      border-radius: 0.75rem;
+      box-shadow: var(--surface-shadow);
+      background-color: var(--primary-gradient);
+      color: var(--foreground);
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast),
+        background-color var(--transition-fast);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.75rem;
+      line-height: 1;
+      border: 1px solid var(--surface-border);
+      background: rgba(255, 255, 255, 0.4);
+      color: var(--foreground);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+
+    .menu-option {
+      padding: 1rem 4rem;
+      transform: skew(-5deg) rotate(-5deg);
+      display: flex;
+      align-items: center;
+      width: 100%;
+      font-size: 1.5rem;
+      border-width: 0.125rem;
+      background: var(--primary-gradient);
+      color: var(--foreground);
+      animation: shadow-move 2s infinite ease-in-out;
+      text-transform: uppercase;
+      box-shadow: var(--surface-shadow);
+      border: 1px solid var(--surface-border);
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast);
+    }
+
+    .menu-option:hover,
+    .menu-option:focus-visible,
+    .subcard:hover,
+    .subcard:focus-visible,
+    .card-back:hover,
+    .card-back:focus-visible {
+      transform: translate(-0.125rem, -0.125rem);
+      box-shadow: var(--surface-shadow-hover);
+      border-color: var(--secondary);
+      outline: none;
+    }
+
+    .menu-option:hover,
+    .menu-option:focus-visible {
+      transform: translate(-0.125rem, -0.125rem) skew(-5deg) rotate(-5deg);
+    }
+
+    .menu-option > div {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: transform 180ms ease-out;
+      will-change: transform;
+    }
+
+    .menu-option:hover > div,
+    .menu-option:focus-visible > div {
+      animation: slide 0.35s ease-in-out;
+    }
+
+    .link-card {
+      color: var(--background);
+      padding: 0.75rem;
+      border-radius: 0.75rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(0.75rem, -0.15rem);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
     }
   </style>
 </html>
