@@ -1,52 +1,48 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import Banner from '@/components/Banner.astro'
+import Layout from "@/layouts/Layout.astro";
+import Banner from "@/components/Banner.astro";
 
 const tiles = [
-	{
-		name: 'server',
-		desc: 'Servers',
-		link: '/servers',
-		icon: 'fa-solid fa-server'
-	},
-	{
-		name: 'gaming',
-		desc: 'Gaming',
-		link: '/gaming',
-		icon: 'fa-solid fa-gamepad'
-	},
-	{
-		name: 'projects',
-		desc: 'Projects',
-		link: '/projects',
-		icon: 'fa-solid fa-code'
-	},
-	{
-		name: 'links',
-		desc: 'Links',
-		link: '/links',
-		icon: 'fa-solid fa-link'
-	}
-]
+  {
+    name: "servers",
+    icon: "fa-solid fa-server",
+  },
+  {
+    name: "gaming",
+    icon: "fa-solid fa-gamepad",
+  },
+  {
+    name: "projects",
+    icon: "fa-solid fa-code",
+  },
+  {
+    name: "links",
+    icon: "fa-solid fa-link",
+  },
+];
 ---
 
 <Layout title="henahax.net">
-	<div class="flex flex-col items-center justify-center gap-8">
-		<Banner isLayout={false} />
+  <div class="flex flex-col items-center justify-center gap-8">
+    <Banner isLayout={false} />
 
-		<div class="grid w-full max-w-md grid-cols-1 gap-4 sm:grid-cols-2">
-			{
-				tiles.map((tile) => (
-					<a
-						class="card link flex flex-col items-center justify-center gap-2 rounded-xl p-4 text-center text-lg backdrop-blur-md"
-						href={tile.link}
-						transition:name={tile.name}
-					>
-						<i class={tile.icon} transition:name={'icon' + tile.name} />
-						<div transition:name={'title' + tile.name}>{tile.desc}</div>
-					</a>
-				))
-			}
-		</div>
-	</div>
+    <div
+      class="flex flex-col items-center justify-center gap-4 w-full max-w-2xs"
+    >
+      {
+        tiles.map((tile) => (
+          <a
+            class="card card-shape menu-option"
+            href={"/" + tile.name}
+            transition:name={tile.name + "-card"}
+          >
+            <div>
+              <i class={tile.icon} transition:name={tile.name + "-icon"} />
+              <div transition:name={tile.name + "-title"}>{tile.name}</div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </Layout>
