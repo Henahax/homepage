@@ -1,32 +1,6 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
-@layer base {
-  .prose {
-    @apply max-w-none text-inherit;
-  }
-
-  .prose :where(h1, h2, h3, h4, h5, h6) {
-    @apply leading-tight font-semibold text-white;
-  }
-
-  .prose h1 {
-    @apply text-3xl;
-  }
-
-  .prose h2 {
-    @apply text-2xl;
-  }
-
-  .prose h3 {
-    @apply text-xl;
-  }
-
-  .prose h4 {
-    @apply text-lg;
-  }
-}
-
 @view-transition {
   navigation: auto;
 }
@@ -122,20 +96,9 @@ app {
   z-index: 1;
 }
 
-.card-shape {
-  border-radius: 1rem 0.5rem 1rem 0.5rem;
-}
-
-.card-shape-inner {
-  border-radius: 0.75rem;
-}
-
-.tilt {
-  transform: skew(-5deg) rotate(-5deg);
-}
-
-.tilt-shadow {
-  animation: shadow-move 3s infinite ease-in-out;
+.primary-element {
+  color: var(--foreground);
+  background: var(--primary-gradient);
 }
 
 @keyframes shadow-move {
@@ -159,87 +122,6 @@ app {
   }
 }
 
-.marquee {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-  padding: 0.5rem 0;
-  color: var(--foreground);
-  background: var(--primary-gradient);
-  text-transform: uppercase;
-  box-shadow: 0rem 0rem 1.5rem var(--secondary);
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 20s linear infinite;
-}
-
-.marquee-track span {
-  flex-shrink: 0;
-  padding-right: 4rem; /* Abstand zwischen Wiederholungen */
-}
-
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-footer a#source {
-  color: var(--primary);
-  background-color: var(--foreground);
-  border-color: var(--primary);
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  background: var(--primary-gradient);
-  border: 1px solid var(--surface-border);
-  padding: 1rem;
-  border-radius: 1rem 0.5rem 1rem 0.5rem;
-  box-shadow: var(--surface-shadow);
-  transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    border-color var(--transition-fast);
-}
-
-.card-header {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 1.5rem;
-  color: var(--foreground);
-  text-transform: uppercase;
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.card-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: fit-content;
-  color: var(--secondary);
-  padding: 0.5rem 0.75rem;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    border-color var(--transition-fast),
-    background-color var(--transition-fast);
-}
-
 .subcard {
   border: 1px solid var(--surface-border);
   border-radius: 0.75rem;
@@ -257,6 +139,14 @@ footer a#source {
   align-items: center;
 }
 
+.subcard:hover,
+.subcard:focus-visible {
+  transform: translate(-0.125rem, -0.125rem);
+  box-shadow: var(--surface-shadow-hover);
+  border-color: var(--secondary);
+  outline: none;
+}
+
 .tag {
   display: inline-flex;
   align-items: center;
@@ -268,64 +158,6 @@ footer a#source {
   background: rgba(255, 255, 255, 0.4);
   color: var(--foreground);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-}
-
-.menu-option {
-  padding: 1rem 4rem;
-  transform: skew(-5deg) rotate(-5deg);
-  display: flex;
-  align-items: center;
-  width: 100%;
-  font-size: 1.5rem;
-  border-width: 0.125rem;
-  background: var(--primary-gradient);
-  color: var(--foreground);
-  animation: shadow-move 2s infinite ease-in-out;
-  text-transform: uppercase;
-  box-shadow: var(--surface-shadow);
-  border: 1px solid var(--surface-border);
-  transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    border-color var(--transition-fast);
-}
-
-.menu-option:hover,
-.menu-option:focus-visible,
-.subcard:hover,
-.subcard:focus-visible,
-.card-back:hover,
-.card-back:focus-visible {
-  transform: translate(-0.125rem, -0.125rem);
-  box-shadow: var(--surface-shadow-hover);
-  border-color: var(--secondary);
-  outline: none;
-}
-
-.menu-option:hover,
-.menu-option:focus-visible {
-  transform: translate(-0.125rem, -0.125rem) skew(-5deg) rotate(-5deg);
-}
-
-.menu-option > div {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  transition: transform 180ms ease-out;
-  will-change: transform;
-}
-
-.menu-option:hover > div,
-.menu-option:focus-visible > div {
-  animation: slide 0.35s ease-in-out;
-}
-
-.link-card {
-  color: var(--background);
-  padding: 0.75rem;
-  border-radius: 0.75rem;
-  display: flex;
-  gap: 0.75rem;
 }
 
 @keyframes slide {

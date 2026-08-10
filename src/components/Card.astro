@@ -12,7 +12,10 @@ const { transitionName } = Astro.props;
     <div>Back</div>
   </a>
 
-  <div class="card card-shape tilt-shadow" transition:name={transitionName}>
+  <div
+    class="primary-element card card-shape tilt-shadow"
+    transition:name={transitionName}
+  >
     <div class="card-header">
       <slot name="icon" />
       <slot name="title" />
@@ -26,6 +29,55 @@ const { transitionName } = Astro.props;
 
 <style>
   .card-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
     color: var(--secondary);
+    padding: 0.5rem 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    transition:
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast),
+      border-color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .card-back:hover,
+  .card-back:focus-visible {
+    transform: translate(-0.125rem, -0.125rem);
+    box-shadow: var(--surface-shadow-hover);
+    border-color: var(--secondary);
+    outline: none;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: 1px solid var(--surface-border);
+    padding: 1rem;
+    border-radius: 1rem 0.5rem 1rem 0.5rem;
+    box-shadow: var(--surface-shadow);
+    transition:
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .card-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 </style>

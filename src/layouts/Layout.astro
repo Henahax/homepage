@@ -36,7 +36,7 @@ const { title } = Astro.props;
       <slot />
     </app>
     <footer class="w-full flex items-end">
-      <div class="marquee">
+      <div class="primary-element marquee">
         <div class="marquee-track">
           <span>© 2026 henahax.net</span>
           <span>Servers</span>
@@ -83,4 +83,36 @@ const { title } = Astro.props;
     </footer>
   </body>
 </html>
-<style></style>
+<style>
+  .marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    padding: 0.5rem 0;
+    text-transform: uppercase;
+    box-shadow: 0rem 0rem 1.5rem var(--secondary);
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+  }
+
+  .marquee-track span {
+    flex-shrink: 0;
+    padding-right: 4rem; /* Abstand zwischen Wiederholungen */
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  footer a#source {
+    color: var(--primary);
+    background-color: var(--foreground);
+    border-color: var(--primary);
+  }
+</style>

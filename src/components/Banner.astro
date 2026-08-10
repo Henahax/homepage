@@ -92,4 +92,12 @@ const { isLayout } = Astro.props;
       opacity: 1;
     }
   }
+
+  .tilt {
+    transform: skew(-5deg) rotate(-5deg);
+  }
+
+  .tilt-shadow {
+    animation: shadow-move 3s infinite ease-in-out;
+  }
 </style>
