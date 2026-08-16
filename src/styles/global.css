@@ -34,6 +34,24 @@
   --transition-fast: 180ms ease;
 }
 
+@font-face {
+  font-family: Pulp;
+  src: url(./ValvePulp-Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Occult;
+  src: url(./ValveOccult-SemiBold.woff2) format("woff2");
+}
+
+.pulp {
+  font-family: Pulp;
+}
+
+.occult {
+  font-family: Occult;
+}
+
 body {
   position: relative;
   font-family: Consolas, monaco, monospace;
