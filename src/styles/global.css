@@ -35,11 +35,6 @@
 }
 
 @font-face {
-  font-family: Pulp;
-  src: url(./ValvePulp-Bold.woff2) format("woff2");
-}
-
-@font-face {
   font-family: Occult;
   src: url(./ValveOccult-SemiBold.woff2) format("woff2");
 }
@@ -58,62 +53,6 @@ body {
   background: var(--page-background);
   overflow-x: hidden;
 }
-
-/* Speed Lines — diagonale Linien die nach rechts rasen */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-body::before {
-  background-image:
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 60px,
-      rgba(255, 255, 255, 0.025) 60px,
-      rgba(255, 255, 255, 0.025) 61px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 10rem,
-      rgba(255, 255, 255, 0.04) 10rem,
-      rgba(255, 255, 255, 0.04) 10rem
-    );
-  animation: speed-lines 1.5s linear infinite;
-}
-
-body::after {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 30px,
-    rgba(255, 255, 255, 0.015) 30px,
-    rgba(255, 255, 255, 0.015) 31px
-  );
-  animation: speed-lines 0.8s linear infinite;
-}
-
-@keyframes speed-lines {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(80px);
-  }
-}
-
-/* Content über den Speed Lines */
-app {
-  position: relative;
-  z-index: 1;
-}
-
 .primary-element {
   color: var(--foreground);
   background: var(--primary-gradient);
