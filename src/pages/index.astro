@@ -4,19 +4,23 @@ import Banner from "@/components/Banner.astro";
 
 const tiles = [
   {
-    name: "servers",
+    name: "Servers",
+    link: "servers",
     icon: "fa-solid fa-server",
   },
   {
-    name: "gaming",
+    name: "Gaming",
+    link: "gaming",
     icon: "fa-solid fa-gamepad",
   },
   {
-    name: "projects",
+    name: "Projects",
+    link: "projects",
     icon: "fa-solid fa-code",
   },
   {
-    name: "links",
+    name: "Links",
+    link: "links",
     icon: "fa-solid fa-link",
   },
 ];
@@ -26,18 +30,16 @@ const tiles = [
   <div class="flex flex-col items-center justify-center gap-8">
     <Banner isLayout={false} />
 
-    <div class="flex flex-col items-start justify-center gap-4">
+    <div class="grid grid-cols-[auto_1fr] gap-4">
       {
         tiles.map((tile) => (
           <a
-            class="menu-option occult uppercase w-full"
-            href={"/" + tile.name}
-            transition:name={tile.name + "-card"}
+            class="menu-option shape uppercase pulp text-2xl grid grid-cols-subgrid col-span-full items-center"
+            href={"/" + tile.link}
+            transition:name={tile.link + "-card"}
           >
-            <div class="flex items-center gap-2">
-              <i class={tile.icon} transition:name={tile.name + "-icon"} />
-              <div transition:name={tile.name + "-title"}>{tile.name}</div>
-            </div>
+            <i class={tile.icon} transition:name={tile.link + "-icon"} />
+            <div transition:name={tile.link + "-title"}>{tile.link}</div>
           </a>
         ))
       }
@@ -47,8 +49,10 @@ const tiles = [
 
 <style>
   .menu-option {
-    padding: 0.5rem 1rem;
-    background-color: green;
+    padding: 1.25rem 2.5rem;
+    transition: transform 0.25s ease-out;
+    will-change: transform;
+    background: var(--primary);
     clip-path: polygon(
       1% 2% /* top-left */,
       98% 0% /* top-right */,
@@ -59,16 +63,6 @@ const tiles = [
 
   .menu-option:hover,
   .menu-option:focus-visible {
-  }
-
-  .menu-option:hover,
-  .menu-option:focus-visible {
-  }
-
-  .menu-option > div {
-  }
-
-  .menu-option:hover > div,
-  .menu-option:focus-visible > div {
+    transform: scale(1.05);
   }
 </style>

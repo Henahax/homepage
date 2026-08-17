@@ -5,7 +5,7 @@ const { isLayout } = Astro.props;
 <a
   href="/"
   class:list={[
-    "tilt flex w-fit items-center gap-4 self-center",
+    "flex w-fit items-center gap-4 self-center",
     { "max-sm:hidden": isLayout, "sm:hidden": !isLayout },
   ]}
   transition:name="banner"
@@ -23,8 +23,8 @@ const { isLayout } = Astro.props;
         fill="currentColor"></path>
     </svg>
   </div>
-  <div class="flex items-baseline">
-    <span id="henahax" class="text-5xl font-semibold">henahax</span>
+  <div class="flex items-baseline occult">
+    <span id="henahax" class="text-5xl font-semibold">Henahax</span>
     <span id="tld" class="text-2xl">.net</span>
   </div>
 </a>
@@ -91,13 +91,5 @@ const { isLayout } = Astro.props;
       top: 0px;
       opacity: 1;
     }
-  }
-
-  .tilt {
-    transform: skew(-5deg) rotate(-5deg);
-  }
-
-  .tilt-shadow {
-    animation: shadow-move 3s infinite ease-in-out;
   }
 </style>

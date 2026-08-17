@@ -6,6 +6,18 @@
 }
 
 :root {
+  --color-parchment: #efdebf;
+  --color-sage: #72947f;
+  --color-forest: #3f5d4d;
+  --color-deep-moss: #2f4442;
+  --color-charcoal: #222021;
+
+  --color-weapon: #d5903f;
+  --color-vitality: #74b01c;
+  --color-spirit: #c288f0;
+  --color-souls: #98ffde;
+  --color-healing: #00ff9a;
+
   --foreground: var(--color-neutral-950);
   --background: var(--color-neutral-50);
   --page-background: linear-gradient(
@@ -15,9 +27,9 @@
     var(--color-neutral-900)
   );
 
-  --primary: var(--color-yellow-400);
-  --primary-light: var(--color-yellow-300);
-  --primary-dark: var(--color-yellow-500);
+  --primary: var(--color-souls);
+  --primary-light: var(--color-sage);
+  --primary-dark: var(--color-deep-moss);
   --primary-gradient: linear-gradient(
     180deg,
     var(--primary-light),
@@ -35,16 +47,21 @@
 }
 
 @font-face {
-  font-family: Occult;
-  src: url(./ValveOccult-SemiBold.woff2) format("woff2");
+  font-family: Occult Semibold;
+  src: url(../fonts/Game/valveoracle-semibold.ttf) format("woff2");
 }
 
-.pulp {
-  font-family: Pulp;
+@font-face {
+  font-family: Pulp Bold;
+  src: url(../fonts/Game/valvepulp-bold.ttf) format("woff2");
 }
 
 .occult {
-  font-family: Occult;
+  font-family: Occult Semibold;
+}
+
+.pulp {
+  font-family: Pulp Bold;
 }
 
 body {
@@ -53,6 +70,7 @@ body {
   background: var(--page-background);
   overflow-x: hidden;
 }
+
 .primary-element {
   color: var(--foreground);
   background: var(--primary-gradient);

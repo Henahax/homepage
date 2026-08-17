@@ -35,46 +35,10 @@ const { title } = Astro.props;
       <Banner isLayout={true} />
       <slot />
     </app>
-    <footer class="w-full flex items-end">
-      <div class="primary-element marquee">
-        <div class="marquee-track">
-          <span>© 2026 henahax.net</span>
-          <span>Servers</span>
-          <span>Gaming</span>
-          <span>Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-        </div>
-      </div>
+    <footer>
       <a
         id="source"
-        class="flex gap-2 items-center text-center px-2 py-4 rounded-tl-lg border-t border-l text-xs"
+        class="text-green-500"
         href="https://github.com/henahax/homepage"
       >
         <i class="fa-brands fa-github"></i>
@@ -83,36 +47,4 @@ const { title } = Astro.props;
     </footer>
   </body>
 </html>
-<style>
-  .marquee {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    padding: 0.5rem 0;
-    text-transform: uppercase;
-    box-shadow: 0rem 0rem 1.5rem var(--secondary);
-  }
-
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marquee 20s linear infinite;
-  }
-
-  .marquee-track span {
-    flex-shrink: 0;
-    padding-right: 4rem; /* Abstand zwischen Wiederholungen */
-  }
-
-  @keyframes marquee {
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  footer a#source {
-    color: var(--primary);
-    background-color: var(--foreground);
-    border-color: var(--primary);
-  }
-</style>
+<style></style>
