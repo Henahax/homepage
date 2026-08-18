@@ -38,8 +38,10 @@ const tiles = [
             href={"/" + tile.link}
             transition:name={tile.link + "-card"}
           >
-            <i class={tile.icon} transition:name={tile.link + "-icon"} />
-            <div transition:name={tile.link + "-title"}>{tile.link}</div>
+            <div class="grid grid-cols-subgrid col-span-full items-center gap-4">
+              <i class={tile.icon} transition:name={tile.link + "-icon"} />
+              <div transition:name={tile.link + "-title"}>{tile.link}</div>
+            </div>
           </a>
         ))
       }
@@ -53,16 +55,30 @@ const tiles = [
     transition: transform 0.25s ease-out;
     will-change: transform;
     background: var(--primary);
-    clip-path: polygon(
-      1% 2% /* top-left */,
-      98% 0% /* top-right */,
-      100% 100% /* bottom-right */,
-      0% 94% /* bottom-left */
-    );
+    transform: skew(-10deg) rotate(-1deg);
+
+    animation: wobble 0.25s ease-in-out;
+    animation-delay: calc(sibling-index() * 0.25s);
   }
 
   .menu-option:hover,
   .menu-option:focus-visible {
-    transform: scale(1.05);
+    transform: skew(-10deg) rotate(-1deg) scale(1.05);
+  }
+
+  .menu-option > * {
+    transform: skew(10deg);
+  }
+
+  @keyframes wobble {
+    0% {
+      transform: skew(-10deg) rotate(-1deg);
+    }
+    50% {
+      transform: skew(-10deg) rotate(-2.5deg);
+    }
+    100% {
+      transform: skew(-10deg) rotate(-1deg);
+    }
   }
 </style>
