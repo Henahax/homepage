@@ -34,13 +34,13 @@ const tiles = [
       {
         tiles.map((tile) => (
           <a
-            class="menu-option shape uppercase pulp text-2xl grid grid-cols-subgrid col-span-full items-center"
+            class="menu-option shape occult font-bold text-3xl grid grid-cols-subgrid col-span-full items-center"
             href={"/" + tile.link}
             transition:name={tile.link + "-card"}
           >
             <div class="grid grid-cols-subgrid col-span-full items-center gap-4">
               <i class={tile.icon} transition:name={tile.link + "-icon"} />
-              <div transition:name={tile.link + "-title"}>{tile.link}</div>
+              <span transition:name={tile.link + "-title"}>{tile.name}</span>
             </div>
           </a>
         ))
@@ -51,8 +51,8 @@ const tiles = [
 
 <style>
   .menu-option {
-    padding: 1.25rem 2.5rem;
-    transition: transform 0.25s ease-out;
+    padding: 1rem 2.5rem;
+    transition: transform 0.25s ease-in-out;
     will-change: transform;
     background: var(--primary);
     transform: skew(-10deg) rotate(-1deg);

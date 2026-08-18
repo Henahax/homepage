@@ -6,12 +6,6 @@
 }
 
 :root {
-  --color-parchment: #efdebf;
-  --color-sage: #72947f;
-  --color-forest: #3f5d4d;
-  --color-deep-moss: #2f4442;
-  --color-charcoal: #222021;
-
   --color-weapon: #d5903f;
   --color-vitality: #74b01c;
   --color-spirit: #c288f0;
@@ -19,7 +13,7 @@
   --color-healing: #00ff9a;
 
   --foreground: var(--color-neutral-950);
-  --background: var(--color-neutral-50);
+  --background: #070707;
   --page-background: linear-gradient(
     180deg,
     var(--color-neutral-700),
@@ -27,7 +21,7 @@
     var(--color-neutral-900)
   );
 
-  --primary: var(--color-souls);
+  --primary: var(--color-weapon);
   --primary-light: var(--color-sage);
   --primary-dark: var(--color-deep-moss);
   --primary-gradient: linear-gradient(
@@ -47,21 +41,88 @@
 }
 
 @font-face {
-  font-family: Occult Semibold;
-  src: url(../fonts/Game/valveoracle-semibold.ttf) format("woff2");
+  font-family: "Oracle";
+  src:
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Thin.woff2")
+      format("woff2"),
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Thin.ttf")
+      format("truetype");
+  font-weight: 200;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: Pulp Bold;
-  src: url(../fonts/Game/valvepulp-bold.ttf) format("woff2");
+  font-family: "Oracle";
+  src:
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Medium.woff2")
+      format("woff2"),
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Medium.ttf")
+      format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Oracle";
+  src:
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBold.woff2")
+      format("woff2"),
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBold.ttf")
+      format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Oracle";
+  src:
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-ThinItalic.woff2")
+      format("woff2"),
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-ThinItalic.ttf")
+      format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Oracle";
+  src:
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-MediumItalic.woff2")
+      format("woff2"),
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-MediumItalic.ttf")
+      format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Oracle";
+  src:
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBoldItalic.woff2")
+      format("woff2"),
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBoldItalic.ttf")
+      format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Pulp";
+  src:
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEPulp-Bold.woff2")
+      format("woff2"),
+    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEPulp-Bold.ttf")
+      format("truetype");
+  font-weight: 600;
+  font-style: normal;
 }
 
 .occult {
-  font-family: Occult Semibold;
+  font-family: Oracle;
 }
 
 .pulp {
-  font-family: Pulp Bold;
+  font-family: Pulp;
 }
 
 body {
