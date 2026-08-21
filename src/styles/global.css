@@ -6,6 +6,8 @@
 }
 
 :root {
+  font-family: Oracle;
+
   --color-weapon: #d5903f;
   --color-vitality: #74b01c;
   --color-spirit: #c288f0;

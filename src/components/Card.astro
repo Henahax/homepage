@@ -6,16 +6,13 @@ interface Props {
 const { transitionName } = Astro.props;
 ---
 
-<div class="flex flex-col gap-12">
+<div class="flex flex-col">
   <a class="card-back" href="/">
     <i class="fa-solid fa-angle-left"></i>
     <div>Back</div>
   </a>
 
-  <div
-    class="primary-element card shape tilt-shadow"
-    transition:name={transitionName}
-  >
+  <div class="card-header font-extrabold uppercase">
     <div class="card-header-icon">
       <slot name="icon" />
     </div>
@@ -25,7 +22,12 @@ const { transitionName } = Astro.props;
     <div class="card-header-link">
       <slot name="link" />
     </div>
+  </div>
 
+  <div
+    class="primary-element card shape tilt-shadow"
+    transition:name={transitionName}
+  >
     <div class="card-content">
       <slot name="content" />
     </div>
@@ -72,10 +74,13 @@ const { transitionName } = Astro.props;
     border-radius: 1rem;
   }
 
+  .card-header {
+    display: flex;
+  }
+
   .card-header-icon,
   .card-header-title,
   .card-header-link {
-    position: absolute;
     font-size: 2.5rem;
     display: flex;
     align-items: center;
@@ -85,18 +90,21 @@ const { transitionName } = Astro.props;
   .card-header-icon {
     height: 3.5rem;
     width: 3.5rem;
-    transform: translateX(-2.5rem) translateY(-2.5rem) rotate(-15deg);
+    transform: translateX(-1rem) translateY(2.5rem) rotate(-15deg);
     border-radius: 100%;
     background-color: red;
     z-index: 99;
   }
+
   .card-header-title {
-    transform: translateX(0.5rem) translateY(-3.5rem) rotate(-5deg);
+    width: fit-content;
+    transform: translateX(-2rem) translateY(1rem) rotate(-5deg);
     background-color: blue;
     z-index: 98;
+    border-radius: 4rem;
     padding: 0 2rem;
-    border-radius: 1rem;
   }
+
   .card-header-link {
     z-index: 97;
   }
