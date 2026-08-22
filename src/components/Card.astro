@@ -6,23 +6,23 @@ interface Props {
 const { transitionName } = Astro.props;
 ---
 
-<div class="flex flex-col">
+<div class="flex flex-col card-page">
   <a class="card-back" href="/">
     <i class="fa-solid fa-angle-left"></i>
     <div>Back</div>
   </a>
 
-  <div class="card-header font-extrabold uppercase">
-    <div class="card-header-icon">
+  <header class="card-header font-extrabold uppercase">
+    <div class="card-header-icon" transition:name={transitionName + "-icon"}>
       <slot name="icon" />
     </div>
-    <div class="card-header-title">
+    <div class="card-header-title" transition:name={transitionName + "-title"}>
       <slot name="title" />
     </div>
-    <div class="card-header-link">
+    <div class="card-header-link" transition:name={transitionName + "-link"}>
       <slot name="link" />
     </div>
-  </div>
+  </header>
 
   <div
     class="primary-element card shape tilt-shadow"
@@ -35,6 +35,111 @@ const { transitionName } = Astro.props;
 </div>
 
 <style>
+  /* ========== PAGE-LEVEL ENTRANCE ========== */
+  .card-page {
+    animation: pageEntrance 700ms ease-out forwards;
+  }
+
+  @keyframes pageEntrance {
+    0% {
+      opacity: 0;
+      translate: 0 30px;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  /* ========== HEADER STAGGERED ENTRANCE ========== */
+  .card-header > * {
+    opacity: 0;
+    animation: headerEntrance 600ms ease-out forwards;
+  }
+
+  .card-header-icon {
+    animation-delay: 100ms;
+  }
+
+  .card-header-title {
+    animation-delay: 180ms;
+  }
+
+  .card-header-link {
+    animation-delay: 260ms;
+  }
+
+  @keyframes headerEntrance {
+    0% {
+      opacity: 0;
+      translate: 0 20px;
+      rotate: -6deg;
+      scale: 0.9;
+    }
+    50% {
+      opacity: 1;
+      translate: 0 -6px;
+      rotate: 2deg;
+      scale: 1.03;
+    }
+    70% {
+      translate: 0 3px;
+      rotate: -1deg;
+      scale: 0.99;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+      rotate: 0deg;
+      scale: 1;
+    }
+  }
+
+  /* ========== CARD CONTENT ENTRANCE ========== */
+  .card {
+    opacity: 0;
+    animation: cardEntrance 600ms ease-out forwards;
+    animation-delay: 200ms;
+    will-change: transform, opacity, box-shadow;
+  }
+
+  @keyframes cardEntrance {
+    0% {
+      opacity: 0;
+      translate: 0 24px;
+      box-shadow: 0 0 0 transparent;
+    }
+    60% {
+      opacity: 1;
+      translate: 0 -4px;
+      box-shadow: var(--surface-shadow-hover);
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+      box-shadow: var(--surface-shadow);
+    }
+  }
+
+  /* ========== CONTENT STAGGER (for direct children) ========== */
+  .card-content > * {
+    opacity: 0;
+    animation: contentEntrance 500ms ease-out forwards;
+    animation-delay: calc(300ms + sibling-index() * 60ms);
+  }
+
+  @keyframes contentEntrance {
+    0% {
+      opacity: 0;
+      translate: 0 16px;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  /* ========== BACK BUTTON ========== */
   .card-back {
     display: inline-flex;
     align-items: center;
@@ -49,6 +154,20 @@ const { transitionName } = Astro.props;
       box-shadow var(--transition-fast),
       border-color var(--transition-fast),
       background-color var(--transition-fast);
+    opacity: 0;
+    animation: backEntrance 400ms ease-out forwards;
+    animation-delay: 40ms;
+  }
+
+  @keyframes backEntrance {
+    0% {
+      opacity: 0;
+      translate: -12px 0;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
   }
 
   .card-back:hover,
@@ -56,9 +175,15 @@ const { transitionName } = Astro.props;
     transform: translate(-0.125rem, -0.125rem);
     box-shadow: var(--surface-shadow-hover);
     border-color: var(--secondary);
+    background-color: color-mix(in srgb, var(--secondary) 12%, transparent);
     outline: none;
   }
 
+  .card-back:active {
+    transform: translate(0, 0) scale(0.97);
+  }
+
+  /* ========== CARD BASE ========== */
   .card {
     display: flex;
     flex-direction: column;
@@ -74,8 +199,25 @@ const { transitionName } = Astro.props;
     border-radius: 1rem;
   }
 
+  /* Card hover - subtle lift, respects entrance transform */
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--surface-shadow-hover);
+  }
+
+  .card:focus-within {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+  }
+
+  /* ========== HEADER LAYOUT ========== */
   .card-header {
     display: flex;
+    gap: 0.5rem;
+    align-items: flex-end;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--surface-border);
   }
 
   .card-header-icon,
@@ -85,6 +227,7 @@ const { transitionName } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: center;
+    will-change: transform, opacity;
   }
 
   .card-header-icon {
@@ -94,6 +237,7 @@ const { transitionName } = Astro.props;
     border-radius: 100%;
     background-color: red;
     z-index: 99;
+    flex-shrink: 0;
   }
 
   .card-header-title {
@@ -103,15 +247,58 @@ const { transitionName } = Astro.props;
     z-index: 98;
     border-radius: 4rem;
     padding: 0 2rem;
+    white-space: nowrap;
   }
 
   .card-header-link {
     z-index: 97;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .card-header-link:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .card-header-link:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 4px;
+    border-radius: 4px;
   }
 
   .card-content {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+  }
+
+  /* ========== VIEW TRANSITION POLISH ========== */
+  @media (prefers-reduced-motion: no-preference) {
+    ::view-transition-group(root) {
+      animation-duration: 400ms;
+      animation-timing-function: ease-out;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 400ms;
+      animation-timing-function: ease-in-out;
+    }
+  }
+
+  /* ========== REDUCED MOTION ========== */
+  @media (prefers-reduced-motion: reduce) {
+    .card-page,
+    .card-header > *,
+    .card,
+    .card-content > *,
+    .card-back {
+      animation: none !important;
+      opacity: 1 !important;
+      translate: 0 0 !important;
+      rotate: 0deg !important;
+      scale: 1 !important;
+    }
   }
 </style>
