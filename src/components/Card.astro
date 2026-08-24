@@ -12,20 +12,21 @@ const { transitionName } = Astro.props;
     <div>Back</div>
   </a>
 
-  <header class="card-header font-extrabold uppercase">
-    <div class="card-header-icon" transition:name={transitionName + "-icon"}>
-      <slot name="icon" />
+  <div
+    class="card-header font-extrabold uppercase flex items-center w-fit"
+    transition:name={transitionName}
+  >
+  <div class="flex items-center gap-4 text-4xl px-8 py-4">
+    <slot name="icon" transition:name={transitionName + "-icon"} />
+
+    <slot name="title" transition:name={transitionName + "-title"} />
+
+    <slot name="link" transition:name={transitionName + "-link"} />
     </div>
-    <div class="card-header-title" transition:name={transitionName + "-title"}>
-      <slot name="title" />
-    </div>
-    <div class="card-header-link" transition:name={transitionName + "-link"}>
-      <slot name="link" />
-    </div>
-  </header>
+  </div>
 
   <div
-    class="primary-element card shape tilt-shadow"
+    class="primary-element card shape tilt-shadow bg-white/5 backdrop-blur-md"
     transition:name={transitionName}
   >
     <div class="card-content">
@@ -55,18 +56,8 @@ const { transitionName } = Astro.props;
   .card-header > * {
     opacity: 0;
     animation: headerEntrance 600ms ease-out forwards;
-  }
 
-  .card-header-icon {
-    animation-delay: 100ms;
-  }
-
-  .card-header-title {
-    animation-delay: 180ms;
-  }
-
-  .card-header-link {
-    animation-delay: 260ms;
+    transform: skew(10deg);
   }
 
   @keyframes headerEntrance {
@@ -101,17 +92,18 @@ const { transitionName } = Astro.props;
     animation: cardEntrance 600ms ease-out forwards;
     animation-delay: 200ms;
     will-change: transform, opacity, box-shadow;
+    border: 1px var(--secondary);
   }
 
   @keyframes cardEntrance {
     0% {
       opacity: 0;
-      translate: 0 24px;
+      translate: 0 2rem;
       box-shadow: 0 0 0 transparent;
     }
     60% {
       opacity: 1;
-      translate: 0 -4px;
+      translate: 0 -0.25rem;
       box-shadow: var(--surface-shadow-hover);
     }
     100% {
@@ -172,7 +164,6 @@ const { transitionName } = Astro.props;
 
   .card-back:hover,
   .card-back:focus-visible {
-    transform: translate(-0.125rem, -0.125rem);
     box-shadow: var(--surface-shadow-hover);
     border-color: var(--secondary);
     background-color: color-mix(in srgb, var(--secondary) 12%, transparent);
@@ -194,71 +185,17 @@ const { transitionName } = Astro.props;
       transform var(--transition-fast),
       box-shadow var(--transition-fast),
       border-color var(--transition-fast);
-
-    background-color: yellow;
     border-radius: 1rem;
-  }
 
-  /* Card hover - subtle lift, respects entrance transform */
-  .card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--surface-shadow-hover);
-  }
-
-  .card:focus-within {
-    outline: 2px solid var(--secondary);
-    outline-offset: 2px;
+    border-width: 1px;
+    border-color: var(--primary)
   }
 
   /* ========== HEADER LAYOUT ========== */
   .card-header {
-    display: flex;
-    gap: 0.5rem;
-    align-items: flex-end;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid var(--surface-border);
-  }
-
-  .card-header-icon,
-  .card-header-title,
-  .card-header-link {
-    font-size: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    will-change: transform, opacity;
-  }
-
-  .card-header-icon {
-    height: 3.5rem;
-    width: 3.5rem;
-    transform: translateX(-1rem) translateY(2.5rem) rotate(-15deg);
-    border-radius: 100%;
-    background-color: red;
-    z-index: 99;
-    flex-shrink: 0;
-  }
-
-  .card-header-title {
-    width: fit-content;
-    transform: translateX(-2rem) translateY(1rem) rotate(-5deg);
-    background-color: blue;
-    z-index: 98;
-    border-radius: 4rem;
-    padding: 0 2rem;
-    white-space: nowrap;
-  }
-
-  .card-header-link {
-    z-index: 97;
-    opacity: 0.7;
-    transition: opacity var(--transition-fast), transform var(--transition-fast);
-  }
-
-  .card-header-link:hover {
-    opacity: 1;
-    transform: scale(1.1);
+    background-color: var(--primary);
+    transform: skew(-10deg) rotate(-1deg) translateY(2rem);
+    z-index: 1;
   }
 
   .card-header-link:focus-visible {

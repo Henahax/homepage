@@ -135,5 +135,5 @@
 }
 
 body {
-  background: var(--page-background);
+  background-image: url(https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/oldgods/bg_texture_dark.jpg);
 }

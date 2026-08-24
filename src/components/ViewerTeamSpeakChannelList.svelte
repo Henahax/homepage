@@ -110,7 +110,6 @@
 
             {#if channel.children && channel.children.length}
               <div class="pl-4">
-                test
                 <ChannelList tree={channel.children} />
               </div>
             {/if}

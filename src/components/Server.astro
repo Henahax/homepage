@@ -6,7 +6,9 @@ interface Props {
 const { connectLink } = Astro.props;
 ---
 
-<div class="card-shape-inner server flex flex-col gap-4 p-4 text-sm pulp">
+<div
+  class="card-shape-inner server pulp flex flex-col gap-4 p-4 text-sm shadow-sm bg-black/30 backdrop-blur-sm"
+>
   <div class="flex items-center justify-between gap-4 text-lg">
     <div class="flex items-center gap-2">
       <slot name="icon" />
@@ -27,12 +29,7 @@ const { connectLink } = Astro.props;
 
 <style>
   .server {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--color-neutral-700) 50%, transparent),
-      color-mix(in srgb, var(--color-neutral-800) 50%, transparent),
-      color-mix(in srgb, var(--color-neutral-900) 50%, transparent)
-    );
     color: var(--background);
+    border-radius: 0.75rem;
   }
 </style>

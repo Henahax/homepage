@@ -10,7 +10,7 @@ const { isLayout } = Astro.props;
   ]}
   transition:name="banner"
 >
-  <div class="icon-container">
+  <div>
     <svg
       id="henahaxIcon"
       viewBox="0 0 512 512"
@@ -34,10 +34,7 @@ const { isLayout } = Astro.props;
   #henahax,
   #tld {
     position: relative;
-  }
-
-  .icon-container {
-    filter: drop-shadow(0 0rem 1rem var(--secondary));
+    color: var(--primary);
   }
 
   #henahaxIcon {
@@ -47,7 +44,6 @@ const { isLayout } = Astro.props;
     animation:
       sk-rotateplane 8s infinite ease-in-out,
       drop 0.75s ease-out forwards;
-    color: var(--primary);
   }
 
   @-webkit-keyframes sk-rotateplane {
@@ -71,23 +67,16 @@ const { isLayout } = Astro.props;
   }
 
   #henahax {
-    color: var(--primary);
     animation: drop 0.75s ease-out forwards;
-    filter: drop-shadow(0 0rem 1rem var(--secondary));
-    /*
-    -webkit-text-stroke: 0.05em black;
-    */
   }
 
   #tld {
-    color: var(--secondary);
     animation: drop 1.25s ease-out forwards;
-    filter: drop-shadow(0 0rem 0.5rem var(--secondary));
   }
 
   @keyframes drop {
     from {
-      top: -40px;
+      top: -2.5rem;
       opacity: 0;
     }
     to {

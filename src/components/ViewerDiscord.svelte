@@ -36,7 +36,7 @@
   }>();
 
   // ✅ Runes state
-  let loading = $state(true);
+  let loading = $state(true); // nur für den allerersten Load
   let error: string | null = $state(null);
   let data: WidgetData | null = $state(null);
 
@@ -46,38 +46,57 @@
     // return `/api/discord-widget.json?guildId=${encodeURIComponent(id)}`;
   }
 
-  async function load(id = guildId) {
-    loading = true;
-    error = null;
+  // Stabiler Vergleichssnapshot: Members/Channels nach ID sortiert,
+  // damit eine bloße Umordnung nicht als Änderung zählt.
+  function snapshot(w: WidgetData): string {
+    return JSON.stringify({
+      id: w.id,
+      name: w.name,
+      instant_invite: w.instant_invite ?? null,
+      presence_count: w.presence_count ?? 0,
+      channels: [...(w.channels ?? [])]
+        .map((c) => ({ id: c.id, name: c.name, position: c.position ?? null }))
+        .sort((a, b) => Number(a.id) - Number(b.id)),
+      members: [...(w.members ?? [])]
+        .map((m) => ({
+          id: m.id,
+          username: m.username,
+          discriminator: m.discriminator ?? null,
+          status: m.status ?? "",
+          avatar_url: m.avatar_url,
+          game: m.game?.name ?? "",
+          channel_id: m.channel_id ?? "",
+        }))
+        .sort((a, b) => Number(a.id) - Number(b.id)),
+    });
+  }
+
+  async function load() {
     try {
-      const res = await fetch(endpoint(id), { cache: "no-store" });
+      const res = await fetch(endpoint(guildId), { cache: "no-store" });
       if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-      data = await res.json();
+      const next: WidgetData = await res.json();
+
+      // UI nur anfassen, wenn sich tatsächlich etwas geändert hat
+      if (!data || snapshot(next) !== snapshot(data)) {
+        data = next;
+        error = null;
+      }
     } catch (e: any) {
-      error = e?.message ?? "Unknown error";
-      data = null;
+      // Bei fehlgeschlagenen Hintergrund-Refreshs alte Daten behalten;
+      // Fehler nur zeigen, wenn wir gar keine Daten haben.
+      if (!data) error = e?.message ?? "Unknown error";
     } finally {
       loading = false;
     }
   }
 
-  let timer: number | null = null;
-
-  onMount(() => {
-    load(guildId);
-    timer = window.setInterval(() => load(guildId), refreshMs);
-    return () => {
-      if (timer) window.clearInterval(timer);
-    };
-  });
-
-  // ✅ React if props change at runtime (e.g., parent swaps guild)
+  // ✅ Lädt beim Mount und reagiert auf Prop-Änderungen (z.B. andere Guild),
+  // räumt das Intervall sauber auf. Kein sichtbares Re-Render ohne Änderungen.
   $effect(() => {
-    // Re-run when guildId or refreshMs change
-    // Reset interval with new cadence
-    if (timer) clearInterval(timer);
-    load(guildId);
-    timer = window.setInterval(() => load(guildId), refreshMs);
+    load();
+    const t = window.setInterval(load, refreshMs);
+    return () => window.clearInterval(t);
   });
 </script>
 
