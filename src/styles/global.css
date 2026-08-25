@@ -1,139 +1,210 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
 @view-transition {
-  navigation: auto;
+	navigation: auto;
 }
 
 :root {
-  font-family: Oracle;
+	font-family: Oracle;
 
-  --color-weapon: #d5903f;
-  --color-vitality: #74b01c;
-  --color-spirit: #c288f0;
-  --color-souls: #98ffde;
-  --color-healing: #00ff9a;
+	--color-heading: #da5a29;
 
-  --foreground: var(--color-neutral-950);
-  --background: #070707;
-  --page-background: linear-gradient(
-    180deg,
-    var(--color-neutral-700),
-    var(--color-neutral-800),
-    var(--color-neutral-900)
-  );
+	--color-weapon: #d5903f;
+	--color-vitality: #74b01c;
+	--color-spirit: #c288f0;
+	--color-souls: #98ffde;
+	--color-healing: #00ff9a;
 
-  --primary: var(--color-weapon);
-  --primary-light: var(--color-sage);
-  --primary-dark: var(--color-deep-moss);
-  --primary-gradient: linear-gradient(
-    180deg,
-    var(--primary-light),
-    var(--primary),
-    var(--primary-dark)
-  );
+	--foreground: var(--color-neutral-50);
+	--background: var(--color-neutral-950);
+	--page-background: linear-gradient(
+		180deg,
+		var(--color-neutral-700),
+		var(--color-neutral-800),
+		var(--color-neutral-900)
+	);
 
-  --secondary: var(--color-cyan-500);
-  --surface-border: rgba(10, 10, 10, 0.35);
-  --surface-shadow:
-    0.35rem 0.35rem 0 rgba(0, 0, 0, 0.25), 0 0 0.8rem rgba(0, 0, 0, 0.12);
-  --surface-shadow-hover:
-    0.5rem 0.5rem 0 rgba(0, 0, 0, 0.28), 0 0 1.15rem rgba(0, 0, 0, 0.18);
-  --transition-fast: 180ms ease;
+	--primary: var(--color-heading);
+	--primary-muted: var(--color-weapon);
+
+	--secondary: var(--color-cyan-500);
+	--surface-border: rgba(10, 10, 10, 0.35);
+	--surface-shadow: 0.35rem 0.35rem 0 rgba(0, 0, 0, 0.25), 0 0 0.8rem rgba(0, 0, 0, 0.12);
+	--surface-shadow-hover: 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.28), 0 0 1.15rem rgba(0, 0, 0, 0.18);
+	--transition-fast: 180ms ease;
+
+	color: var(--foreground);
 }
 
 @font-face {
-  font-family: "Oracle";
-  src:
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Thin.woff2")
-      format("woff2"),
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Thin.ttf")
-      format("truetype");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Thin.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Thin.ttf')
+			format('truetype');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "Oracle";
-  src:
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Medium.woff2")
-      format("woff2"),
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Medium.ttf")
-      format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Medium.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Medium.ttf')
+			format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "Oracle";
-  src:
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBold.woff2")
-      format("woff2"),
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBold.ttf")
-      format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBold.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBold.ttf')
+			format('truetype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "Oracle";
-  src:
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-ThinItalic.woff2")
-      format("woff2"),
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-ThinItalic.ttf")
-      format("truetype");
-  font-weight: 200;
-  font-style: italic;
-  font-display: swap;
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-ThinItalic.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-ThinItalic.ttf')
+			format('truetype');
+	font-weight: 200;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "Oracle";
-  src:
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-MediumItalic.woff2")
-      format("woff2"),
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-MediumItalic.ttf")
-      format("truetype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-MediumItalic.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-MediumItalic.ttf')
+			format('truetype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "Oracle";
-  src:
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBoldItalic.woff2")
-      format("woff2"),
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBoldItalic.ttf")
-      format("truetype");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBoldItalic.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBoldItalic.ttf')
+			format('truetype');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: "Pulp";
-  src:
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEPulp-Bold.woff2")
-      format("woff2"),
-    url("https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEPulp-Bold.ttf")
-      format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'Pulp';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEPulp-Bold.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEPulp-Bold.ttf')
+			format('truetype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
 }
 
 .occult {
-  font-family: Oracle;
+	font-family: Oracle;
 }
 
 .pulp {
-  font-family: Pulp;
+	font-family: Pulp;
 }
 
 body {
-  background-image: url(https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/oldgods/bg_texture_dark.jpg);
+	background-image: url(https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/oldgods/bg_texture_dark.jpg);
 }
+
+.heading {
+	background: var(--primary);
+	color: var(--background);
+
+	padding: 0.5em 1em;
+
+	text-transform: uppercase;
+	font-weight: bolder;
+
+	transform: skew(-10deg) rotate(-1deg);
+}
+
+.heading > * {
+	transform: skew(10deg);
+}
+
+.menu-item {
+	font-size: 1.875rem;
+
+	will-change: transform;
+	transition-duration: 250ms;
+
+	opacity: 0;
+	animation: entrance 600ms ease-out forwards;
+	animation-delay: calc((sibling-index() - 1) * 80ms);
+}
+
+.menu-item:hover,
+.menu-item:focus-visible {
+	transform: skew(-10deg) rotate(-1deg) scale(1.05);
+}
+
+.card-title {
+	font-size: 1.5rem;
+}
+
+.card-back {
+}
+
+.card-content {
+}
+
+@keyframes entrance {
+	0% {
+		opacity: 0;
+		translate: 0 2rem;
+		rotate: -4deg;
+	}
+	40% {
+		opacity: 1;
+		translate: 0 -0.25rem;
+		rotate: 1deg;
+	}
+	60% {
+		translate: 0 0.125rem;
+		rotate: -0.5deg;
+	}
+	100% {
+		opacity: 1;
+		translate: 0 0;
+		rotate: 0deg;
+	}
+}
+
+.subcard {
+	border-radius: 0.75rem;
+	border: 1px solid white;
+}
+
+a.subcard:hover {
+	transform: scale(1.01);
+}
+
+/* Respect reduced motion */
+/* TODO */

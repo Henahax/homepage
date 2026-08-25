@@ -1,37 +1,36 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Card from "@/components/Card.astro";
-import ServerElement from "@/components/Server.astro";
-import ServerDiscord from "@/components/ViewerDiscord.svelte";
-import ServerTS from "@/components/ViewerTeamSpeak.svelte";
+import Layout from '@/layouts/Layout.astro'
+import Card from '@/components/Card.astro'
+import ServerElement from '@/components/Server.astro'
+import ServerDiscord from '@/components/ViewerDiscord.svelte'
+import ServerTS from '@/components/ViewerTeamSpeak.svelte'
 
-const guildId = "185552226998157313";
-const invite = "https://discord.com/invite/KKPurzUu";
+const guildId = '185552226998157313'
+const invite = 'https://discord.com/invite/KKPurzUu'
 
-const mode = Number(import.meta.env.TEAMSPEAK_VIEWER_MODE ?? 0);
+const mode = Number(import.meta.env.TEAMSPEAK_VIEWER_MODE ?? 0)
 ---
 
 <Layout title="Servers - henahax.net">
-  <Card transitionName="servers-card">
-    <i slot="icon" class="fa-solid fa-server" transition:name="servers-icon"
-    ></i>
-    <div slot="title" transition:name="servers-title">Servers</div>
-    <div slot="content" class="grid grid-cols-1 gap-4 md:grid-cols-2">
-      <ServerElement connectLink="teamspeak://ts.henahax.net?port=9987">
-        <i slot="icon" class="fa-brands fa-teamspeak"></i>
-        <div slot="title">TeamSpeak</div>
-        <div slot="content" class="flex flex-col gap-4">
-          <ServerTS client:visible />
-        </div>
-      </ServerElement>
+	<Card transitionName="servers-card">
+		<i slot="icon" class="fa-solid fa-server" transition:name="servers-icon"></i>
+		<div slot="title" transition:name="servers-title">Servers</div>
+		<div slot="content" class="grid grid-cols-1 gap-4 md:grid-cols-2">
+			<ServerElement connectLink="teamspeak://ts.henahax.net?port=9987">
+				<i slot="icon" class="fa-brands fa-teamspeak"></i>
+				<div slot="title">TeamSpeak</div>
+				<div slot="content" class="flex flex-col gap-4">
+					<ServerTS client:visible />
+				</div>
+			</ServerElement>
 
-      <ServerElement connectLink="https://discord.henahax.net/">
-        <i slot="icon" class="fa-brands fa-discord"></i>
-        <div slot="title">Discord</div>
-        <div slot="content" class="flex flex-col gap-4">
-          <ServerDiscord guildId={guildId} invite={invite} client:visible />
-        </div>
-      </ServerElement>
-    </div>
-  </Card>
+			<ServerElement connectLink="https://discord.henahax.net/">
+				<i slot="icon" class="fa-brands fa-discord"></i>
+				<div slot="title">Discord</div>
+				<div slot="content" class="flex flex-col gap-4">
+					<ServerDiscord guildId={guildId} invite={invite} client:visible />
+				</div>
+			</ServerElement>
+		</div>
+	</Card>
 </Layout>

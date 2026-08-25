@@ -1,50 +1,46 @@
 ---
-import "@/styles/global.css";
-import { ClientRouter } from "astro:transitions";
-import Banner from "@/components/Banner.astro";
+import '@/styles/global.css'
+import { ClientRouter } from 'astro:transitions'
+import Banner from '@/components/Banner.astro'
 
 interface Props {
-  title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/henahax.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
-      integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <ClientRouter />
-  </head>
-  <body class="flex min-h-dvh flex-col">
-    <app
-      class="flex w-full max-w-4xl grow flex-col content-center justify-center gap-8 self-center p-8"
-    >
-      <Banner isLayout={true} />
-      <slot />
-    </app>
-    <footer>
-      <a
-        id="source"
-        class="text-green-500"
-        href="https://github.com/henahax/homepage"
-      >
-        <i class="fa-brands fa-github"></i>
-        Source
-      </a>
-    </footer>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/henahax.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+			integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<ClientRouter />
+	</head>
+	<body class="flex min-h-dvh flex-col">
+		<app
+			class="flex w-full max-w-4xl grow flex-col content-center justify-center gap-8 self-center p-8"
+		>
+			<Banner isLayout={true} />
+			<slot />
+		</app>
+		<footer>
+			<a id="source" class="text-green-500" href="https://github.com/henahax/homepage">
+				<i class="fa-brands fa-github"></i>
+				Source
+			</a>
+		</footer>
+	</body>
 </html>
 <style></style>
