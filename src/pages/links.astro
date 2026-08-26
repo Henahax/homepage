@@ -52,14 +52,14 @@ const links = [
 	<Card transitionName="links-card">
 		<i slot="icon" class="fa-solid fa-link" transition:name="links-icon"></i>
 		<div slot="title" transition:name="links-title">Links</div>
-		<div slot="content" class="grid grid-cols-[1fr_auto_auto_1fr] justify-center gap-x-2 gap-y-2">
+		<div slot="content" class="grid grid-cols-[1fr_auto_auto_1fr] justify-center gap-2">
 			{
 				links.map((link) => (
 					<a
 						target="_blank"
 						rel="noopener noreferrer"
 						href={link.link}
-						class="subcard link-card col-span-full"
+						class="link-card pulp col-span-full grid grid-cols-subgrid items-center p-2"
 						style={
 							link.backgroundImage
 								? `background-image: ${link.backgroundImage}`
@@ -76,12 +76,4 @@ const links = [
 		</div>
 	</Card>
 </Layout>
-<style>
-	.link-card {
-		color: var(--background);
-		padding: 0.75rem;
-		border-radius: 0.75rem;
-		display: flex;
-		gap: 0.75rem;
-	}
-</style>
+

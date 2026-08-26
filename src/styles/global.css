@@ -5,38 +5,6 @@
 	navigation: auto;
 }
 
-:root {
-	font-family: Oracle;
-
-	--color-heading: #da5a29;
-
-	--color-weapon: #d5903f;
-	--color-vitality: #74b01c;
-	--color-spirit: #c288f0;
-	--color-souls: #98ffde;
-	--color-healing: #00ff9a;
-
-	--foreground: var(--color-neutral-50);
-	--background: var(--color-neutral-950);
-	--page-background: linear-gradient(
-		180deg,
-		var(--color-neutral-700),
-		var(--color-neutral-800),
-		var(--color-neutral-900)
-	);
-
-	--primary: var(--color-heading);
-	--primary-muted: var(--color-weapon);
-
-	--secondary: var(--color-cyan-500);
-	--surface-border: rgba(10, 10, 10, 0.35);
-	--surface-shadow: 0.35rem 0.35rem 0 rgba(0, 0, 0, 0.25), 0 0 0.8rem rgba(0, 0, 0, 0.12);
-	--surface-shadow-hover: 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.28), 0 0 1.15rem rgba(0, 0, 0, 0.18);
-	--transition-fast: 180ms ease;
-
-	color: var(--foreground);
-}
-
 @font-face {
 	font-family: 'Oracle';
 	src:
@@ -121,6 +89,32 @@
 	font-display: swap;
 }
 
+:root {
+	font-family: Oracle;
+
+	--color-heading: #da5a29;
+
+	--color-weapon: #d5903f;
+	--color-vitality: #74b01c;
+	--color-spirit: #c288f0;
+	--color-souls: #98ffde;
+	--color-healing: #00ff9a;
+
+	--foreground: var(--color-neutral-50);
+	--background: var(--color-neutral-950);
+	--muted: var(--color-neutral-500);
+
+	--primary: var(--color-heading);
+
+	--secondary: var(--color-cyan-500);
+
+	--surface-shadow: 0.35rem 0.35rem 0 rgba(0, 0, 0, 0.25), 0 0 0.8rem rgba(0, 0, 0, 0.12);
+	--surface-shadow-hover: 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.28), 0 0 1.15rem rgba(0, 0, 0, 0.18);
+	--transition-fast: 180ms ease;
+
+	color: var(--foreground);
+}
+
 .occult {
 	font-family: Oracle;
 }
@@ -149,6 +143,15 @@ body {
 	transform: skew(10deg);
 }
 
+#source {
+	color: var(--muted);
+}
+
+#source:hover,
+#source:focus-visible {
+	color: var(--secondary);
+}
+
 .menu-item {
 	font-size: 1.875rem;
 
@@ -167,12 +170,26 @@ body {
 
 .card-title {
 	font-size: 1.5rem;
+	transform: skew(-10deg) rotate(-1deg) translate(-0.5rem, 0.75rem);
+	z-index: 1;
 }
 
 .card-back {
+	color: var(--muted);
+	border: 1px solid var(--muted);
+}
+
+.card-back:hover,
+.card-back:focus-visible {
+	transform: scale(1.05);
+	color: var(--secondary);
+	border-color: var(--secondary);
 }
 
 .card-content {
+	border: 1px solid var(--primary);
+	padding: 1rem;
+	border-radius: 1rem;
 }
 
 @keyframes entrance {
@@ -199,11 +216,41 @@ body {
 
 .subcard {
 	border-radius: 0.75rem;
-	border: 1px solid white;
 }
 
-a.subcard:hover {
+a.subcard:hover,
+a.subcard:focus-visible {
 	transform: scale(1.01);
+	border-color: var(--secondary);
+}
+
+.tag {
+	font-size: 0.75rem;
+	border: 1px solid var(--muted);
+	border-radius: 1rem;
+	padding: 0 0.5rem;
+}
+
+/* Links */
+.link-card {
+	will-change: transform;
+	transition-duration: 250ms;
+	transform: skew(-10deg);
+}
+
+.link-card:hover,
+.links-card:focus-visible {
+	transform: skew(-10deg) scale(1.01);
+	border-color: var(--secondary);
+}
+
+.link-card > * {
+	transform: skew(10deg);
+}
+
+.subcard,
+.link-card {
+	border: 1px solid var(--muted);
 }
 
 /* Respect reduced motion */

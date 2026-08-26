@@ -38,11 +38,11 @@ const projects = [
 			{
 				projects.map((project) => (
 					<a href={project.link} class="subcard row-span-3 grid grid-rows-subgrid gap-4 p-4">
-						<div class="text-lg">{project.name}</div>
+						<div class="pulp text-lg">{project.name}</div>
 						<div>{project.description}</div>
 						<div class="flex flex-wrap content-start gap-1">
 							{project.technologies.map((technology) => (
-								<div class="tag">{technology}</div>
+								<div class="tag pulp">{technology}</div>
 							))}
 						</div>
 					</a>

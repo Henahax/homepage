@@ -72,7 +72,7 @@ const gamesCasual = [
 								target="_blank"
 								rel="noopener noreferrer"
 								href={game.link}
-								class="subcard game-active backgroundCard flex items-center gap-2 rounded-xl p-4"
+								class="subcard game-active backgroundCard flex items-center gap-2 rounded-xl p-4 pulp"
 								style={"background-image: url('" + game.image + "');"}
 							>
 								<img src={game.icon} class="size-8 object-contain" />
@@ -92,7 +92,7 @@ const gamesCasual = [
 								target="_blank"
 								rel="noopener noreferrer"
 								href={game.link}
-								class="subcard game-casual"
+								class="subcard game-casual pulp"
 							>
 								{game.name}
 							</a>
@@ -137,9 +137,5 @@ const gamesCasual = [
 
 	.game-casual {
 		padding: 0.5rem;
-	}
-
-	.game-title {
-		color: var(--background);
 	}
 </style>

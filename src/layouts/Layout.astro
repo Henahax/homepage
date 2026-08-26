@@ -35,10 +35,10 @@ const { title } = Astro.props
 			<Banner isLayout={true} />
 			<slot />
 		</app>
-		<footer>
-			<a id="source" class="text-green-500" href="https://github.com/henahax/homepage">
+		<footer class="flex justify-end items-center w-full">
+			<a id="source" class="flex items-center p-1 gap-1 text-sm" href="https://github.com/henahax/homepage">
 				<i class="fa-brands fa-github"></i>
-				Source
+				<span>Source</span>
 			</a>
 		</footer>
 	</body>
