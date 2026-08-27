@@ -12,26 +12,3 @@
 	</summary>
 	<slot name="content" class="grid-cols-full" />
 </details>
-
-<style>
-	details > summary .arrow {
-		transition: transform 0.25s ease;
-	}
-
-	details[open] > summary .arrow {
-		transform: rotate(90deg);
-	}
-
-	:global(details:has(ul) > summary) {
-		cursor: pointer;
-		transition: color 0.25s ease;
-	}
-
-	:global(details:has(ul) > summary:hover *) {
-		color: var(--secondary);
-	}
-
-	:global(details:not(:has(ul)) > summary .arrow) {
-		opacity: 0;
-	}
-</style>
