@@ -7,13 +7,13 @@ const { transitionName } = Astro.props
 ---
 
 <div class="flex flex-col">
-	<a class="card-back flex items-center gap-2 w-fit p-2 pr-4 rounded-full text-sm" href="/">
+	<a class="btn btn-tertiary flex items-center" href="/">
 		<i class="fa-solid fa-angle-left"></i>
 		<div>Back</div>
 	</a>
 
 	<div
-		class="card-header heading card-title flex w-fit items-center font-extrabold uppercase"
+		class="btn btn-primary card-header card-title flex w-fit items-center font-extrabold uppercase"
 		transition:name={transitionName + '-card'}
 	>
 		<div class="flex items-center gap-4">
@@ -24,7 +24,7 @@ const { transitionName } = Astro.props
 	</div>
 
 	<div
-		class="primary-element card shape tilt-shadow bg-white/5 backdrop-blur-md"
+		class="card tilt-shadow bg-white/5 backdrop-blur-md"
 		transition:name={transitionName}
 	>
 		<div class="card-content">

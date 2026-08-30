@@ -90,32 +90,31 @@
 }
 
 :root {
-	font-family: Oracle;
-
-	--color-heading: #da5a29;
-
-	--color-weapon: #d5903f;
-	--color-vitality: #74b01c;
-	--color-spirit: #c288f0;
-	--color-souls: #98ffde;
-	--color-healing: #00ff9a;
-
-	--foreground: var(--color-neutral-50);
-	--background: var(--color-neutral-950);
 	--muted: var(--color-neutral-500);
+}
 
-	--primary: var(--color-heading);
+/* color system new */
+:root {
+	--orange: #da5a29;
+	--tech: #ee51ff;
+	--enhanced: #3fdcff;
+	--legendary: #ffb649;
+}
 
-	--secondary: var(--color-cyan-500);
+:root {
+	--primary: var(--orange);
+	--primary-foreground: var(--color-neutral-950);
 
-	--surface-shadow: 0.35rem 0.35rem 0 rgba(0, 0, 0, 0.25), 0 0 0.8rem rgba(0, 0, 0, 0.12);
-	--surface-shadow-hover: 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.28), 0 0 1.15rem rgba(0, 0, 0, 0.18);
-	--transition-fast: 180ms ease;
+	--background: var(--color-neutral-950);
+	--foreground: var(--color-neutral-50);
+}
 
+:root {
+	font-family: Oracle;
 	color: var(--foreground);
 }
 
-.occult {
+.oracle {
 	font-family: Oracle;
 }
 
@@ -125,6 +124,72 @@
 
 body {
 	background-image: url(https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/oldgods/bg_texture_dark.jpg);
+}
+
+.btn {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0.5em 0.75em;
+
+	width: fit-content;
+}
+
+.btn-primary {
+	background: var(--primary);
+	color: var(--background);
+
+	text-transform: uppercase;
+	font-weight: bolder;
+
+	transform: skew(-10deg) rotate(-1deg);
+
+	text-transform: uppercase;
+	font-weight: bolder;
+
+	padding: 0.5em 0.75em;
+}
+
+.btn-primary > * {
+	transform: skew(10deg);
+}
+
+a.btn-primary:hover,
+a.btn-primary:focus-visible {
+	transform: skew(-10deg) rotate(-1deg) scale(1.05);
+}
+
+.menu-item {
+	display: grid;
+	grid-column: 1 / -1;
+	grid-template-columns: subgrid;
+
+	font-size: 1.875rem;
+
+	will-change: transform;
+	transition-duration: 250ms;
+
+	opacity: 0;
+	animation: entrance 600ms ease-out forwards;
+	animation-delay: calc((sibling-index() - 1) * 80ms);
+}
+
+.btn-secondary {
+}
+
+.btn-tertiary {
+	color: var(--color-neutral-300);
+	background-color: var(--color-neutral-800);
+	border: 2px solid var(--color-neutral-300);
+	font-size: 0.875rem;
+	border-radius: 4em;
+}
+
+.btn-tertiary:hover,
+.btn-tertiary:focus-visible {
+	color: var(--color-neutral-950);
+	background-color: var(--color-neutral-300);
+	border-color: var(--color-neutral-100);
 }
 
 #henahaxIcon,
@@ -181,22 +246,6 @@ body {
 	}
 }
 
-.heading {
-	background: var(--primary);
-	color: var(--background);
-
-	padding: 0.5em 1em;
-
-	text-transform: uppercase;
-	font-weight: bolder;
-
-	transform: skew(-10deg) rotate(-1deg);
-}
-
-.heading > * {
-	transform: skew(10deg);
-}
-
 #source {
 	color: var(--muted);
 }
@@ -204,22 +253,6 @@ body {
 #source:hover,
 #source:focus-visible {
 	color: var(--secondary);
-}
-
-.menu-item {
-	font-size: 1.875rem;
-
-	will-change: transform;
-	transition-duration: 250ms;
-
-	opacity: 0;
-	animation: entrance 600ms ease-out forwards;
-	animation-delay: calc((sibling-index() - 1) * 80ms);
-}
-
-.menu-item:hover,
-.menu-item:focus-visible {
-	transform: skew(-10deg) rotate(-1deg) scale(1.05);
 }
 
 .card-title {
@@ -230,13 +263,13 @@ body {
 
 .card-back {
 	color: var(--foreground);
-	border: 1px solid var(--muted);
+	border: 2px solid var(--muted);
 }
 
 .card-back:hover,
 .card-back:focus-visible {
 	color: var(--background);
-	border-color: var(--muted);
+	border-color: var(--foreground);
 	background-color: var(--muted);
 }
 
