@@ -229,15 +229,15 @@ body {
 }
 
 .card-back {
-	color: var(--muted);
+	color: var(--foreground);
 	border: 1px solid var(--muted);
 }
 
 .card-back:hover,
 .card-back:focus-visible {
-	transform: scale(1.05);
-	color: var(--secondary);
-	border-color: var(--secondary);
+	color: var(--background);
+	border-color: var(--muted);
+	background-color: var(--muted);
 }
 
 .card-content {
