@@ -181,20 +181,21 @@ a.btn-primary:focus-visible {
 	animation-delay: calc((sibling-index() - 1) * 80ms);
 }
 
-.btn-tertiary {
+.btn-secondary {
 	color: var(--foreground-muted);
 	background: var(--background-muted);
 	border: 2px solid var(--foreground-muted);
 	font-size: 0.875rem;
 	border-radius: 4em;
-	transition: all 0.25s ease;
+	transition: all 0.5s ease;
 }
 
-.btn-tertiary:hover,
-.btn-tertiary:focus-visible {
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
 	color: var(--background);
 	background-color: var(--foreground-muted);
 	border-color: var(--foreground);
+	border-radius: 0.5em;
 }
 
 #henahaxIcon,
