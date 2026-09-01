@@ -107,6 +107,9 @@
 
 	--background: var(--color-neutral-950);
 	--foreground: var(--color-neutral-50);
+
+	--background-muted: var(--color-neutral-800);
+	--foreground-muted: var(--color-neutral-200);
 }
 
 :root {
@@ -120,6 +123,10 @@
 
 .pulp {
 	font-family: Pulp;
+}
+
+.client {
+	color: var(--primary);
 }
 
 body {
@@ -174,13 +181,10 @@ a.btn-primary:focus-visible {
 	animation-delay: calc((sibling-index() - 1) * 80ms);
 }
 
-.btn-secondary {
-}
-
 .btn-tertiary {
-	color: var(--color-neutral-300);
-	background-color: var(--color-neutral-800);
-	border: 2px solid var(--color-neutral-300);
+	color: var(--foreground-muted);
+	background: var(--background-muted);
+	border: 2px solid var(--foreground-muted);
 	font-size: 0.875rem;
 	border-radius: 4em;
 	transition: all 0.25s ease;
@@ -188,9 +192,9 @@ a.btn-primary:focus-visible {
 
 .btn-tertiary:hover,
 .btn-tertiary:focus-visible {
-	color: var(--color-neutral-950);
-	background-color: var(--color-neutral-300);
-	border-color: var(--color-neutral-100);
+	color: var(--background);
+	background-color: var(--foreground-muted);
+	border-color: var(--foreground);
 }
 
 #henahaxIcon,
@@ -234,6 +238,7 @@ a.btn-primary:focus-visible {
 
 #tld {
 	animation: drop 1.25s ease-out forwards;
+	color: var(--legendary);
 }
 
 @keyframes drop {
