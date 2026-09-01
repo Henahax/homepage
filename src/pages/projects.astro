@@ -1,71 +1,53 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Card from "@/components/Card.astro";
+import Layout from '@/layouts/Layout.astro'
+import Card from '@/components/Card.astro'
 
 const projects = [
-  {
-    name: "Homepage",
-    link: "https://github.henahax.de",
-    description: "personal homepage, basic portfolio",
-    technologies: ["NodeJS", "Astro", "TypeScript", "Tailwind", "HTML", "CSS"],
-  },
-  {
-    name: "HomeLab",
-    link: "https://github.henahax.de",
-    description:
-      "personal server enviroment for self-hosted private and public services",
-    technologies: ["ProxMox", "Linux", "Docker", "DNS", "VPN"],
-  },
-  {
-    name: "Teasure Hunt",
-    link: "https://github.henahax.de",
-    description: "treasure hunt web app",
-    technologies: [
-      "NodeJS",
-      "Sveltekit",
-      "TypeScript",
-      "Tailwind",
-      "HTML",
-      "CSS",
-    ],
-  },
-  {
-    name: "GW2Tools",
-    link: "https://github.henahax.de",
-    description: "Guild Wars 2 calculator and tools",
-    technologies: [
-      "NodeJS",
-      "Sveltekit",
-      "TypeScript",
-      "Tailwind",
-      "HTML",
-      "CSS",
-    ],
-  },
-];
+	{
+		name: 'Homepage',
+		link: 'https://github.henahax.de',
+		description: 'personal homepage, basic portfolio',
+		technologies: ['NodeJS', 'Astro', 'TypeScript', 'Tailwind', 'HTML', 'CSS']
+	},
+	{
+		name: 'HomeLab',
+		link: 'https://github.henahax.de',
+		description: 'personal server enviroment for self-hosted private and public services',
+		technologies: ['ProxMox', 'Linux', 'Docker', 'DNS', 'VPN']
+	},
+	{
+		name: 'Teasure Hunt',
+		link: 'https://github.henahax.de',
+		description: 'treasure hunt web app',
+		technologies: ['NodeJS', 'Sveltekit', 'TypeScript', 'Tailwind', 'HTML', 'CSS']
+	},
+	{
+		name: 'GW2Tools',
+		link: 'https://github.henahax.de',
+		description: 'Guild Wars 2 calculator and tools',
+		technologies: ['NodeJS', 'Sveltekit', 'TypeScript', 'Tailwind', 'HTML', 'CSS']
+	}
+]
 ---
 
 <Layout title="Projects - henahax.net">
-  <Card transitionName="projects-card">
-    <i slot="icon" class="fa-solid fa-code" transition:name="projects-icon"></i>
-    <div slot="title" transition:name="projects-title">Projects</div>
-    <div slot="content" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      {
-        projects.map((project) => (
-          <a
-            href={project.link}
-            class="subcard row-span-3 grid grid-rows-subgrid gap-4 p-4"
-          >
-            <div class="text-lg">{project.name}</div>
-            <div>{project.description}</div>
-            <div class="flex flex-wrap content-start gap-1">
-              {project.technologies.map((technology) => (
-                <div class="tag">{technology}</div>
-              ))}
-            </div>
-          </a>
-        ))
-      }
-    </div>
-  </Card>
+	<Card transitionName="projects-card">
+		<i slot="icon" class="fa-solid fa-code" transition:name="projects-icon"></i>
+		<div slot="title" transition:name="projects-title">Projects</div>
+		<div slot="content" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+			{
+				projects.map((project) => (
+					<a href={project.link} class="subcard row-span-3 grid grid-rows-subgrid gap-4 p-4">
+						<div class="pulp text-lg">{project.name}</div>
+						<div>{project.description}</div>
+						<div class="flex flex-wrap content-start gap-1">
+							{project.technologies.map((technology) => (
+								<div class="tag pulp">{technology}</div>
+							))}
+						</div>
+					</a>
+				))
+			}
+		</div>
+	</Card>
 </Layout>

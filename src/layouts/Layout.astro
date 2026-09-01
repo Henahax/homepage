@@ -1,118 +1,46 @@
 ---
-import "@/styles/global.css";
-import { ClientRouter } from "astro:transitions";
-import Banner from "@/components/Banner.astro";
+import '@/styles/global.css'
+import { ClientRouter } from 'astro:transitions'
+import Banner from '@/components/Banner.astro'
 
 interface Props {
-  title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/henahax.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
-      integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <ClientRouter />
-  </head>
-  <body class="flex min-h-dvh flex-col">
-    <app
-      class="flex w-full max-w-4xl grow flex-col content-center justify-center gap-8 self-center p-8"
-    >
-      <Banner isLayout={true} />
-      <slot />
-    </app>
-    <footer class="w-full flex items-end">
-      <div class="primary-element marquee">
-        <div class="marquee-track">
-          <span>© 2026 henahax.net</span>
-          <span>Servers</span>
-          <span>Gaming</span>
-          <span>Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-        </div>
-      </div>
-      <a
-        id="source"
-        class="flex gap-2 items-center text-center px-2 py-4 rounded-tl-lg border-t border-l text-xs"
-        href="https://github.com/henahax/homepage"
-      >
-        <i class="fa-brands fa-github"></i>
-        Source
-      </a>
-    </footer>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/henahax.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+			integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<ClientRouter />
+	</head>
+	<body class="flex min-h-dvh flex-col">
+		<app
+			class="flex w-full max-w-4xl grow flex-col content-center justify-center gap-8 self-center p-8"
+		>
+			<Banner isLayout={true} />
+			<slot />
+		</app>
+		<footer class="flex justify-end items-center w-full">
+			<a id="source" class="flex items-center p-1 gap-1 text-sm" href="https://github.com/henahax/homepage">
+				<i class="fa-brands fa-github"></i>
+				<span>Source</span>
+			</a>
+		</footer>
+	</body>
 </html>
-<style>
-  .marquee {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    padding: 0.5rem 0;
-    text-transform: uppercase;
-    box-shadow: 0rem 0rem 1.5rem var(--secondary);
-  }
-
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marquee 20s linear infinite;
-  }
-
-  .marquee-track span {
-    flex-shrink: 0;
-    padding-right: 4rem; /* Abstand zwischen Wiederholungen */
-  }
-
-  @keyframes marquee {
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  footer a#source {
-    color: var(--primary);
-    background-color: var(--foreground);
-    border-color: var(--primary);
-  }
-</style>
+<style></style>

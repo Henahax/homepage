@@ -1,97 +1,50 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Banner from "@/components/Banner.astro";
+import Layout from '@/layouts/Layout.astro'
+import Banner from '@/components/Banner.astro'
 
 const tiles = [
-  {
-    name: "servers",
-    icon: "fa-solid fa-server",
-  },
-  {
-    name: "gaming",
-    icon: "fa-solid fa-gamepad",
-  },
-  {
-    name: "projects",
-    icon: "fa-solid fa-code",
-  },
-  {
-    name: "links",
-    icon: "fa-solid fa-link",
-  },
-];
+	{
+		name: 'Servers',
+		link: 'servers',
+		icon: 'fa-solid fa-server'
+	},
+	{
+		name: 'Gaming',
+		link: 'gaming',
+		icon: 'fa-solid fa-gamepad'
+	},
+	{
+		name: 'Projects',
+		link: 'projects',
+		icon: 'fa-solid fa-code'
+	},
+	{
+		name: 'Links',
+		link: 'links',
+		icon: 'fa-solid fa-link'
+	}
+]
 ---
 
 <Layout title="henahax.net">
-  <div class="flex flex-col items-center justify-center gap-8">
-    <Banner isLayout={false} />
+	<div class="flex flex-col items-center justify-center gap-8">
+		<Banner isLayout={false} />
 
-    <div
-      class="flex flex-col items-center justify-center gap-4 w-full max-w-2xs"
-    >
-      {
-        tiles.map((tile) => (
-          <a
-            class="primary-element menu-option"
-            href={"/" + tile.name}
-            transition:name={tile.name + "-card"}
-          >
-            <div>
-              <i class={tile.icon} transition:name={tile.name + "-icon"} />
-              <div transition:name={tile.name + "-title"}>{tile.name}</div>
-            </div>
-          </a>
-        ))
-      }
-    </div>
-  </div>
+		<div class="grid grid-cols-[auto_1fr] gap-4">
+			{
+				tiles.map((tile) => (
+					<a
+						class="btn btn-primary oracle menu-item col-span-full grid grid-cols-subgrid items-center"
+						href={'/' + tile.link}
+						transition:name={tile.link + '-card'}
+					>
+						<div class="col-span-full grid grid-cols-subgrid items-center">
+							<i class={tile.icon} transition:name={tile.link + '-icon'} />
+							<div transition:name={tile.link + '-title'}>{tile.link}</div>
+						</div>
+					</a>
+				))
+			}
+		</div>
+	</div>
 </Layout>
-
-<style>
-  .menu-option {
-    padding: 1rem 4rem;
-    border-radius: 1rem 0.5rem;
-    transform: skew(-5deg) rotate(-5deg);
-    display: flex;
-    align-items: center;
-    width: 100%;
-    font-size: 1.5rem;
-    border-width: 0.125rem;
-    background: var(--primary-gradient);
-    color: var(--foreground);
-    animation: shadow-move 2s infinite ease-in-out;
-    text-transform: uppercase;
-    box-shadow: var(--surface-shadow);
-    border: 1px solid var(--surface-border);
-    transition:
-      transform var(--transition-fast),
-      box-shadow var(--transition-fast),
-      border-color var(--transition-fast);
-  }
-
-  .menu-option:hover,
-  .menu-option:focus-visible {
-    transform: translate(-0.125rem, -0.125rem);
-    box-shadow: var(--surface-shadow-hover);
-    border-color: var(--secondary);
-    outline: none;
-  }
-
-  .menu-option:hover,
-  .menu-option:focus-visible {
-    transform: translate(-0.125rem, -0.125rem) skew(-5deg) rotate(-5deg);
-  }
-
-  .menu-option > div {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    transition: transform 180ms ease-out;
-    will-change: transform;
-  }
-
-  .menu-option:hover > div,
-  .menu-option:focus-visible > div {
-    animation: slide 0.35s ease-in-out;
-  }
-</style>

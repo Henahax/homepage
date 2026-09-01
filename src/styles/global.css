@@ -1,173 +1,400 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
 @view-transition {
-  navigation: auto;
+	navigation: auto;
+}
+
+@font-face {
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Thin.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Thin.ttf')
+			format('truetype');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Medium.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-Medium.ttf')
+			format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBold.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBold.ttf')
+			format('truetype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-ThinItalic.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-ThinItalic.ttf')
+			format('truetype');
+	font-weight: 200;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-MediumItalic.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-MediumItalic.ttf')
+			format('truetype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Oracle';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBoldItalic.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEOracle-SemiBoldItalic.ttf')
+			format('truetype');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Pulp';
+	src:
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEPulp-Bold.woff2')
+			format('woff2'),
+		url('https://cdn.fastly.steamstatic.com/apps/deadlock/fonts/VALVEPulp-Bold.ttf')
+			format('truetype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
 }
 
 :root {
-  --foreground: var(--color-neutral-950);
-  --background: var(--color-neutral-50);
-  --page-background: linear-gradient(
-    180deg,
-    var(--color-neutral-700),
-    var(--color-neutral-800),
-    var(--color-neutral-900)
-  );
+	--muted: var(--color-neutral-500);
+}
 
-  --primary: var(--color-yellow-400);
-  --primary-light: var(--color-yellow-300);
-  --primary-dark: var(--color-yellow-500);
-  --primary-gradient: linear-gradient(
-    180deg,
-    var(--primary-light),
-    var(--primary),
-    var(--primary-dark)
-  );
+/* color system new */
+:root {
+	--orange: #da5a29;
+	--tech: #ee51ff;
+	--enhanced: #3fdcff;
+	--legendary: #ffb649;
+}
 
-  --secondary: var(--color-cyan-500);
-  --surface-border: rgba(10, 10, 10, 0.35);
-  --surface-shadow:
-    0.35rem 0.35rem 0 rgba(0, 0, 0, 0.25), 0 0 0.8rem rgba(0, 0, 0, 0.12);
-  --surface-shadow-hover:
-    0.5rem 0.5rem 0 rgba(0, 0, 0, 0.28), 0 0 1.15rem rgba(0, 0, 0, 0.18);
-  --transition-fast: 180ms ease;
+:root {
+	--primary: var(--orange);
+	--primary-foreground: var(--color-neutral-950);
+
+	--background: var(--color-neutral-950);
+	--foreground: var(--color-neutral-50);
+
+	--background-muted: var(--color-neutral-800);
+	--foreground-muted: var(--color-neutral-200);
+}
+
+:root {
+	font-family: Oracle;
+	color: var(--foreground);
+}
+
+.oracle {
+	font-family: Oracle;
+}
+
+.pulp {
+	font-family: Pulp;
+}
+
+.client {
+	color: var(--primary);
 }
 
 body {
-  position: relative;
-  font-family: Consolas, monaco, monospace;
-  background: var(--page-background);
-  overflow-x: hidden;
+	background-image: url(https://cdn.fastly.steamstatic.com/apps/deadlock/images/react/oldgods/bg_texture_dark.jpg);
 }
 
-/* Speed Lines — diagonale Linien die nach rechts rasen */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+.btn {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0.5em 0.75em;
+
+	width: fit-content;
 }
 
-body::before {
-  background-image:
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 60px,
-      rgba(255, 255, 255, 0.025) 60px,
-      rgba(255, 255, 255, 0.025) 61px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 10rem,
-      rgba(255, 255, 255, 0.04) 10rem,
-      rgba(255, 255, 255, 0.04) 10rem
-    );
-  animation: speed-lines 1.5s linear infinite;
+.btn-primary {
+	background: var(--primary);
+	color: var(--background);
+
+	text-transform: uppercase;
+	font-weight: bolder;
+
+	transform: skew(-10deg) rotate(-1deg);
+
+	text-transform: uppercase;
+	font-weight: bolder;
+
+	padding: 0.5em 0.75em;
 }
 
-body::after {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 30px,
-    rgba(255, 255, 255, 0.015) 30px,
-    rgba(255, 255, 255, 0.015) 31px
-  );
-  animation: speed-lines 0.8s linear infinite;
+.btn-primary > * {
+	transform: skew(10deg);
 }
 
-@keyframes speed-lines {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(80px);
-  }
+a.btn-primary:hover,
+a.btn-primary:focus-visible {
+	transform: skew(-10deg) rotate(-1deg) scale(1.05);
 }
 
-/* Content über den Speed Lines */
-app {
-  position: relative;
-  z-index: 1;
+.menu-item {
+	display: grid;
+	grid-column: 1 / -1;
+	grid-template-columns: subgrid;
+
+	font-size: 1.875rem;
+
+	will-change: transform;
+	transition-duration: 250ms;
+
+	opacity: 0;
+	animation: entrance 600ms ease-out forwards;
+	animation-delay: calc((sibling-index() - 1) * 80ms);
 }
 
-.primary-element {
-  color: var(--foreground);
-  background: var(--primary-gradient);
+.btn-tertiary {
+	color: var(--foreground-muted);
+	background: var(--background-muted);
+	border: 2px solid var(--foreground-muted);
+	font-size: 0.875rem;
+	border-radius: 4em;
+	transition: all 0.25s ease;
 }
 
-@keyframes shadow-move {
-  0% {
-    box-shadow:
-      0.5rem 0.5rem 2.2rem var(--secondary),
-      0.25rem 0.25rem 0 var(--secondary),
-      0.5rem 0.5rem var(--foreground);
-  }
-  50% {
-    box-shadow:
-      0.65rem 0.65rem 2.4rem var(--secondary),
-      0.75rem 0.5rem 0 var(--secondary),
-      1.5rem 1.25rem var(--foreground);
-  }
-  100% {
-    box-shadow:
-      0.5rem 0.5rem 2.2rem var(--secondary),
-      0.25rem 0.25rem 0 var(--secondary),
-      0.5rem 0.5rem var(--foreground);
-  }
+.btn-tertiary:hover,
+.btn-tertiary:focus-visible {
+	color: var(--background);
+	background-color: var(--foreground-muted);
+	border-color: var(--foreground);
+}
+
+#henahaxIcon,
+#henahax,
+#tld {
+	position: relative;
+}
+
+#henahaxIcon {
+	width: 3rem;
+	height: 3rem;
+	-webkit-animation: sk-rotateplane 8s infinite ease-in-out;
+	animation:
+		sk-rotateplane 8s infinite ease-in-out,
+		drop 0.75s ease-out forwards;
+}
+
+@-webkit-keyframes sk-rotateplane {
+	0% {
+		-webkit-transform: perspective(36rem);
+	}
+	100% {
+		-webkit-transform: perspective(36rem) rotateX(360deg);
+	}
+}
+
+@keyframes sk-rotateplane {
+	0% {
+		transform: perspective(36rem) rotateX(0deg) rotateY(0deg);
+		-webkit-transform: perspective(36rem) rotateX(0deg) rotateY(0deg);
+	}
+	100% {
+		transform: perspective(36rem) rotateY(-360.1deg) rotateX(0deg);
+		-webkit-transform: perspective(36rem) rotateY(-360.1deg) rotateY(0deg);
+	}
+}
+
+#henahax {
+	animation: drop 0.75s ease-out forwards;
+}
+
+#tld {
+	animation: drop 1.25s ease-out forwards;
+	color: var(--legendary);
+}
+
+@keyframes drop {
+	from {
+		top: -2.5rem;
+		opacity: 0;
+	}
+	to {
+		top: 0px;
+		opacity: 1;
+	}
+}
+
+#source {
+	color: var(--muted);
+}
+
+#source:hover,
+#source:focus-visible {
+	color: var(--secondary);
+}
+
+.card-title {
+	font-size: 1.5rem;
+	transform: skew(-10deg) rotate(-1deg) translate(-0.5rem, 0.75rem);
+	z-index: 1;
+}
+
+.card-back {
+	color: var(--foreground);
+	border: 2px solid var(--muted);
+}
+
+.card-back:hover,
+.card-back:focus-visible {
+	color: var(--background);
+	border-color: var(--foreground);
+	background-color: var(--muted);
+}
+
+.card-content {
+	border: 1px solid var(--primary);
+	padding: 1rem;
+	border-radius: 1rem;
+}
+
+@keyframes entrance {
+	0% {
+		opacity: 0;
+		translate: 0 2rem;
+		rotate: -4deg;
+	}
+	40% {
+		opacity: 1;
+		translate: 0 -0.25rem;
+		rotate: 1deg;
+	}
+	60% {
+		translate: 0 0.125rem;
+		rotate: -0.5deg;
+	}
+	100% {
+		opacity: 1;
+		translate: 0 0;
+		rotate: 0deg;
+	}
 }
 
 .subcard {
-  border: 1px solid var(--surface-border);
-  border-radius: 0.75rem;
-  box-shadow: var(--surface-shadow);
-  background-color: var(--primary-gradient);
-  color: var(--foreground);
-  transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    border-color var(--transition-fast),
-    background-color var(--transition-fast);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  align-items: center;
+	border-radius: 0.75rem;
 }
 
-.subcard:hover,
-.subcard:focus-visible {
-  transform: translate(-0.125rem, -0.125rem);
-  box-shadow: var(--surface-shadow-hover);
-  border-color: var(--secondary);
-  outline: none;
+a.subcard:hover,
+a.subcard:focus-visible {
+	transform: scale(1.01);
+	border-color: var(--secondary);
 }
 
 .tag {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 999px;
-  padding: 0.25rem 0.65rem;
-  font-size: 0.75rem;
-  line-height: 1;
-  border: 1px solid var(--surface-border);
-  background: rgba(255, 255, 255, 0.4);
-  color: var(--foreground);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+	font-size: 0.75rem;
+	border: 1px solid var(--muted);
+	border-radius: 1rem;
+	padding: 0 0.5rem;
 }
 
-@keyframes slide {
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(0.75rem, -0.15rem);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
+/* Server */
+.server details > summary .arrow {
+	transition: transform 0.25s ease;
 }
+
+.server details[open] > summary .arrow {
+	transform: rotate(90deg);
+}
+
+.server details:has(ul) > summary {
+	cursor: pointer;
+	transition: color 0.25s ease;
+}
+
+.server details:has(ul) > summary:hover * {
+	color: var(--secondary);
+}
+
+.server details:not(:has(ul)) > summary .arrow {
+	opacity: 0;
+}
+
+/* Gaming */
+.backgroundCard {
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	gap: 0.75rem;
+	transition: all 0.25s ease;
+}
+
+.backgroundCard::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+	pointer-events: none; /* Prevents blocking interactions */
+	border-radius: inherit; /* Ensures it follows the parent's rounded corners */
+}
+
+.backgroundCard * {
+	position: relative; /* Ensures content stays above the gradient */
+	z-index: 1;
+}
+
+/* Links */
+.link-card {
+	will-change: transform;
+	transition-duration: 250ms;
+	transform: skew(-10deg);
+}
+
+.link-card:hover,
+.links-card:focus-visible {
+	transform: skew(-10deg) scale(1.01);
+	border-color: var(--secondary);
+}
+
+.link-card > * {
+	transform: skew(10deg);
+}
+
+.subcard,
+.link-card {
+	border: 1px solid var(--muted);
+}
+
+/* Respect reduced motion */
+/* TODO */

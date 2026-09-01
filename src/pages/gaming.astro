@@ -1,150 +1,105 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Card from "@/components/Card.astro";
+import Layout from '@/layouts/Layout.astro'
+import Card from '@/components/Card.astro'
 
 const gamesActive = [
-  {
-    name: "Guild Wars 2",
-    link: "https://guildwars2.com",
-    icon: "https://cdn2.steamgriddb.com/icon/8910f41d3f22b34450934ea4c13eacf5/32/256x256.png",
-    image:
-      "https://cdn2.steamgriddb.com/hero_thumb/51b458b4e6ac5bfdcce31855ad2c0fec.jpg",
-  },
-  {
-    name: "Dota 2",
-    link: "https://dota2.com",
-    icon: "https://cdn2.steamgriddb.com/icon/db98dc0dbafde48e8f74c0de001d35e4/32/128x128.png",
-    image:
-      "https://cdn2.steamgriddb.com/hero_thumb/0fcbc61acd0479dc77e3cccc0f5ffca7.jpg",
-  },
-  {
-    name: "Slay the Spire 2",
-    link: "https://store.steampowered.com/app/2868840/Slay_the_Spire_2/",
-    icon: "https://cdn2.steamgriddb.com/icon_thumb/78fa1b4c07f8922f9f348794f59e0db3.png",
-    image:
-      "https://cdn2.steamgriddb.com/hero_thumb/775f2b72be53bca3388d908ec8e28e83.jpg",
-  },
-  {
-    name: "Denshattack",
-    link: "https://store.steampowered.com/app/2524850/Denshattack/",
-    icon: "https://cdn2.steamgriddb.com/logo_thumb/7eeefd41e6c866b28547b02bd98dea3e.png",
-    image:
-      "https://cdn2.steamgriddb.com/hero_thumb/07fb9d50f16b6ed0122a79f78ec3c0ea.jpg",
-  },
-];
+	{
+		name: 'Guild Wars 2',
+		link: 'https://guildwars2.com',
+		icon: 'https://cdn2.steamgriddb.com/icon/8910f41d3f22b34450934ea4c13eacf5/32/256x256.png',
+		image: 'https://cdn2.steamgriddb.com/hero_thumb/51b458b4e6ac5bfdcce31855ad2c0fec.jpg'
+	},
+	{
+		name: 'Dota 2',
+		link: 'https://dota2.com',
+		icon: 'https://cdn2.steamgriddb.com/icon/db98dc0dbafde48e8f74c0de001d35e4/32/128x128.png',
+		image: 'https://cdn2.steamgriddb.com/hero_thumb/0fcbc61acd0479dc77e3cccc0f5ffca7.jpg'
+	},
+	{
+		name: 'Slay the Spire 2',
+		link: 'https://store.steampowered.com/app/2868840/Slay_the_Spire_2/',
+		icon: 'https://cdn2.steamgriddb.com/icon_thumb/78fa1b4c07f8922f9f348794f59e0db3.png',
+		image: 'https://cdn2.steamgriddb.com/hero_thumb/775f2b72be53bca3388d908ec8e28e83.jpg'
+	},
+	{
+		name: 'Denshattack',
+		link: 'https://store.steampowered.com/app/2524850/Denshattack/',
+		icon: 'https://cdn2.steamgriddb.com/logo_thumb/7eeefd41e6c866b28547b02bd98dea3e.png',
+		image: 'https://cdn2.steamgriddb.com/hero_thumb/07fb9d50f16b6ed0122a79f78ec3c0ea.jpg'
+	}
+]
 
 const gamesCasual = [
-  {
-    name: "Deadlock",
-    link: "https://store.steampowered.com/app/1422450/Deadlock/",
-  },
-  {
-    name: "GeoGuessr",
-    link: "https://geoguessr.com",
-  },
-  {
-    name: "Pokelike",
-    link: "https://pokelike.xyz/",
-  },
-  {
-    name: "FoodGuessr",
-    link: "https://foodguessr.com",
-  },
-];
+	{
+		name: 'Deadlock',
+		link: 'https://store.steampowered.com/app/1422450/Deadlock/'
+	},
+	{
+		name: 'GeoGuessr',
+		link: 'https://geoguessr.com'
+	},
+	{
+		name: 'Pokelike',
+		link: 'https://pokelike.xyz/'
+	},
+	{
+		name: 'FoodGuessr',
+		link: 'https://foodguessr.com'
+	}
+]
 ---
 
 <Layout title="Gaming - henahax.net">
-  <Card transitionName="gaming-card">
-    <i slot="icon" class="fa-solid fa-gamepad" transition:name="gaming-icon"
-    ></i>
-    <div slot="title" transition:name="gaming-title">Gaming</div>
-    <a
-      slot="link"
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://steamcommunity.com/id/henahax/"
-    >
-      <i class="fa-brands fa-steam"></i>
-    </a>
+	<Card transitionName="gaming-card">
+		<i slot="icon" class="fa-solid fa-gamepad" transition:name="gaming-icon"></i>
+		<div slot="title" transition:name="gaming-title">Gaming</div>
+		<a
+			slot="link"
+			target="_blank"
+			rel="noopener noreferrer"
+			href="https://steamcommunity.com/id/henahax/"
+		>
+			<i class="fa-brands fa-steam"></i>
+		</a>
 
-    <div slot="content" class="flex flex-col gap-8">
-      <div class="flex flex-col gap-2">
-        <div class="text-sm">active:</div>
-        <div class="flex flex-col gap-2">
-          {
-            gamesActive.map((game) => (
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={game.link}
-                class="subcard game-active backgroundCard flex items-center gap-2 rounded-xl p-4"
-                style={"background-image: url('" + game.image + "');"}
-              >
-                <img src={game.icon} class="size-8 object-contain" />
-                <div class="game-title">{game.name}</div>
-              </a>
-            ))
-          }
-        </div>
-      </div>
+		<div slot="content" class="flex flex-col gap-8">
+			<div class="flex flex-col gap-2">
+				<div class="text-sm">active:</div>
+				<div class="flex flex-col gap-2">
+					{
+						gamesActive.map((game) => (
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href={game.link}
+								class="subcard backgroundCard flex items-center gap-2 rounded-xl p-4 pulp"
+								style={"background-image: url('" + game.image + "');"}
+							>
+								<img src={game.icon} class="size-8 object-contain" />
+								<div class="game-title">{game.name}</div>
+							</a>
+						))
+					}
+				</div>
+			</div>
 
-      <div class="flex flex-col gap-2">
-        <div class="text-sm">casual:</div>
-        <div class="flex flex-row flex-wrap gap-2">
-          {
-            gamesCasual.map((game) => (
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={game.link}
-                class="subcard game-casual"
-              >
-                {game.name}
-              </a>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </Card>
+			<div class="flex flex-col gap-2">
+				<div class="text-sm">casual:</div>
+				<div class="flex flex-row flex-wrap gap-2">
+					{
+						gamesCasual.map((game) => (
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href={game.link}
+								class="btn btn-tertiary pulp"
+							>
+								{game.name}
+							</a>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</Card>
 </Layout>
-
-<style>
-  .backgroundCard {
-    position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    gap: 0.75rem;
-  }
-
-  .backgroundCard::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
-    pointer-events: none; /* Prevents blocking interactions */
-    border-radius: inherit; /* Ensures it follows the parent's rounded corners */
-  }
-
-  .backgroundCard * {
-    position: relative; /* Ensures content stays above the gradient */
-    z-index: 1;
-  }
-
-  .game-active {
-    padding: 1rem;
-  }
-
-  .game-casual {
-    padding: 0.5rem;
-  }
-
-  .game-title {
-    color: var(--background);
-  }
-</style>

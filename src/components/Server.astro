@@ -1,38 +1,28 @@
 ---
 interface Props {
-  connectLink: string;
+	connectLink: string
 }
 
-const { connectLink } = Astro.props;
+const { connectLink } = Astro.props
 ---
 
-<div class="card-shape-inner server flex flex-col gap-4 p-4 text-sm">
-  <div class="flex items-center justify-between gap-4 text-lg">
-    <div class="flex items-center gap-2">
-      <slot name="icon" />
-      <slot name="title" />
-    </div>
-    <a
-      href={connectLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="link flex items-center gap-2 rounded-full border px-4 py-2 text-sm"
-    >
-      <i class="fa-solid fa-plug"></i>
-      <span class="max-sm:hidden">Connect</span>
-    </a>
-  </div>
-  <slot name="content" />
+<div
+	class="server subcard pulp flex flex-col gap-4 bg-black/30 p-4 text-sm shadow-sm backdrop-blur-sm"
+>
+	<div class="flex items-center justify-between gap-4 text-lg">
+		<div class="flex items-center gap-2">
+			<slot name="icon" />
+			<slot name="title" />
+		</div>
+		<a
+			href={connectLink}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="btn btn-tertiary oracle"
+		>
+			<i class="fa-solid fa-plug"></i>
+			<span class="max-sm:hidden">Connect</span>
+		</a>
+	</div>
+	<slot name="content" />
 </div>
-
-<style>
-  .server {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--color-neutral-700) 50%, transparent),
-      color-mix(in srgb, var(--color-neutral-800) 50%, transparent),
-      color-mix(in srgb, var(--color-neutral-900) 50%, transparent)
-    );
-    color: var(--background);
-  }
-</style>

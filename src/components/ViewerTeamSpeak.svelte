@@ -1,29 +1,38 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+	import { onMount } from 'svelte'
+	import TeamSpeakChannelList from './ViewerTeamSpeakChannelList.svelte'
 
-  import TeamSpeakChannelList from "./ViewerTeamSpeakChannelList.svelte";
+	let tree = $state<any[]>([])
+	let loading = $state(true)
+	let lastSnapshot = ''
 
-  let tree = $state<any[]>([]);
-  let loading = $state(true);
+	async function load() {
+		try {
+			const res = await fetch('https://api.henahax.net/api/teamspeak/tree')
+			if (!res.ok) throw new Error('Failed to fetch')
+			const nextTree = await res.json()
+			const nextSnapshot = JSON.stringify(nextTree)
 
-  async function load() {
-    const res = await fetch("https://api.henahax.net/api/teamspeak/tree");
-    tree = await res.json();
+			if (nextSnapshot !== lastSnapshot) {
+				tree = nextTree
+				lastSnapshot = nextSnapshot
+			}
+		} catch (e) {
+			console.error('TeamSpeak fetch error:', e)
+		} finally {
+			loading = false
+		}
+	}
 
-    console.log(tree);
-
-    loading = false;
-  }
-
-  onMount(() => {
-    load();
-    const interval = setInterval(load, 300_000);
-    return () => clearInterval(interval);
-  });
+	onMount(() => {
+		load()
+		const interval = setInterval(load, 300_000)
+		return () => clearInterval(interval)
+	})
 </script>
 
-{#if loading}
-  <p>Loading TeamSpeak…</p>
+{#if loading && tree.length === 0}
+	<p>Loading TeamSpeak…</p>
 {:else}
-  <TeamSpeakChannelList {tree} />
+	<TeamSpeakChannelList {tree} />
 {/if}
