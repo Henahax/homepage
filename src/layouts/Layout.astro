@@ -1,398 +1,46 @@
 ---
-import "@/styles/global.css";
-import { ClientRouter } from "astro:transitions";
-import Banner from "@/components/Banner.astro";
+import '@/styles/global.css'
+import { ClientRouter } from 'astro:transitions'
+import Banner from '@/components/Banner.astro'
 
 interface Props {
-  title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/henahax.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
-      integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <ClientRouter />
-  </head>
-  <body class="flex min-h-dvh flex-col">
-    <app
-      class="flex w-full max-w-4xl grow flex-col content-center justify-center gap-8 self-center p-8"
-    >
-      <Banner isLayout={true} />
-      <slot />
-    </app>
-    <footer class="w-full flex items-end">
-      <div class="marquee">
-        <div class="marquee-track">
-          <span>© 2026 henahax.net</span>
-          <span>Servers</span>
-          <span>Gaming</span>
-          <span>Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-          <span aria-hidden="true">© 2026 henahax.net</span>
-          <span aria-hidden="true">Servers</span>
-          <span aria-hidden="true">Gaming</span>
-          <span aria-hidden="true">Projects</span>
-        </div>
-      </div>
-      <a
-        id="source"
-        class="flex gap-2 items-center text-center px-2 py-4 rounded-tl-lg border-t border-l text-xs"
-        href="https://github.com/henahax/homepage"
-      >
-        <i class="fa-brands fa-github"></i>
-        Source
-      </a>
-    </footer>
-  </body><style is:global>
-    @view-transition {
-      navigation: auto;
-    }
-
-    :root {
-      --foreground: var(--color-neutral-950);
-      --background: var(--color-neutral-50);
-      --page-background: linear-gradient(
-        180deg,
-        var(--color-neutral-700),
-        var(--color-neutral-800),
-        var(--color-neutral-900)
-      );
-
-      --primary: var(--color-yellow-400);
-      --primary-light: var(--color-yellow-300);
-      --primary-dark: var(--color-yellow-500);
-      --primary-gradient: linear-gradient(
-        180deg,
-        var(--primary-light),
-        var(--primary),
-        var(--primary-dark)
-      );
-
-      --secondary: var(--color-cyan-500);
-      --surface-border: rgba(10, 10, 10, 0.35);
-      --surface-shadow:
-        0.35rem 0.35rem 0 rgba(0, 0, 0, 0.25), 0 0 0.8rem rgba(0, 0, 0, 0.12);
-      --surface-shadow-hover:
-        0.5rem 0.5rem 0 rgba(0, 0, 0, 0.28), 0 0 1.15rem rgba(0, 0, 0, 0.18);
-      --transition-fast: 180ms ease;
-    }
-
-    body {
-      position: relative;
-      font-family: Consolas, monaco, monospace;
-      background: var(--page-background);
-      overflow-x: hidden;
-    }
-
-    /* Speed Lines — diagonale Linien die nach rechts rasen */
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    body::before {
-      background-image:
-        repeating-linear-gradient(
-          -45deg,
-          transparent,
-          transparent 60px,
-          rgba(255, 255, 255, 0.025) 60px,
-          rgba(255, 255, 255, 0.025) 61px
-        ),
-        repeating-linear-gradient(
-          -45deg,
-          transparent,
-          transparent 10rem,
-          rgba(255, 255, 255, 0.04) 10rem,
-          rgba(255, 255, 255, 0.04) 10rem
-        );
-      animation: speed-lines 1.5s linear infinite;
-    }
-
-    body::after {
-      background-image: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 30px,
-        rgba(255, 255, 255, 0.015) 30px,
-        rgba(255, 255, 255, 0.015) 31px
-      );
-      animation: speed-lines 0.8s linear infinite;
-    }
-
-    @keyframes speed-lines {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(80px);
-      }
-    }
-
-    /* Content über den Speed Lines */
-    app {
-      position: relative;
-      z-index: 1;
-    }
-
-    .card-shape {
-      border-radius: 1rem 0.5rem 1rem 0.5rem;
-    }
-
-    .card-shape-inner {
-      border-radius: 0.75rem;
-    }
-
-    .tilt {
-      transform: skew(-5deg) rotate(-5deg);
-    }
-
-    .tilt-shadow {
-      animation: shadow-move 3s infinite ease-in-out;
-    }
-
-    @keyframes shadow-move {
-      0% {
-        box-shadow:
-          0.5rem 0.5rem 2.2rem var(--secondary),
-          0.25rem 0.25rem 0 var(--secondary),
-          0.5rem 0.5rem var(--foreground);
-      }
-      50% {
-        box-shadow:
-          0.65rem 0.65rem 2.4rem var(--secondary),
-          0.75rem 0.5rem 0 var(--secondary),
-          1.5rem 1.25rem var(--foreground);
-      }
-      100% {
-        box-shadow:
-          0.5rem 0.5rem 2.2rem var(--secondary),
-          0.25rem 0.25rem 0 var(--secondary),
-          0.5rem 0.5rem var(--foreground);
-      }
-    }
-
-    .marquee {
-      overflow: hidden;
-      white-space: nowrap;
-      width: 100%;
-      padding: 0.5rem 0;
-      color: var(--foreground);
-      background: var(--primary-gradient);
-      text-transform: uppercase;
-      box-shadow: 0rem 0rem 1.5rem var(--secondary);
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 20s linear infinite;
-    }
-
-    .marquee-track span {
-      flex-shrink: 0;
-      padding-right: 4rem; /* Abstand zwischen Wiederholungen */
-    }
-
-    @keyframes marquee {
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    footer a#source {
-      color: var(--primary);
-      background-color: var(--foreground);
-      border-color: var(--primary);
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      background: var(--primary-gradient);
-      border: 1px solid var(--surface-border);
-      padding: 1rem;
-      border-radius: 1rem 0.5rem 1rem 0.5rem;
-      box-shadow: var(--surface-shadow);
-      transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast);
-    }
-
-    .card-header {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 1.5rem;
-      color: var(--foreground);
-      text-transform: uppercase;
-    }
-
-    .card-content {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .card-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      width: fit-content;
-      color: var(--secondary);
-      padding: 0.5rem 0.75rem;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast),
-        background-color var(--transition-fast);
-    }
-
-    .subcard {
-      border: 1px solid var(--surface-border);
-      border-radius: 0.75rem;
-      box-shadow: var(--surface-shadow);
-      background-color: var(--primary-gradient);
-      color: var(--foreground);
-      transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast),
-        background-color var(--transition-fast);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      align-items: center;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      padding: 0.25rem 0.65rem;
-      font-size: 0.75rem;
-      line-height: 1;
-      border: 1px solid var(--surface-border);
-      background: rgba(255, 255, 255, 0.4);
-      color: var(--foreground);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-    }
-
-    .menu-option {
-      padding: 1rem 4rem;
-      transform: skew(-5deg) rotate(-5deg);
-      display: flex;
-      align-items: center;
-      width: 100%;
-      font-size: 1.5rem;
-      border-width: 0.125rem;
-      background: var(--primary-gradient);
-      color: var(--foreground);
-      animation: shadow-move 2s infinite ease-in-out;
-      text-transform: uppercase;
-      box-shadow: var(--surface-shadow);
-      border: 1px solid var(--surface-border);
-      transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast);
-    }
-
-    .menu-option:hover,
-    .menu-option:focus-visible,
-    .subcard:hover,
-    .subcard:focus-visible,
-    .card-back:hover,
-    .card-back:focus-visible {
-      transform: translate(-0.125rem, -0.125rem);
-      box-shadow: var(--surface-shadow-hover);
-      border-color: var(--secondary);
-      outline: none;
-    }
-
-    .menu-option:hover,
-    .menu-option:focus-visible {
-      transform: translate(-0.125rem, -0.125rem) skew(-5deg) rotate(-5deg);
-    }
-
-    .menu-option > div {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      transition: transform 180ms ease-out;
-      will-change: transform;
-    }
-
-    .menu-option:hover > div,
-    .menu-option:focus-visible > div {
-      animation: slide 0.35s ease-in-out;
-    }
-
-    .link-card {
-      color: var(--background);
-      padding: 0.75rem;
-      border-radius: 0.75rem;
-      display: flex;
-      gap: 0.75rem;
-    }
-
-    @keyframes slide {
-      0% {
-        transform: translate(0, 0);
-      }
-      50% {
-        transform: translate(0.75rem, -0.15rem);
-      }
-      100% {
-        transform: translate(0, 0);
-      }
-    }
-  </style>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/henahax.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+			integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<ClientRouter />
+	</head>
+	<body class="flex min-h-dvh flex-col">
+		<app
+			class="flex w-full max-w-4xl grow flex-col content-center justify-center gap-8 self-center p-8"
+		>
+			<Banner isLayout={true} />
+			<slot />
+		</app>
+		<footer class="flex justify-end items-center w-full">
+			<a id="source" class="flex items-center p-1 gap-1 text-sm" href="https://github.com/henahax/homepage">
+				<i class="fa-brands fa-github"></i>
+				<span>Source</span>
+			</a>
+		</footer>
+	</body>
 </html>
+<style></style>

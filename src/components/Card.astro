@@ -1,31 +1,35 @@
 ---
 interface Props {
-  transitionName: string;
+	transitionName: string
 }
 
-const { transitionName } = Astro.props;
+const { transitionName } = Astro.props
 ---
 
 <div class="flex flex-col">
-  <a class="card-back" href="/">
-    <i class="fa-solid fa-angle-left"></i>
-    <div>Back</div>
-  </a>
+	<a class="btn btn-tertiary flex items-center" href="/">
+		<i class="fa-solid fa-angle-left"></i>
+		<div>Back</div>
+	</a>
 
-  <div class="card card-shape tilt-shadow" transition:name={transitionName}>
-    <div class="card-header">
-      <slot name="icon" />
-      <slot name="title" />
-      <slot name="link" />
-    </div>
-    <div class="card-content">
-      <slot name="content" />
-    </div>
-  </div>
+	<div
+		class="btn btn-primary card-header card-title flex w-fit items-center font-extrabold uppercase"
+		transition:name={transitionName + '-card'}
+	>
+		<div class="flex items-center gap-4">
+			<slot name="icon" transition:name={transitionName + '-icon'} />
+			<slot name="title" transition:name={transitionName + '-title'} />
+			<slot name="link" />
+		</div>
+	</div>
+
+	<div
+		class="card tilt-shadow bg-white/5 backdrop-blur-md"
+		transition:name={transitionName}
+	>
+		<div class="card-content">
+			<slot name="content" />
+		</div>
+	</div>
 </div>
 
-<style>
-  .card-back {
-    color: var(--secondary);
-  }
-</style>
