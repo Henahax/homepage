@@ -176,9 +176,19 @@ a.btn-primary:focus-visible {
 	will-change: transform;
 	transition-duration: 250ms;
 
-	opacity: 0;
-	animation: entrance 600ms ease-out forwards;
+	opacity: 1;
+	animation: entrance 600ms ease-out both;
 	animation-delay: calc((sibling-index() - 1) * 80ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.menu-item,
+	#henahaxIcon,
+	#henahax,
+	#tld {
+		animation: none;
+		opacity: 1;
+	}
 }
 
 .btn-secondary {
