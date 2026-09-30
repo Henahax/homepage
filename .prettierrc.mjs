@@ -5,6 +5,7 @@ export default {
 	trailingComma: 'none',
 	semi: false,
 	printWidth: 100,
+	htmlWhitespaceSensitivity: 'ignore',
 	plugins: ['prettier-plugin-astro', 'prettier-plugin-svelte', 'prettier-plugin-tailwindcss'],
 	overrides: [
 		{
