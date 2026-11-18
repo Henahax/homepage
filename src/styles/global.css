@@ -173,21 +173,9 @@ a.btn-primary:focus-visible {
 
 	font-size: 1.875rem;
 
-	will-change: transform;
-	transition-duration: 250ms;
-
-	opacity: 1;
-	animation: entrance 600ms ease-out both;
-	animation-delay: calc((sibling-index() - 1) * 80ms);
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.menu-item,
-	#henahaxIcon,
-	#henahax,
-	#tld {
-		animation: none;
-		opacity: 1;
+	@media (prefers-reduced-motion: no-preference) {
+		animation: entrance 600ms ease-out both;
+		animation-delay: calc((sibling-index() - 1) * 80ms);
 	}
 }
 
@@ -217,10 +205,11 @@ a.btn-primary:focus-visible {
 #henahaxIcon {
 	width: 3rem;
 	height: 3rem;
-	-webkit-animation: sk-rotateplane 8s infinite ease-in-out;
-	animation:
-		sk-rotateplane 8s infinite ease-in-out,
-		drop 0.75s ease-out forwards;
+	@media (prefers-reduced-motion: no-preference) {
+		animation:
+			sk-rotateplane 8s infinite ease-in-out,
+			drop 0.75s ease-out forwards;
+	}
 }
 
 @-webkit-keyframes sk-rotateplane {
@@ -244,12 +233,16 @@ a.btn-primary:focus-visible {
 }
 
 #henahax {
-	animation: drop 0.75s ease-out forwards;
+	@media (prefers-reduced-motion: no-preference) {
+		animation: drop 0.75s ease-out forwards;
+	}
 }
 
 #tld {
-	animation: drop 1.25s ease-out forwards;
 	color: var(--legendary);
+	@media (prefers-reduced-motion: no-preference) {
+		animation: drop 1.25s ease-out forwards;
+	}
 }
 
 @keyframes drop {
@@ -387,7 +380,6 @@ a.subcard:focus-visible {
 
 /* Links */
 .link-card {
-	will-change: transform;
 	transition-duration: 250ms;
 	transform: skew(-10deg);
 }
@@ -407,5 +399,17 @@ a.subcard:focus-visible {
 	border: 1px solid var(--muted);
 }
 
-/* Respect reduced motion */
-/* TODO */
+@media (prefers-reduced-motion: reduce) {
+	a.btn-primary:hover,
+	a.btn-primary:focus-visible,
+	a.subcard:hover,
+	a.subcard:focus-visible,
+	.link-card:hover,
+	.link-card:focus-visible {
+		transform: none;
+	}
+
+	.server details > summary .arrow {
+		transition: none;
+	}
+}
